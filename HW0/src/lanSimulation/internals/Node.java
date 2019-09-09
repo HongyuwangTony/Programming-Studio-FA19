@@ -19,6 +19,11 @@
  */
 package lanSimulation.internals;
 
+import lanSimulation.Network;
+
+import java.io.IOException;
+import java.io.Writer;
+
 /**
  * A <em>Node</em> represents a single Node in a Local Area Network (LAN).
  * Several types of Nodes exist.
@@ -80,4 +85,67 @@ public class Node {
 		nextNode = _nextNode;
 	}
 
+    public boolean printDocument(Packet document, Writer report, Network network) {
+        String author = "Unknown";
+        String title = "Untitled";
+        int startPos = 0, endPos = 0;
+
+        if (type == PRINTER) {
+            try {
+                if (document.message.startsWith("!PS")) {
+                    startPos = document.message.indexOf("author:");
+                    if (startPos >= 0) {
+                        endPos = document.message.indexOf(".", startPos + 7);
+                        if (endPos < 0) {
+                            endPos = document.message.length();
+                        }
+
+                        author = document.message.substring(startPos + 7,
+                                endPos);
+                    }
+
+                    startPos = document.message.indexOf("title:");
+                    if (startPos >= 0) {
+                        endPos = document.message.indexOf(".", startPos + 6);
+                        if (endPos < 0) {
+                            endPos = document.message.length();
+                        }
+                        title = document.message
+                                .substring(startPos + 6, endPos);
+                    }
+
+                    String jobType = "Postscript";
+                    network.writeAccountingReport(report, author, title, jobType);
+                } else {
+                    title = "ASCII DOCUMENT";
+                    if (document.message.length() >= 16) {
+                        author = document.message.substring(8, 16);
+                    }
+
+                    String jobType = "ASCII Print";
+                    network.writeAccountingReport(report, author, title, jobType);
+                }
+
+            } catch (IOException exc) {
+                // just ignore
+            }
+            return true;
+        } else {
+            try {
+                report
+                        .write(">>> Destination is not a printer, print job canceled.\n\n");
+                report.flush();
+            } catch (IOException exc) {
+                // just ignore
+            }
+            return false;
+        }
+    }
+
+	public void writeNodePassReport(Writer report) throws IOException {
+		report.write("\tNode '");
+		report.write(name);
+		report.write("' passes packet on.\n");
+		report.flush();
+	}
 }

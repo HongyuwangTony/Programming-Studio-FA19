@@ -7,8 +7,14 @@ public class Pawn extends Piece {
         super(x, y, owner);
     }
 
+    @Override
     public boolean canMoveTo(int x, int y) {
         // TODO: Implement Rook's rules
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "P";
     }
 }

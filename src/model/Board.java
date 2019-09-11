@@ -45,4 +45,16 @@ public class Board {
             }
         }
     }
+
+    public String toString() {
+        StringBuilder resBuilder = new StringBuilder();
+        for (Piece[] row : boardStatus) {
+            for (Piece piece : row) {
+                if (piece == null) resBuilder.append('_');
+                else resBuilder.append(piece.toString());
+            }
+            resBuilder.append('\n');
+        }
+        return resBuilder.toString();
+    }
 }

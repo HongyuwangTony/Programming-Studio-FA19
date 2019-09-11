@@ -19,14 +19,14 @@ public abstract class Piece {
         return y;
     }
 
+    public Player getOwner() {
+        return owner;
+    }
+
     public void moveTo(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
     public abstract boolean canMoveTo(int x, int y);
-
-    public Player getOwner() {
-        return owner;
-    }
 }

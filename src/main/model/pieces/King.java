@@ -9,7 +9,7 @@ public class King extends Piece {
 
     @Override
     public boolean canMoveTo(int x, int y) {
-        // TODO: Implement Rook's rules
+        // TODO: Implement King's rules
         return true;
     }
 

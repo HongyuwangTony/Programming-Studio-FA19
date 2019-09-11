@@ -9,7 +9,7 @@ public class Pawn extends Piece {
 
     @Override
     public boolean canMoveTo(int x, int y) {
-        // TODO: Implement Rook's rules
+        // TODO: Implement Pawn's rules
         return true;
     }
 

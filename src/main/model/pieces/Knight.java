@@ -9,7 +9,7 @@ public class Knight extends Piece {
 
     @Override
     public boolean canMoveTo(int x, int y) {
-        // TODO: Implement Rook's rules
+        // TODO: Implement Knight's rules
         return true;
     }
 

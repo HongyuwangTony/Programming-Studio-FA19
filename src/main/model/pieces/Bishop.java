@@ -9,7 +9,7 @@ public class Bishop extends Piece {
 
     @Override
     public boolean canMoveTo(int x, int y) {
-        // TODO: Implement Rook's rules
+        // TODO: Implement Bishop's rules
         return true;
     }
 

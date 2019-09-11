@@ -1,9 +1,9 @@
-package model.pieces;
+package main.model.pieces;
 
-import model.*;
+import main.model.*;
 
-public class Bishop extends Piece {
-    public Bishop(int x, int y, Player owner) {
+public class Pawn extends Piece {
+    public Pawn(int x, int y, Player owner) {
         super(x, y, owner);
     }
 
@@ -15,6 +15,6 @@ public class Bishop extends Piece {
 
     @Override
     public String toString() {
-        return "B";
+        return "P";
     }
 }

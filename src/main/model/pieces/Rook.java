@@ -1,6 +1,6 @@
-package model.pieces;
+package main.model.pieces;
 
-import model.*;
+import main.model.*;
 
 public class Rook extends Piece {
     public Rook(int x, int y, Player owner) {

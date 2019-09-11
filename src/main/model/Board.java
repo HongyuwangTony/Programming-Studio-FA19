@@ -1,9 +1,6 @@
-package model;
+package main.model;
 
-import model.pieces.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import main.model.pieces.*;
 
 public class Board {
     // Constants

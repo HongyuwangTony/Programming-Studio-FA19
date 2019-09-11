@@ -1,4 +1,6 @@
 package model.pieces;
 
-public class Knight implements Piece {
+import model.Piece;
+
+public class Knight extends Piece {
 }

@@ -1,4 +1,6 @@
 package model.pieces;
 
-public class Rook implements Piece {
+import model.Piece;
+
+public class Rook extends Piece {
 }

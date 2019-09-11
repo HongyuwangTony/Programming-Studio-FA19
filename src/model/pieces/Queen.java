@@ -1,4 +1,6 @@
 package model.pieces;
 
-public class Queen implements Piece {
+import model.Piece;
+
+public class Queen extends Piece {
 }

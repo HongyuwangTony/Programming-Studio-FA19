@@ -2,21 +2,18 @@ package model;
 
 public class Game {
     // Constants
-    private final static int NUM_PLAYERS = 2;
+    public final static int NUM_PLAYERS = 2;
 
     // Object Members
     private Player[] players;
     private Board board;
     private int currRound;
 
-    public Game(Player player1, Player player2) {
+    public Game(String name_player1, String name_player2) {
         players = new Player[NUM_PLAYERS];
-        players[0] = player1;
-        players[1] = player2;
-        board = new Board();
-        for (Player player : players) {
-            board.addPieces(player.getPieces());
-        }
+        players[0] = new Player(name_player1, 0);
+        players[1] = new Player(name_player2, 1);
+        board = new Board(players);
         currRound = 0; // player1's round first by default
     }
 

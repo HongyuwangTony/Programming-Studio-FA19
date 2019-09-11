@@ -1,5 +1,7 @@
 package model;
 
+import model.pieces.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,13 +11,38 @@ public class Board {
     public final static int HEIGHT = 8;
 
     // Object Members
-    private List<Piece> piecesAlive;
+    private Piece[][] boardStatus;
 
-    public Board() {
-        piecesAlive = new ArrayList<>();
-    }
+    public Board(Player[] players) {
+        boardStatus = new Piece[HEIGHT][WIDTH];
 
-    public void addPieces(List<Piece> pieces) {
-        piecesAlive.addAll(pieces);
+        int arr_y_pawns[] = new int[]{1, 6}, arr_y_others[] = new int[]{0, 7};
+        for (int player_no = 0; player_no < players.length; player_no++) {
+            Player player = players[player_no];
+
+            // Allocate Rooks, Knights, Bishops, King, Queen to both players
+            int y_others = arr_y_others[player_no];
+            player.addPiece(new King(3, y_others, player));
+            player.addPiece(new Queen(4, y_others, player));
+            player.addPiece(new Bishop(2, y_others, player));
+            player.addPiece(new Bishop(5, y_others, player));
+            player.addPiece(new Knight(1, y_others, player));
+            player.addPiece(new Knight(6, y_others, player));
+            player.addPiece(new Rook(0, y_others, player));
+            player.addPiece(new Rook(7, y_others, player));
+
+            // Allocate Pawns to both players
+            int y_pawns = arr_y_pawns[player_no];
+            for (int x = 0; x < WIDTH; x++) {
+                player.addPiece(new Pawn(x, y_pawns, player));
+            }
+
+            // Initialize Board Status
+            for (Piece piece : player.getPieces()) {
+                int x = piece.getX();
+                int y = piece.getY();
+                boardStatus[y][x] = piece;
+            }
+        }
     }
 }

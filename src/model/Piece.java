@@ -20,7 +20,6 @@ public abstract class Piece {
     }
 
     public void moveTo(int x, int y) {
-        // TODO: Add logic for invalid destinations
         this.x = x;
         this.y = y;
     }

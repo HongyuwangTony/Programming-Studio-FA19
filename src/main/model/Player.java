@@ -1,5 +1,6 @@
 package main.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -11,6 +12,7 @@ public class Player {
     public Player(String name, int player_no) {
         this.name = name;
         this.player_no = player_no;
+        pieces = new ArrayList<>();
     }
 
     public void addPiece(Piece piece) {

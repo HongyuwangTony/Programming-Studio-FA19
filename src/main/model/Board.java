@@ -19,8 +19,8 @@ public class Board {
 
             // Allocate Rooks, Knights, Bishops, King, Queen to both players
             int y_others = arr_y_others[player_no];
-            player.addPiece(new King(3, y_others, player));
-            player.addPiece(new Queen(4, y_others, player));
+            player.addKing(new King(4, y_others, player));
+            player.addPiece(new Queen(3, y_others, player));
             player.addPiece(new Bishop(2, y_others, player));
             player.addPiece(new Bishop(5, y_others, player));
             player.addPiece(new Knight(1, y_others, player));

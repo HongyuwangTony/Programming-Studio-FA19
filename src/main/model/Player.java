@@ -1,5 +1,7 @@
 package main.model;
 
+import main.model.pieces.King;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +9,8 @@ public class Player {
     // Object Members
     private String name;
     private int player_no;
-    private List<Piece> pieces; // NOTE: Force King to be the head of piecesAlive
+    private King king;
+    private List<Piece> pieces;
 
     public Player(String name, int player_no) {
         this.name = name;
@@ -17,6 +20,11 @@ public class Player {
 
     public int getPlayerNo() {
         return player_no;
+    }
+
+    public void addKing(King king) {
+        this.king = king;
+        addPiece(king);
     }
 
     public void addPiece(Piece piece) {

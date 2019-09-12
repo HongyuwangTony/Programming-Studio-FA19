@@ -34,13 +34,11 @@ public class Position {
     }
 
     /**
-     * Judging whether the given position is outside of the board
-     * @param x The x coordinate of the given position
-     * @param y The y coordinate of the given position
-     * @return True if the given position is outside of the board
+     * Judging whether the position is outside of the board
+     * @return True if this position is outside of the board
      *         False otherwise
      */
-    public static boolean outsideOfBoard(int x, int y) {
+    public boolean outsideOfBoard() {
         if (x < 0 || x >= Board.WIDTH) return true;
         if (y < 0 || y >= Board.HEIGHT) return true;
         return false;

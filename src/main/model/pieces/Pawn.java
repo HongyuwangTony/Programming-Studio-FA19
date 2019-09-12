@@ -17,7 +17,6 @@ public class Pawn extends Piece {
 
     @Override
     public boolean canMoveTo(int x_dest, int y_dest) {
-        if (Position.outsideOfBoard(x_dest, y_dest)) return false;
         Direction dir = Position.getDirection(x_curr, y_curr, x_dest, y_dest);
         int x_dist = Math.abs(x_curr - x_dest);
         if (owner.getPlayerNo() == 0) { // If it's White Player's round

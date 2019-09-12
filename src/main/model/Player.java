@@ -4,6 +4,7 @@ import main.model.pieces.King;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Player {
     // Object Members
@@ -31,15 +32,19 @@ public class Player {
         pieces.add(piece);
     }
 
-    public List<Piece> getPieces() {
-        return pieces;
-    }
-
     public void removePiece(Piece piece) {
         pieces.remove(piece);
     }
 
-    public void takeAction(Board board) {
+    public List<Piece> getPieces() {
+        return pieces;
+    }
 
+    public Position[] takeAction(Board board) {
+        // TODO: Optimize input from user
+        Scanner scan = new Scanner(System.in);
+        Position src = new Position(scan.nextLine());
+        Position dest = new Position(scan.nextLine());
+        return new Position[]{src, dest};
     }
 }

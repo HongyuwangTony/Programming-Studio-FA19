@@ -9,7 +9,6 @@ public class Bishop extends Piece {
 
     @Override
     public boolean canMoveTo(int x_dest, int y_dest) {
-        if (Position.outsideOfBoard(x_dest, y_dest)) return false;
         // Check if direction is legal
         Direction dir = Position.getDirection(x_curr, y_curr, x_dest, y_dest);
         switch (dir) {

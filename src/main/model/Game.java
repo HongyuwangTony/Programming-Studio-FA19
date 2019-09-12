@@ -19,13 +19,14 @@ public class Game {
 
     public void start() {
         do {
-            players[currRound].takeAction(board);
+            Position[] positions = players[currRound].takeAction(board); // 0: src, 1: dest
+            board.movePiece(positions[0], positions[1]);
             currRound = (currRound + 1) % NUM_PLAYERS;
         } while (isEnding());
     }
 
     public boolean isEnding() {
-        // TODO: Add Game Ending Condition
+        // TODO: Add Game Ending Condition (Checkmate / Stalemate)
         return false;
     }
 }

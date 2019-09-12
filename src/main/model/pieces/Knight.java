@@ -9,7 +9,6 @@ public class Knight extends Piece {
 
     @Override
     public boolean canMoveTo(int x_dest, int y_dest) {
-        if (Position.outsideOfBoard(x_dest, y_dest)) return false;
         int x_src = getX();
         int y_src = getY();
         // Check if direction is legal

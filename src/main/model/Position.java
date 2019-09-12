@@ -4,17 +4,56 @@ public class Position {
     public int x;
     public int y;
 
+    /**
+     * Constructor by given x and y coordinates
+     * @param x The x coordinate of the target position
+     * @param y The y coordinate of the target position
+     */
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Constructor by decoding the given String
+     * Assume coord is ranging from A1 to H8
+     * @param coord The encoded String of a given position
+     */
+    public Position(String coord) {
+        x = coord.charAt(0) - 'A';
+        y = coord.charAt(1) - '1';
+    }
+
+    /**
+     * Encode the Position object into String
+     * @return The String encoded by this object
+     */
+    @Override
+    public String toString() {
+        return "" + (char)('A' + x) + (1 + y);
+    }
+
+    /**
+     * Judging whether the given position is outside of the board
+     * @param x The x coordinate of the given position
+     * @param y The y coordinate of the given position
+     * @return True if the given position is outside of the board
+     *         False otherwise
+     */
     public static boolean outsideOfBoard(int x, int y) {
         if (x < 0 || x >= Board.WIDTH) return true;
         if (y < 0 || y >= Board.HEIGHT) return true;
         return false;
     }
 
+    /**
+     * Calculate the direction from source to destination and check if it is legal in Chess Game
+     * @param x_src The x coordinate of the given source
+     * @param y_src The y coordinate of the given source
+     * @param x_dest The x coordinate of the given destination
+     * @param y_dest The y coordinate of the given destination
+     * @return The direction from source to destination
+     */
     public static Direction getDirection(int x_src, int y_src, int x_dest, int y_dest) {
         // Judge if the direction is straight
         if (x_src == x_dest && y_src == y_dest) return Direction.ILLEGAL;

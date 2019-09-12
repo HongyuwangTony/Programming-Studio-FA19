@@ -15,6 +15,10 @@ public class Player {
         pieces = new ArrayList<>();
     }
 
+    public int getPlayerNo() {
+        return player_no;
+    }
+
     public void addPiece(Piece piece) {
         pieces.add(piece);
     }

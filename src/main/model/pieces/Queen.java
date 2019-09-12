@@ -8,8 +8,18 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean canMoveTo(int x, int y) {
-        // TODO: Implement Queen's rules
+    public boolean canMoveTo(int x_dest, int y_dest) {
+        if (Position.outsideOfBoard(x_dest, y_dest)) return false;
+        // Check if direction is legal
+        Direction dir = Position.getDirection(x_curr, y_curr, x_dest, y_dest);
+        switch (dir) {
+            case UP: case DOWN: case LEFT: case RIGHT:
+            case UP_LEFT: case UP_RIGHT: case DOWN_LEFT: case DOWN_RIGHT:
+                break;
+            default:
+                return false;
+        }
+        // TODO: Check if it doesn't cross any pieces
         return true;
     }
 

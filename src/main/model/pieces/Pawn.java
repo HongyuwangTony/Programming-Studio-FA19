@@ -10,8 +10,8 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public void moveTo(int x_dest, int y_dest) {
-        super.moveTo(x_dest, y_dest);
+    public void moveTo(Position dest) {
+        super.moveTo(dest);
         if (!hasMoved) hasMoved = true;
     }
 

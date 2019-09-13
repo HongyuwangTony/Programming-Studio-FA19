@@ -62,7 +62,7 @@ public class Board {
         if (pieceSelected == null) return; // Try to move an empty block
         if (!pieceSelected.canMoveTo(dest)) return; // Invalid movement of the given piece
         // TODO: Check if King is selected and if it will die
-        pieceSelected.moveTo(dest.x, dest.y);
+        pieceSelected.moveTo(dest);
     }
 
     // TODO: A setBoardFromStatus method for testing

@@ -9,8 +9,18 @@ public class King extends Piece {
 
     @Override
     public boolean canMoveTo(Position dest) {
-        // TODO: Implement King's rules
-        return true;
+        // Check if direction is legal
+        Direction dir = currPos.getDirectionTo(dest);
+        switch (dir) {
+            case UP: case DOWN: case LEFT: case RIGHT:
+            case UP_LEFT: case UP_RIGHT: case DOWN_LEFT: case DOWN_RIGHT:
+                break;
+            default:
+                return false;
+        }
+        // Check distance
+        int dist_x = dest.x - currPos.x, dist_y = dest.y - currPos.y;
+        return Math.max(dist_x, dist_y) == 1; // Ensure the displacement is (+/-1, +/-1) or (0, +/-1) or (+/-1, 0)
     }
 
     @Override

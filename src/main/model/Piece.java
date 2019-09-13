@@ -21,9 +21,9 @@ public abstract class Piece {
         return owner;
     }
 
-    public void moveTo(int x_dest, int y_dest) {
-        currPos.x = x_dest;
-        currPos.y = y_dest;
+    public void moveTo(Position dest) {
+        currPos.x = dest.x;
+        currPos.y = dest.y;
     }
 
     public abstract boolean canMoveTo(Position dest);

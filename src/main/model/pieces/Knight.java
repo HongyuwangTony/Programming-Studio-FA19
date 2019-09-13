@@ -9,8 +9,6 @@ public class Knight extends Piece {
 
     @Override
     public boolean canMoveTo(Position dest) {
-        int x_src = getX();
-        int y_src = getY();
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         return dir == Direction.KNIGHT;

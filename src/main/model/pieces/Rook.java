@@ -11,12 +11,7 @@ public class Rook extends Piece {
     public boolean canMoveTo(Position dest) {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
-        switch (dir) {
-            case UP: case DOWN: case LEFT: case RIGHT:
-                break;
-            default:
-                return false;
-        }
+        if (!dir.isStraight()) return false;
         // TODO: Check if it doesn't cross any pieces
         return true;
     }

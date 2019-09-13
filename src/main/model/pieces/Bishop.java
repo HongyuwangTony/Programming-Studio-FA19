@@ -11,12 +11,7 @@ public class Bishop extends Piece {
     public boolean canMoveTo(Position dest) {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
-        switch (dir) {
-            case UP_LEFT: case UP_RIGHT: case DOWN_LEFT: case DOWN_RIGHT:
-                break;
-            default:
-                return false;
-        }
+        if (!dir.isDiagonal()) return false;
         // TODO: Check if it doesn't cross any pieces
         return true;
     }

@@ -8,7 +8,7 @@ public class King extends Piece {
     }
 
     @Override
-    public boolean canMoveTo(int x, int y) {
+    public boolean canMoveTo(Position dest) {
         // TODO: Implement King's rules
         return true;
     }

@@ -1,22 +1,20 @@
 package main.model;
 
 public abstract class Piece {
-    protected int x_curr;
-    protected int y_curr;
+    protected Position currPos;
     protected Player owner;
 
     public Piece(int x, int y, Player owner) {
-        x_curr = x;
-        y_curr = y;
+        currPos = new Position(x, y);
         this.owner = owner;
     }
 
     public int getX() {
-        return x_curr;
+        return currPos.x;
     }
 
     public int getY() {
-        return y_curr;
+        return currPos.y;
     }
 
     public Player getOwner() {
@@ -24,9 +22,9 @@ public abstract class Piece {
     }
 
     public void moveTo(int x_dest, int y_dest) {
-        x_curr = x_dest;
-        y_curr = y_dest;
+        currPos.x = x_dest;
+        currPos.y = y_dest;
     }
 
-    public abstract boolean canMoveTo(int x_dest, int y_dest);
+    public abstract boolean canMoveTo(Position dest);
 }

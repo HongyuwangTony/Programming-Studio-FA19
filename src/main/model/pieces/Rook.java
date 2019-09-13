@@ -8,9 +8,9 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean canMoveTo(int x_dest, int y_dest) {
+    public boolean canMoveTo(Position dest) {
         // Check if direction is legal
-        Direction dir = Position.getDirection(x_curr, y_curr, x_dest, y_dest);
+        Direction dir = currPos.getDirectionTo(dest);
         switch (dir) {
             case UP: case DOWN: case LEFT: case RIGHT:
                 break;

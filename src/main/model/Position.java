@@ -45,21 +45,18 @@ public class Position {
     }
 
     /**
-     * Calculate the direction from source to destination and check if it is legal in Chess Game
-     * @param x_src The x coordinate of the given source
-     * @param y_src The y coordinate of the given source
-     * @param x_dest The x coordinate of the given destination
-     * @param y_dest The y coordinate of the given destination
-     * @return The direction from source to destination
+     * Calculate the direction from current position to destination and check if it is legal in Chess Game
+     * @param dest The Position object indicating the given destination
+     * @return The direction from current position to destination
      */
-    public static Direction getDirection(int x_src, int y_src, int x_dest, int y_dest) {
+    public Direction getDirectionTo(Position dest) {
         // Judge if the direction is straight
-        if (x_src == x_dest && y_src == y_dest) return Direction.ILLEGAL;
-        else if (x_src == x_dest) return x_dest > x_src ? Direction.RIGHT : Direction.LEFT;
-        else if (y_src == y_dest) return y_dest > y_src ? Direction.UP : Direction.DOWN;
+        if (x == dest.x && y == dest.y) return Direction.ILLEGAL;
+        else if (x == dest.x) return dest.x > x ? Direction.RIGHT : Direction.LEFT;
+        else if (y == dest.y) return dest.y > y ? Direction.UP : Direction.DOWN;
 
         // Judge if the direction is diagonal
-        int x_displacement = x_dest - x_src, y_displacement = y_dest - y_src;
+        int x_displacement = dest.x - x, y_displacement = dest.y - y;
         if (x_displacement == y_displacement) return x_displacement > 0 ? Direction.UP_RIGHT : Direction.DOWN_LEFT;
         else if (x_displacement == - y_displacement) return x_displacement > 0 ? Direction.UP_LEFT : Direction.DOWN_RIGHT;
 

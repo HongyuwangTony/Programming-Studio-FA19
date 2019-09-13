@@ -60,7 +60,7 @@ public class Board {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) return; // Try to move from/to the outside of the board
         Piece pieceSelected = boardStatus[src.y][src.x];
         if (pieceSelected == null) return; // Try to move an empty block
-        if (!pieceSelected.canMoveTo(dest.x, dest.y)) return; // Invalid movement of the given piece
+        if (!pieceSelected.canMoveTo(dest.x)) return; // Invalid movement of the given piece
         // TODO: Check if King is selected and if it will die
         pieceSelected.moveTo(dest.x, dest.y);
     }

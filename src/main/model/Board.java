@@ -46,7 +46,9 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder resBuilder = new StringBuilder();
-        for (Piece[] row : boardStatus) {
+        // Last row (8A-8H) on the top
+        for (int i = boardStatus.length - 1; i >= 0; i--) {
+            Piece[] row = boardStatus[i];
             for (Piece piece : row) {
                 if (piece == null) resBuilder.append('_');
                 else resBuilder.append(piece.toString());

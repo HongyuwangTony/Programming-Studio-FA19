@@ -12,14 +12,15 @@ public class InitializationTest extends TestCase {
                 new Player("TestPlayer2", 1)};
         Board board = new Board(players);
         String expectedBoardStr =
-                "RNBQKBNR\n" +
-                "PPPPPPPP\n" +
+                "rnbqkbnr\n" +
+                "pppppppp\n" +
                 "________\n" +
                 "________\n" +
                 "________\n" +
                 "________\n" +
                 "PPPPPPPP\n" +
                 "RNBQKBNR\n";
+        System.out.println(board.toString());
         Assert.assertTrue(board.toString().equals(expectedBoardStr));
     }
 }

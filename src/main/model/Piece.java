@@ -1,5 +1,7 @@
 package main.model;
 
+import java.util.List;
+
 public abstract class Piece {
     protected Position currPos;
     protected Player owner;
@@ -51,10 +53,10 @@ public abstract class Piece {
     /**
      * Judge whether the piece can move to the given destination according to the piece type
      * @param dest The destination for the piece to move to
+     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the piece can move to dest
      *         False otherwise
      */
-    public abstract boolean canMoveTo(Position dest);
-
-
+    public abstract boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied);
 }

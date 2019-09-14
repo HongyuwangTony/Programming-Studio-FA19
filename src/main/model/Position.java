@@ -1,5 +1,7 @@
 package main.model;
 
+import java.util.List;
+
 public class Position {
     public int x;
     public int y;
@@ -65,5 +67,10 @@ public class Position {
 
         // Illegal Otherwise
         return Direction.ILLEGAL;
+    }
+
+    public List<Position> getPositionsCrossed(Position dest, boolean inclusive) {
+        // TODO
+        return null;
     }
 }

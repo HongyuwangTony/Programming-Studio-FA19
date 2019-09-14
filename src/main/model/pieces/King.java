@@ -2,6 +2,8 @@ package main.model.pieces;
 
 import main.model.*;
 
+import java.util.List;
+
 public class King extends Piece {
     /**
      * Constructor by its position and owner
@@ -18,11 +20,13 @@ public class King extends Piece {
      * The King can move one square in any direction
      * Note that the rule that the King cannot put itself in danger is judged in Board class
      * @param dest The destination for the King piece to move to
+     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the King piece can move to dest
      *         False otherwise
      */
     @Override
-    public boolean canMoveTo(Position dest) {
+    public boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied) {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         if (!dir.isDiagonal() && !dir.isStraight()) return false;

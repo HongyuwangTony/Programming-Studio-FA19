@@ -2,6 +2,8 @@ package main.model.pieces;
 
 import main.model.*;
 
+import java.util.List;
+
 public class Pawn extends Piece {
     private boolean hasMoved = false; // True if this Pawn piece has already made its first move
 
@@ -32,11 +34,13 @@ public class Pawn extends Piece {
      * or on its first move it may advance two squares along the same file provided both squares are unoccupied;
      * or it may move to a square occupied by an opponent's piece which is diagonally in front of it on an adjacent file, capturing that piece.
      * @param dest The destination for the Pawn piece to move to
+     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the Pawn piece can move to dest
      *         False otherwise
      */
     @Override
-    public boolean canMoveTo(Position dest) {
+    public boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied) {
         Direction dir = currPos.getDirectionTo(dest);
         int x_dist = Math.abs(dest.x - currPos.x);
 
@@ -46,10 +50,10 @@ public class Pawn extends Piece {
 
         if (dir.isStraight()) { // Move straight
             if ((x_dist == 2 && hasMoved) || x_dist > 2) return false; // Either move 2 in the 1st round or move 1
-            // TODO: Check if it doesn't cross or capture any pieces
+            checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, true));
             return true;
         } else { // Move Diagonally otherwise
-            // TODO: Check if it does capture a piece
+            checkOccupied.add(dest);
             return true;
         }
     }

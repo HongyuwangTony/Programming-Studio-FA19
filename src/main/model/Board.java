@@ -2,6 +2,9 @@ package main.model;
 
 import main.model.pieces.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
     // Constants
     public final static int WIDTH = 8;
@@ -58,11 +61,27 @@ public class Board {
         return resBuilder.toString();
     }
 
+    public Piece getPiece(Position position) {
+        return boardStatus[position.y][position.x];
+    }
+
     public void movePiece(Position src, Position dest) {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) return; // Try to move from/to the outside of the board
-        Piece pieceSelected = boardStatus[src.y][src.x];
+
+        Piece pieceSelected = getPiece(src);
         if (pieceSelected == null) return; // Try to move an empty block
-        if (!pieceSelected.canMoveTo(dest)) return; // Invalid movement of the given piece
+        // TODO: check owner of src and dest
+
+        List<Position> checkOccupied = new ArrayList<>(), checkUnoccupied = new ArrayList<>();
+        if (!pieceSelected.canMoveTo(dest, checkOccupied, checkUnoccupied)) return; // Invalid movement of the given piece
+        // Check if the given positions are occupied/unoccupied
+        for (Position toBeOccupied : checkOccupied) {
+            if (getPiece(toBeOccupied) == null) return;
+        }
+        for (Position toBeUnoccupied : checkUnoccupied) {
+            if (getPiece(toBeUnoccupied) != null) return;
+        }
+
         // TODO: Check if King is selected and if it will die
         pieceSelected.moveTo(dest);
     }

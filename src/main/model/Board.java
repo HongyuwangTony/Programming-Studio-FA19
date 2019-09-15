@@ -23,7 +23,7 @@ public class Board {
 
             // Allocate Rooks, Knights, Bishops, King, Queen to both players
             int y_others = arr_y_others[player_no];
-            player.addKing(new King(4, y_others, player));
+            player.addPiece(new King(4, y_others, player));
             player.addPiece(new Queen(3, y_others, player));
             player.addPiece(new Bishop(2, y_others, player));
             player.addPiece(new Bishop(5, y_others, player));
@@ -35,14 +35,43 @@ public class Board {
             // Allocate Pawns to both players
             int y_pawns = arr_y_pawns[player_no];
             for (int x = 0; x < WIDTH; x++) {
-                player.addPiece(new Pawn(x, y_pawns, player));
+                player.addPiece(new Pawn(x, y_pawns, player, false));
             }
 
             // Initialize Board Status
             for (Piece piece : player.getPieces()) {
                 Position pos = piece.getPosition();
-                boardStatus[pos.y][pos.x] = piece;
+                setPiece(pos, piece);
             }
+        }
+    }
+
+    public Board(Player[] players, String strBoard) {
+        boardStatus = new Piece[HEIGHT][WIDTH];
+        int y = HEIGHT - 1;
+        for (String row : strBoard.split("\n")) {
+            int x = 0;
+            for (char c_piece : row.toCharArray()) {
+                int player_no = Character.isUpperCase(c_piece) ? 0 : 1;
+                Player player = players[player_no];
+                Piece piece = null;
+                switch (Character.toUpperCase(c_piece)) {
+                    case 'K': piece = new King(x, y, player); break;
+                    case 'Q': piece = new Queen(x, y, player); break;
+                    case 'B': piece = new Bishop(x, y, player); break;
+                    case 'N': piece = new Knight(x, y, player); break;
+                    case 'R': piece = new Rook(x, y, player); break;
+                    case 'P':
+                        boolean hasMoved = (player_no == 0 && y != 1) || (player_no == 1 && y != 6);
+                        piece = new Pawn(x, y, player, hasMoved);
+                }
+                if (piece != null) {
+                    player.addPiece(piece);
+                    setPiece(new Position(x, y), piece);
+                }
+                x++;
+            }
+            y--;
         }
     }
 
@@ -162,6 +191,4 @@ public class Board {
         }
         return isCheckmate ? Game.Status.CHECKMATE : Game.Status.STALEMATE;
     }
-
-    // TODO: A setBoardFromStatus method for testing
 }

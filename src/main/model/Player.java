@@ -20,6 +20,10 @@ public class Player {
         pieces = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getPlayerNo() {
         return player_no;
     }
@@ -36,12 +40,8 @@ public class Player {
         return king;
     }
 
-    public void addKing(King king) {
-        this.king = king;
-        addPiece(king);
-    }
-
     public void addPiece(Piece piece) {
+        if (piece instanceof King) this.king = (King)piece;
         pieces.add(piece);
     }
 

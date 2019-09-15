@@ -44,7 +44,7 @@ public class Game {
         } while (!isEnding(board, currPlayer));
     }
 
-    private boolean isEnding(Board board, Player currPlayer) {
+    public boolean isEnding(Board board, Player currPlayer) {
         switch (board.isCheckmateOrStalemate(currPlayer)) {
             case CHECKMATE:
                 System.out.println("Checkmate!");

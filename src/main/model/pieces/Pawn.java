@@ -5,15 +5,16 @@ import main.model.*;
 import java.util.List;
 
 public class Pawn extends Piece {
-    private boolean hasMoved = false; // True if this Pawn piece has already made its first move
+    private boolean hasMoved = false;
 
     /**
      * Constructor by its position and owner
      * @param x The x coordinate of this Pawn piece
      * @param y The y coordinate of this Pawn piece
      * @param owner The player who owns this Pawn piece
+     * @param hasMoved True if this Pawn piece has already made its first move
      */
-    public Pawn(int x, int y, Player owner) {
+    public Pawn(int x, int y, Player owner, boolean hasMoved) {
         super(x, y, owner);
     }
 

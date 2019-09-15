@@ -29,7 +29,7 @@ public class Bishop extends Piece {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         if (!dir.isDiagonal()) return false;
-        checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, false));
+        checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, dir, false));
         return true;
     }
 

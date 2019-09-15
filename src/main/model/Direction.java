@@ -21,4 +21,12 @@ public enum Direction {
     public boolean isDownward() {
         return this == DOWN || this == DOWN_LEFT || this == DOWN_RIGHT;
     }
+
+    public boolean isLeftWard() {
+        return this == LEFT || this == UP_LEFT || this == DOWN_LEFT;
+    }
+
+    public boolean isRightWard() {
+        return this == RIGHT || this == UP_RIGHT || this == DOWN_RIGHT;
+    }
 }

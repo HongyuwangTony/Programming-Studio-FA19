@@ -29,7 +29,7 @@ public class Queen extends Piece {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         if (!dir.isDiagonal() && !dir.isStraight()) return false;
-        checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, false));
+        checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, dir, false));
         return true;
     }
 

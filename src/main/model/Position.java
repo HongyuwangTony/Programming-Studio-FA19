@@ -1,5 +1,7 @@
 package main.model;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Position {
@@ -54,13 +56,13 @@ public class Position {
     public Direction getDirectionTo(Position dest) {
         // Judge if the direction is straight
         if (x == dest.x && y == dest.y) return Direction.ILLEGAL;
-        else if (x == dest.x) return dest.x > x ? Direction.RIGHT : Direction.LEFT;
-        else if (y == dest.y) return dest.y > y ? Direction.UP : Direction.DOWN;
+        else if (y == dest.y) return dest.x > x ? Direction.RIGHT : Direction.LEFT;
+        else if (x == dest.x) return dest.y > y ? Direction.UP : Direction.DOWN;
 
         // Judge if the direction is diagonal
         int x_displacement = dest.x - x, y_displacement = dest.y - y;
         if (x_displacement == y_displacement) return x_displacement > 0 ? Direction.UP_RIGHT : Direction.DOWN_LEFT;
-        else if (x_displacement == - y_displacement) return x_displacement > 0 ? Direction.UP_LEFT : Direction.DOWN_RIGHT;
+        else if (x_displacement == - y_displacement) return x_displacement > 0 ? Direction.DOWN_RIGHT : Direction.UP_LEFT;
 
         // Judge if the direction is special for Knight
         if (Math.abs(x_displacement) + Math.abs(y_displacement) == 3) return Direction.KNIGHT;
@@ -69,8 +71,24 @@ public class Position {
         return Direction.ILLEGAL;
     }
 
-    public List<Position> getPositionsCrossed(Position dest, boolean inclusive) {
-        // TODO
-        return null;
+    public List<Position> getPositionsCrossed(Position dest, Direction dir, boolean inclusive) {
+        List<Position> posCrossed = new LinkedList<>();
+        int x = this.x, y = this.y;
+        boolean end = false;
+        do {
+            // Move toward dest
+            if (dir.isDownward()) y--;
+            if (dir.isUpward()) y++;
+            if (dir.isLeftWard()) x--;
+            if (dir.isRightWard()) x++;
+
+            if (x == dest.x && y == dest.y) { // Additional iteration if inclusive
+                end = true;
+                if (!inclusive) break;
+            }
+
+            posCrossed.add(new Position(x, y));
+        } while (!end);
+        return posCrossed;
     }
 }

@@ -42,15 +42,15 @@ public class Pawn extends Piece {
     @Override
     public boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied) {
         Direction dir = currPos.getDirectionTo(dest);
-        int x_dist = Math.abs(dest.x - currPos.x);
+        int y_dist = Math.abs(dest.y - currPos.y);
 
         // Pawn of White Player should go upward. Pawn of Black Player should go downward.
         if (!(owner.getPlayerNo() == 0 && dir.isUpward()) && !(owner.getPlayerNo() == 1 && dir.isDownward()))
             return false;
 
         if (dir.isStraight()) { // Move straight
-            if ((x_dist == 2 && hasMoved) || x_dist > 2) return false; // Either move 2 in the 1st round or move 1
-            checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, true));
+            if ((y_dist == 2 && hasMoved) || y_dist > 2) return false; // Either move 2 in the 1st round or move 1
+            checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, dir, true));
             return true;
         } else { // Move Diagonally otherwise
             return destOccupied; // Should capture his opponent's piece in this case

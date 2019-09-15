@@ -3,6 +3,7 @@ package main.model;
 import main.model.pieces.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board {
@@ -68,24 +69,45 @@ public class Board {
         boardStatus[position.y][position.x] = null;
     }
 
+    public void setPiece(Position position, Piece piece) {
+        boardStatus[position.y][position.x] = piece;
+    }
+
     public boolean movePieceByPosition(Player currPlayer, Position src, Position dest) {
-        if (src.outsideOfBoard() || dest.outsideOfBoard()) return false; // Try to move from/to the outside of the board
+        if (src.outsideOfBoard() || dest.outsideOfBoard()) {
+            // System.out.println("Position selected is out of board.");
+            return false; // Try to move from/to the outside of the board
+        }
 
         Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
         boolean destOccupied = false;
-        if (getPiece(src) == null) return false; // Try to move an empty block
+        if (getPiece(src) == null) {
+            // System.out.println("Invalid Piece is selected.");
+            return false; // Try to move an empty block
+        }
         if (pieceDest != null) {
-            if (pieceDest.getOwner() == currPlayer) return false; // Try to capture his own piece
+            if (pieceDest.getOwner() == currPlayer) {
+                // System.out.println("Cannot capture his own piece.");
+                return false; // Try to capture his own piece
+            }
             else destOccupied = true; // dest is occupied by his opponent
         }
 
-        if (!canMovePiece(pieceSrc, dest, destOccupied)) return false;
+        if (!canMovePiece(pieceSrc, dest, destOccupied)) {
+            // System.out.println("Violating the selected piece's rule.");
+            return false;
+        }
         // Check if King is selected and if it will die
         if (pieceSrc == currPlayer.getKing()) {
-            if (isKingInDanger(currPlayer)) return false; // King puts itself into danger
+            if (isKingInDanger(currPlayer)) {
+                // System.out.println("Cannot put King into danger.");
+                return false; // King puts itself into danger
+            }
         }
 
         pieceSrc.moveTo(dest);
+        removePiece(src);
+        setPiece(dest, pieceSrc);
         if (destOccupied) {
             removePiece(dest); // Remove from board
             currPlayer.getOpponent().removePiece(pieceDest); // Remove from opponent's pieces
@@ -119,7 +141,10 @@ public class Board {
             for (int y = 0; y < HEIGHT; y++) {
                 for (int x = 0; x < WIDTH; x++) {
                     Position src = pieceOpponent.getPosition(), dest = new Position(x, y);
-                    Piece[][] prevBoardStatus = boardStatus.clone();
+                    Piece[][] prevBoardStatus = new Piece[HEIGHT][WIDTH];
+                    for (int i = 0; i < HEIGHT; i++) {
+                        prevBoardStatus[i] = Arrays.copyOf(boardStatus[i], boardStatus[i].length);
+                    }
                     List<Piece> prevPieces = new ArrayList<>(currPlayer.getPieces());
                     if (!movePieceByPosition(currOpponent, src, dest)) continue;
                     if (isCheckmate) {

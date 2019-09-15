@@ -29,16 +29,22 @@ public class Game {
     }
 
     public void start() {
+        System.out.println(board.toString());
+
         Player currPlayer;
         do {
             currPlayer = players[currRound];
             Position[] positions = currPlayer.takeAction(board); // 0: src, 1: dest
-            board.movePieceByPosition(currPlayer, positions[0], positions[1]);
+            if (!board.movePieceByPosition(currPlayer, positions[0], positions[1])) {
+                System.out.println("Please try again.");
+                continue;
+            }
             currRound = (currRound + 1) % NUM_PLAYERS;
-        } while (isEnding(board, currPlayer));
+            System.out.println(board.toString());
+        } while (!isEnding(board, currPlayer));
     }
 
-    public boolean isEnding(Board board, Player currPlayer) {
+    private boolean isEnding(Board board, Player currPlayer) {
         switch (board.isCheckmateOrStalemate(currPlayer)) {
             case CHECKMATE:
                 System.out.println("Checkmate!");

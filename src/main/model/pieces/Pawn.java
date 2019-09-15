@@ -34,13 +34,13 @@ public class Pawn extends Piece {
      * or on its first move it may advance two squares along the same file provided both squares are unoccupied;
      * or it may move to a square occupied by an opponent's piece which is diagonally in front of it on an adjacent file, capturing that piece.
      * @param dest The destination for the Pawn piece to move to
-     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param destOccupied True if dest is occupied by current player's opponent
      * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the Pawn piece can move to dest
      *         False otherwise
      */
     @Override
-    public boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied) {
+    public boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied) {
         Direction dir = currPos.getDirectionTo(dest);
         int x_dist = Math.abs(dest.x - currPos.x);
 
@@ -53,8 +53,7 @@ public class Pawn extends Piece {
             checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, true));
             return true;
         } else { // Move Diagonally otherwise
-            checkOccupied.add(dest);
-            return true;
+            return destOccupied; // Should capture his opponent's piece in this case
         }
     }
 

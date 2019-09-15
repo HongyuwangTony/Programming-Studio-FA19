@@ -12,7 +12,7 @@ public class Game {
     public Game(String namePlayerWhite, String namePlayerBlack) {
         players = generatePlayers(namePlayerWhite, namePlayerBlack);
         board = new Board(players);
-        currRound = 0; // Player White's round first by default
+        currRound = 0; // Player White(0)'s round first by default
     }
 
     public static Player[] generatePlayers(String namePlayerWhite, String namePlayerBlack) {
@@ -26,8 +26,9 @@ public class Game {
 
     public void start() {
         do {
-            Position[] positions = players[currRound].takeAction(board); // 0: src, 1: dest
-            board.movePiece(positions[0], positions[1]);
+            Player currPlayer = players[currRound];
+            Position[] positions = currPlayer.takeAction(board); // 0: src, 1: dest
+            board.movePiece(currPlayer, positions[0], positions[1]);
             currRound = (currRound + 1) % NUM_PLAYERS;
         } while (isEnding());
     }

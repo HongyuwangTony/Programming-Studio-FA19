@@ -19,13 +19,13 @@ public class Bishop extends Piece {
      * Judge whether the Bishop piece can move to the given destination
      * The Bishop can move diagonally without leaping over other pieces
      * @param dest The destination for the Bishop piece to move to
-     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param destOccupied True if dest is occupied by current player's opponent
      * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the Bishop piece can move to dest
      *         False otherwise
      */
     @Override
-    public boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied) {
+    public boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied) {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         if (!dir.isDiagonal()) return false;

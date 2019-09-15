@@ -19,13 +19,13 @@ public class Knight extends Piece {
      * Judge whether the Knight piece can move to the given destination
      * The Knight can move in a L-shape direction
      * @param dest The destination for the Knight piece to move to
-     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param destOccupied True if dest is occupied by current player's opponent
      * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the Knight piece can move to dest
      *         False otherwise
      */
     @Override
-    public boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied) {
+    public boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied) {
         // Check if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         return dir == Direction.KNIGHT;

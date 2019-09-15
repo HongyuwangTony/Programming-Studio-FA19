@@ -65,25 +65,26 @@ public class Board {
         return boardStatus[position.y][position.x];
     }
 
-    public void movePiece(Position src, Position dest) {
+    public void movePiece(Player currPlayer, Position src, Position dest) {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) return; // Try to move from/to the outside of the board
 
-        Piece pieceSelected = getPiece(src);
-        if (pieceSelected == null) return; // Try to move an empty block
-        // TODO: check owner of src and dest
-
-        List<Position> checkOccupied = new ArrayList<>(), checkUnoccupied = new ArrayList<>();
-        if (!pieceSelected.canMoveTo(dest, checkOccupied, checkUnoccupied)) return; // Invalid movement of the given piece
-        // Check if the given positions are occupied/unoccupied
-        for (Position toBeOccupied : checkOccupied) {
-            if (getPiece(toBeOccupied) == null) return;
+        Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
+        boolean destOccupied = false;
+        if (pieceSrc == null) return; // Try to move an empty block
+        if (pieceDest != null) {
+            if (pieceDest.getOwner() == currPlayer) return; // Try to capture his own piece
+            else destOccupied = true; // dest is occupied by his opponent
         }
+
+        List<Position> checkUnoccupied = new ArrayList<>();
+        if (!pieceSrc.canMoveTo(dest, destOccupied, checkUnoccupied)) return; // Invalid movement of the given piece
+        // Check if the given positions are unoccupied
         for (Position toBeUnoccupied : checkUnoccupied) {
             if (getPiece(toBeUnoccupied) != null) return;
         }
 
         // TODO: Check if King is selected and if it will die
-        pieceSelected.moveTo(dest);
+        pieceSrc.moveTo(dest);
     }
 
     // TODO: A setBoardFromStatus method for testing

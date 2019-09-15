@@ -53,10 +53,10 @@ public abstract class Piece {
     /**
      * Judge whether the piece can move to the given destination according to the piece type
      * @param dest The destination for the piece to move to
-     * @param checkOccupied A list of positions for callee to check if they are occupied
+     * @param destOccupied True if dest is occupied by current player's opponent
      * @param checkUnoccupied A list of positions for callee to check if they are unoccupied
      * @return True if the piece can move to dest
      *         False otherwise
      */
-    public abstract boolean canMoveTo(Position dest, List<Position> checkOccupied, List<Position> checkUnoccupied);
+    public abstract boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied);
 }

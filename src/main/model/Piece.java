@@ -18,19 +18,11 @@ public abstract class Piece {
     }
 
     /**
-     * Getter of x coordinate of this piece
-     * @return The x coordinate of this piece
+     * Getter of currPos of this piece
+     * @return The current position of this piece
      */
-    public int getX() {
-        return currPos.x;
-    }
-
-    /**
-     * Getter of y coordinate of this piece
-     * @return The y coordinate of this piece
-     */
-    public int getY() {
-        return currPos.y;
+    public Position getPosition() {
+        return currPos;
     }
 
     /**

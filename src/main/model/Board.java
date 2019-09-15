@@ -39,9 +39,8 @@ public class Board {
 
             // Initialize Board Status
             for (Piece piece : player.getPieces()) {
-                int x = piece.getX();
-                int y = piece.getY();
-                boardStatus[y][x] = piece;
+                Position pos = piece.getPosition();
+                boardStatus[pos.y][pos.x] = piece;
             }
         }
     }
@@ -65,41 +64,78 @@ public class Board {
         return boardStatus[position.y][position.x];
     }
 
-    public void movePiece(Player currPlayer, Position src, Position dest) {
-        if (src.outsideOfBoard() || dest.outsideOfBoard()) return; // Try to move from/to the outside of the board
+    public void removePiece(Position position) {
+        boardStatus[position.y][position.x] = null;
+    }
+
+    public boolean movePieceByPosition(Player currPlayer, Position src, Position dest) {
+        if (src.outsideOfBoard() || dest.outsideOfBoard()) return false; // Try to move from/to the outside of the board
 
         Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
         boolean destOccupied = false;
-        if (pieceSrc == null) return; // Try to move an empty block
+        if (getPiece(src) == null) return false; // Try to move an empty block
         if (pieceDest != null) {
-            if (pieceDest.getOwner() == currPlayer) return; // Try to capture his own piece
+            if (pieceDest.getOwner() == currPlayer) return false; // Try to capture his own piece
             else destOccupied = true; // dest is occupied by his opponent
         }
 
-        List<Position> checkUnoccupied = new ArrayList<>();
-        if (!pieceSrc.canMoveTo(dest, destOccupied, checkUnoccupied)) return; // Invalid movement of the given piece
-        // Check if the given positions are unoccupied
-        for (Position toBeUnoccupied : checkUnoccupied) {
-            if (getPiece(toBeUnoccupied) != null) return;
-        }
+        if (!canMovePiece(pieceSrc, dest, destOccupied)) return false;
         // Check if King is selected and if it will die
         if (pieceSrc == currPlayer.getKing()) {
-            for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
-                checkUnoccupied = new ArrayList<>();
-                if (!pieceOpponent.canMoveTo(src, true, checkUnoccupied)) continue;
-                boolean canCaptureKing = true;
-                for (Position toBeUnoccupied : checkUnoccupied) {
-                    if (getPiece(toBeUnoccupied) != null) {
-                        canCaptureKing = false;
-                        break;
-                    }
-                }
-                if (canCaptureKing) return; // King puts itself into danger
-            }
+            if (isKingInDanger(currPlayer)) return false; // King puts itself into danger
         }
 
         pieceSrc.moveTo(dest);
-        // TODO: capture logic
+        if (destOccupied) {
+            removePiece(dest); // Remove from board
+            currPlayer.getOpponent().removePiece(pieceDest); // Remove from opponent's pieces
+        }
+        return true;
+    }
+
+    public boolean canMovePiece(Piece pieceSrc, Position dest, boolean destOccupied) {
+        List<Position> checkUnoccupied = new ArrayList<>();
+        if (!pieceSrc.canMoveTo(dest, destOccupied, checkUnoccupied)) return false;
+        // Check if the given positions are unoccupied
+        for (Position toBeUnoccupied : checkUnoccupied) {
+            if (getPiece(toBeUnoccupied) != null) return false;
+        }
+        return true;
+    }
+
+    public boolean isKingInDanger(Player currPlayer) {
+        Position posKing = currPlayer.getKing().getPosition();
+        for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
+            if (canMovePiece(pieceOpponent, posKing, true)) return true;
+        }
+        return false;
+    }
+
+    public Game.Status isCheckmateOrStalemate(Player currPlayer) {
+        Player currOpponent = currPlayer.getOpponent();
+        boolean isCheckmate = isKingInDanger(currOpponent);
+        boolean solved = false;
+        for (Piece pieceOpponent : currOpponent.getPieces()) {
+            for (int y = 0; y < HEIGHT; y++) {
+                for (int x = 0; x < WIDTH; x++) {
+                    Position src = pieceOpponent.getPosition(), dest = new Position(x, y);
+                    Piece[][] prevBoardStatus = boardStatus.clone();
+                    List<Piece> prevPieces = new ArrayList<>(currPlayer.getPieces());
+                    if (!movePieceByPosition(currOpponent, src, dest)) continue;
+                    if (isCheckmate) {
+                        if (!isKingInDanger(currOpponent)) solved = true; // King escapes from checkmate
+                    } else solved = true;
+
+                    // Recover to the previous state
+                    getPiece(dest).moveTo(src);
+                    boardStatus = prevBoardStatus;
+                    currPlayer.setPieces(prevPieces);
+
+                    if (solved) return Game.Status.CONTINUE;
+                }
+            }
+        }
+        return isCheckmate ? Game.Status.CHECKMATE : Game.Status.STALEMATE;
     }
 
     // TODO: A setBoardFromStatus method for testing

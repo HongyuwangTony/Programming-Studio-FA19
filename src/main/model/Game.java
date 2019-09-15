@@ -1,6 +1,10 @@
 package main.model;
 
 public class Game {
+    public enum Status {
+        CHECKMATE, STALEMATE, CONTINUE
+    }
+
     // Constants
     public final static int NUM_PLAYERS = 2;
 
@@ -25,16 +29,25 @@ public class Game {
     }
 
     public void start() {
+        Player currPlayer;
         do {
-            Player currPlayer = players[currRound];
+            currPlayer = players[currRound];
             Position[] positions = currPlayer.takeAction(board); // 0: src, 1: dest
-            board.movePiece(currPlayer, positions[0], positions[1]);
+            board.movePieceByPosition(currPlayer, positions[0], positions[1]);
             currRound = (currRound + 1) % NUM_PLAYERS;
-        } while (isEnding());
+        } while (isEnding(board, currPlayer));
     }
 
-    public boolean isEnding() {
-        // TODO: Add Game Ending Condition (Checkmate / Stalemate)
-        return false;
+    public boolean isEnding(Board board, Player currPlayer) {
+        switch (board.isCheckmateOrStalemate(currPlayer)) {
+            case CHECKMATE:
+                System.out.println("Checkmate!");
+                return true;
+            case STALEMATE:
+                System.out.println("Stalemate!");
+                return true;
+            default:
+                return false;
+        }
     }
 }

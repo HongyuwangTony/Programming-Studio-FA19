@@ -7,9 +7,7 @@ import java.lang.AssertionError;
 
 public class InitializationTest extends TestCase {
     public void testBoardInitialization() {
-        Player[] players = new Player[]{
-                new Player("TestPlayer1", 0),
-                new Player("TestPlayer2", 1)};
+        Player[] players = Game.generatePlayers("TestPlayer1", "TestPlayer2");
         Board board = new Board(players);
         String expectedBoardStr =
                 "rnbqkbnr\n" +

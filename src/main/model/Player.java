@@ -32,6 +32,9 @@ public class Player {
         this.opponent = opponent;
     }
 
+    public King getKing() {
+        return king;
+    }
 
     public void addKing(King king) {
         this.king = king;

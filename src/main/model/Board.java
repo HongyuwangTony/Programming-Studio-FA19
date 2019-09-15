@@ -82,9 +82,24 @@ public class Board {
         for (Position toBeUnoccupied : checkUnoccupied) {
             if (getPiece(toBeUnoccupied) != null) return;
         }
+        // Check if King is selected and if it will die
+        if (pieceSrc == currPlayer.getKing()) {
+            for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
+                checkUnoccupied = new ArrayList<>();
+                if (!pieceOpponent.canMoveTo(src, true, checkUnoccupied)) continue;
+                boolean canCaptureKing = true;
+                for (Position toBeUnoccupied : checkUnoccupied) {
+                    if (getPiece(toBeUnoccupied) != null) {
+                        canCaptureKing = false;
+                        break;
+                    }
+                }
+                if (canCaptureKing) return; // King puts itself into danger
+            }
+        }
 
-        // TODO: Check if King is selected and if it will die
         pieceSrc.moveTo(dest);
+        // TODO: capture logic
     }
 
     // TODO: A setBoardFromStatus method for testing

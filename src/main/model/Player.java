@@ -10,6 +10,7 @@ public class Player {
     // Object Members
     private String name;
     private int player_no;
+    private Player opponent;
     private King king;
     private List<Piece> pieces;
 
@@ -22,6 +23,15 @@ public class Player {
     public int getPlayerNo() {
         return player_no;
     }
+
+    public Player getOpponent() {
+        return opponent;
+    }
+
+    public void setOpponent(Player opponent) {
+        this.opponent = opponent;
+    }
+
 
     public void addKing(King king) {
         this.king = king;

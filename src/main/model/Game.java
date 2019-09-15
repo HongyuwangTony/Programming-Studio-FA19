@@ -10,11 +10,18 @@ public class Game {
     private int currRound;
 
     public Game(String namePlayerWhite, String namePlayerBlack) {
-        players = new Player[NUM_PLAYERS];
-        players[0] = new Player(namePlayerWhite, 0);
-        players[1] = new Player(namePlayerBlack, 1);
+        players = generatePlayers(namePlayerWhite, namePlayerBlack);
         board = new Board(players);
         currRound = 0; // Player White's round first by default
+    }
+
+    public static Player[] generatePlayers(String namePlayerWhite, String namePlayerBlack) {
+        Player[] players = new Player[NUM_PLAYERS];
+        players[0] = new Player(namePlayerWhite, 0);
+        players[1] = new Player(namePlayerBlack, 1);
+        players[0].setOpponent(players[1]);
+        players[1].setOpponent(players[0]);
+        return players;
     }
 
     public void start() {

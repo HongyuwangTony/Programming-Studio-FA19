@@ -14,6 +14,10 @@ public class Board {
     // Object Members
     private Piece[][] boardStatus;
 
+    /**
+     * Constructor of Board that is set at the initial game state
+     * @param players The players who are related to the game of this board
+     */
     public Board(Player[] players) {
         boardStatus = new Piece[HEIGHT][WIDTH];
 
@@ -46,6 +50,11 @@ public class Board {
         }
     }
 
+    /**
+     * Constructor of Board that is set at the given game state
+     * @param players The players who are related to the game of this board
+     * @param strBoard The game state as a String representation
+     */
     public Board(Player[] players, String strBoard) {
         boardStatus = new Piece[HEIGHT][WIDTH];
         int y = HEIGHT - 1;
@@ -75,6 +84,12 @@ public class Board {
         }
     }
 
+    /**
+     * Encoder of Board into 8x8 grid String representation
+     * '_' indicates empty space
+     * Uppercase - White Player(0), Lowercase - Black Player(1)
+     * @return A 8x8 grid of String that represents the current status of this board
+     */
     @Override
     public String toString() {
         StringBuilder resBuilder = new StringBuilder();
@@ -90,18 +105,39 @@ public class Board {
         return resBuilder.toString();
     }
 
+    /**
+     * Getter of Piece by the given position
+     * @param position The given position of the piece on the board
+     * @return The piece at the given position
+     */
     public Piece getPiece(Position position) {
         return boardStatus[position.y][position.x];
     }
 
+    /**
+     * Remove the Piece from the board at the given position
+     * @param position The piece which is going to be removed
+     */
     public void removePiece(Position position) {
         boardStatus[position.y][position.x] = null;
     }
 
+    /**
+     * Setter of Piece by the given position
+     * @param position The given position of the piece on the board
+     * @param piece The piece to be set at the given position
+     */
     public void setPiece(Position position, Piece piece) {
         boardStatus[position.y][position.x] = piece;
     }
 
+    /**
+     * Move a piece from the given position to another given position
+     * @param currPlayer The player in the current round
+     * @param src The source of the piece to be moved
+     * @param dest The destination of the piece to be moved
+     * @return True if the current player is able to move the piece by the given positions
+     */
     public boolean movePieceByPosition(Player currPlayer, Position src, Position dest) {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) {
             return false; // Try to move from/to the outside of the board
@@ -138,6 +174,14 @@ public class Board {
         return true;
     }
 
+    /**
+     * Check if one player can move a valid piece to the another given destination by the piece's rule
+     * NOTE: The logic of whether the King is being put in check is not checked in this method
+     * @param pieceSrc The piece to be moved
+     * @param dest The destination of the piece
+     * @param destOccupied True if the destination is occupied by its
+     * @return True if one player can move this piece to dest by its rule
+     */
     public boolean canMovePiece(Piece pieceSrc, Position dest, boolean destOccupied) {
         List<Position> checkUnoccupied = new ArrayList<>();
         if (!pieceSrc.canMoveTo(dest, destOccupied, checkUnoccupied)) return false;
@@ -148,6 +192,12 @@ public class Board {
         return true;
     }
 
+    /**
+     * Check if the King of the given player is being put in check
+     * @param currPlayer The given player that owns the King
+     * @param posKing The position that the King is or will be located at
+     * @return True if the King is being put in check
+     */
     public boolean isKingInDanger(Player currPlayer, Position posKing) {
         for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
             System.out.println(pieceOpponent + " " + pieceOpponent.getPosition());
@@ -156,6 +206,11 @@ public class Board {
         return false;
     }
 
+    /**
+     * Check if the opponent is checkmated or stalemated at the end of the current round
+     * @param currPlayer The player in the current round
+     * @return The current status of this game
+     */
     public Game.Status isCheckmateOrStalemate(Player currPlayer) {
         Player currOpponent = currPlayer.getOpponent();
         boolean isCheckmate = isKingInDanger(currOpponent, currOpponent.getKing().getPosition());

@@ -178,9 +178,7 @@ public class Board {
                     Piece pieceCaptured = getPiece(dest);
 
                     if (!movePieceByPosition(currOpponent, src, dest)) continue;
-                    if (isCheckmate) {
-                        if (!isKingInDanger(currOpponent)) solved = true; // King escapes from checkmate
-                    } else solved = true;
+                    if (!isKingInDanger(currOpponent)) solved = true; // King escapes from checkmate/stalemate
 
                     // Recover to the previous state
                     getPiece(dest).moveTo(src);

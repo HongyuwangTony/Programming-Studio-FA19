@@ -31,7 +31,7 @@ public class King extends Piece {
         Direction dir = currPos.getDirectionTo(dest);
         if (!dir.isDiagonal() && !dir.isStraight()) return false;
         // Check distance
-        int dist_x = dest.x - currPos.x, dist_y = dest.y - currPos.y;
+        int dist_x = Math.abs(dest.x - currPos.x), dist_y = Math.abs(dest.y - currPos.y);
         return Math.max(dist_x, dist_y) == 1; // Ensure the displacement is (+/-1, +/-1) or (0, +/-1) or (+/-1, 0)
     }
 

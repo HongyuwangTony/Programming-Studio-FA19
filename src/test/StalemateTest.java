@@ -18,6 +18,7 @@ public class StalemateTest extends TestCase {
                 "________\n" +
                 "________\n";
         Board board = new Board(players, currStatus);
+        // Black is stalemated
         assertEquals(Game.Status.STALEMATE, board.isCheckmateOrStalemate(players[0]));
     }
 
@@ -33,6 +34,7 @@ public class StalemateTest extends TestCase {
                 "________\n" +
                 "________\n";
         Board board = new Board(players, currStatus);
+        // Black is stalemated
         assertEquals(Game.Status.STALEMATE, board.isCheckmateOrStalemate(players[0]));
     }
 
@@ -48,6 +50,7 @@ public class StalemateTest extends TestCase {
                 "________\n" +
                 "________\n";
         Board board = new Board(players, currStatus);
+        // Black is stalemated
         assertEquals(Game.Status.STALEMATE, board.isCheckmateOrStalemate(players[0]));
     }
 
@@ -63,6 +66,7 @@ public class StalemateTest extends TestCase {
                 "_R______\n" +
                 "k_______\n";
         Board board = new Board(players, currStatus);
+        // Black is stalemated
         assertEquals(Game.Status.STALEMATE, board.isCheckmateOrStalemate(players[0]));
     }
 
@@ -78,6 +82,7 @@ public class StalemateTest extends TestCase {
                 "p_______\n" +
                 "k_______\n";
         Board board = new Board(players, currStatus);
+        // Black is stalemated
         assertEquals(Game.Status.STALEMATE, board.isCheckmateOrStalemate(players[0]));
     }
 
@@ -93,6 +98,7 @@ public class StalemateTest extends TestCase {
                 "________\n" +
                 "________\n";
         Board board = new Board(players, currStatus);
+        // Black is stalemated
         assertEquals(Game.Status.STALEMATE, board.isCheckmateOrStalemate(players[0]));
     }
 }

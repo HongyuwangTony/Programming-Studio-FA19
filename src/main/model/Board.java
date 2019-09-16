@@ -104,32 +104,32 @@ public class Board {
 
     public boolean movePieceByPosition(Player currPlayer, Position src, Position dest) {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) {
-            // System.out.println("Position selected is out of board.");
+            // if (debug) System.out.println("Position selected is out of board.");
             return false; // Try to move from/to the outside of the board
         }
 
         Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
         boolean destOccupied = false;
         if (getPiece(src) == null) {
-            // System.out.println("Invalid Piece is selected.");
+            // if (debug) System.out.println("Invalid Piece is selected.");
             return false; // Try to move an empty block
         }
         if (pieceDest != null) {
             if (pieceDest.getOwner() == currPlayer) {
-                // System.out.println("Cannot capture his own piece.");
+                // if (debug) System.out.println("Cannot capture his own piece.");
                 return false; // Try to capture his own piece
             }
             else destOccupied = true; // dest is occupied by his opponent
         }
 
         if (!canMovePiece(pieceSrc, dest, destOccupied)) {
-            // System.out.println("Violating the selected piece's rule.");
+            // if (debug) System.out.println("Violating the selected piece's rule.");
             return false;
         }
         // Check if King is selected and if it will die
         if (pieceSrc == currPlayer.getKing()) {
             if (isKingInDanger(currPlayer)) {
-                // System.out.println("Cannot put King into danger.");
+                // if (debug) System.out.println("Cannot put King into danger.");
                 return false; // King puts itself into danger
             }
         }
@@ -169,11 +169,14 @@ public class Board {
             for (int y = 0; y < HEIGHT; y++) {
                 for (int x = 0; x < WIDTH; x++) {
                     Position src = pieceOpponent.getPosition(), dest = new Position(x, y);
+
+                    // Store the previous state
                     Piece[][] prevBoardStatus = new Piece[HEIGHT][WIDTH];
                     for (int i = 0; i < HEIGHT; i++) {
                         prevBoardStatus[i] = Arrays.copyOf(boardStatus[i], boardStatus[i].length);
                     }
-                    List<Piece> prevPieces = new ArrayList<>(currPlayer.getPieces());
+                    Piece pieceCaptured = getPiece(dest);
+
                     if (!movePieceByPosition(currOpponent, src, dest)) continue;
                     if (isCheckmate) {
                         if (!isKingInDanger(currOpponent)) solved = true; // King escapes from checkmate
@@ -182,7 +185,7 @@ public class Board {
                     // Recover to the previous state
                     getPiece(dest).moveTo(src);
                     boardStatus = prevBoardStatus;
-                    currPlayer.setPieces(prevPieces);
+                    if (pieceCaptured != null) currPlayer.addPiece(pieceCaptured);
 
                     if (solved) return Game.Status.CONTINUE;
                 }

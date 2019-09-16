@@ -38,8 +38,7 @@ public abstract class Piece {
      * @param dest The destination for the piece to move to
      */
     public void moveTo(Position dest) {
-        currPos.x = dest.x;
-        currPos.y = dest.y;
+        currPos = new Position(dest.x, dest.y);
     }
 
     /**

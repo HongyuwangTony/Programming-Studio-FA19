@@ -104,32 +104,27 @@ public class Board {
 
     public boolean movePieceByPosition(Player currPlayer, Position src, Position dest) {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) {
-            // if (debug) System.out.println("Position selected is out of board.");
             return false; // Try to move from/to the outside of the board
         }
 
         Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
         boolean destOccupied = false;
         if (getPiece(src) == null) {
-            // if (debug) System.out.println("Invalid Piece is selected.");
             return false; // Try to move an empty block
         }
         if (pieceDest != null) {
             if (pieceDest.getOwner() == currPlayer) {
-                // if (debug) System.out.println("Cannot capture his own piece.");
                 return false; // Try to capture his own piece
             }
             else destOccupied = true; // dest is occupied by his opponent
         }
 
         if (!canMovePiece(pieceSrc, dest, destOccupied)) {
-            // if (debug) System.out.println("Violating the selected piece's rule.");
             return false;
         }
         // Check if King is selected and if it will die
         if (pieceSrc == currPlayer.getKing()) {
-            if (isKingInDanger(currPlayer)) {
-                // if (debug) System.out.println("Cannot put King into danger.");
+            if (isKingInDanger(currPlayer, dest)) {
                 return false; // King puts itself into danger
             }
         }
@@ -153,9 +148,9 @@ public class Board {
         return true;
     }
 
-    public boolean isKingInDanger(Player currPlayer) {
-        Position posKing = currPlayer.getKing().getPosition();
+    public boolean isKingInDanger(Player currPlayer, Position posKing) {
         for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
+            System.out.println(pieceOpponent + " " + pieceOpponent.getPosition());
             if (canMovePiece(pieceOpponent, posKing, true)) return true;
         }
         return false;
@@ -163,7 +158,7 @@ public class Board {
 
     public Game.Status isCheckmateOrStalemate(Player currPlayer) {
         Player currOpponent = currPlayer.getOpponent();
-        boolean isCheckmate = isKingInDanger(currOpponent);
+        boolean isCheckmate = isKingInDanger(currOpponent, currOpponent.getKing().getPosition());
         boolean solved = false;
         for (Piece pieceOpponent : currOpponent.getPieces()) {
             for (int y = 0; y < HEIGHT; y++) {
@@ -178,7 +173,8 @@ public class Board {
                     Piece pieceCaptured = getPiece(dest);
 
                     if (!movePieceByPosition(currOpponent, src, dest)) continue;
-                    if (!isKingInDanger(currOpponent)) solved = true; // King escapes from checkmate/stalemate
+                    if (!isKingInDanger(currOpponent, currOpponent.getKing().getPosition()))
+                        solved = true; // King escapes from checkmate/stalemate
 
                     // Recover to the previous state
                     getPiece(dest).moveTo(src);

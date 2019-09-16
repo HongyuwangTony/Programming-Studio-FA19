@@ -140,13 +140,23 @@ public class PawnTest extends TestCase {
         assertEquals(Game.Status.CONTINUE, board.isCheckmateOrStalemate(players[1]));
     }
 
-    public void testInvalidCapture() {
+    public void testInvalidDiagonalMove() {
         Player[] players = Game.generatePlayers("White", "Black");
         Board board = new Board(players);
         String before = board.toString();
         assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
         // Test Pawn cannot move diagonally to an empty square
         assertFalse(board.movePieceByPosition(players[1], new Position("A2"), new Position("B3")));
+        assertTrue(board.toString().equals(before));
+    }
+
+    public void testInvalidCapture() {
+        Player[] players = Game.generatePlayers("White", "Black");
+        Board board = new Board(players);
+        String before = board.toString();
+        assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
+        // Test Pawn cannot move diagonally further than one square
+        assertFalse(board.movePieceByPosition(players[1], new Position("A2"), new Position("F7")));
         assertTrue(board.toString().equals(before));
     }
 }

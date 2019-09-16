@@ -55,8 +55,7 @@ public class Player {
         return pieces;
     }
 
-    public Position[] takeAction(Board board, InputStream inputStream) {
-        // TODO: Optimize input from user
+    public Position[] takeAction(InputStream inputStream) {
         Scanner scan = new Scanner(inputStream);
         Position src, dest;
         try {

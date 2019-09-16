@@ -10,13 +10,8 @@ public class Game {
     // Constants
     public final static int NUM_PLAYERS = 2;
 
-
-
     // Object Members
     private Player[] players;
-
-
-
     private Board board;
     private int currRound;
     private InputStream inputStream;
@@ -55,7 +50,7 @@ public class Game {
         Player currPlayer;
         do {
             currPlayer = players[currRound];
-            Position[] positions = currPlayer.takeAction(board, inputStream); // 0: src, 1: dest
+            Position[] positions = currPlayer.takeAction(inputStream); // 0: src, 1: dest
             if (positions == null) {
                 System.out.println("No Input in the stream.");
                 break;

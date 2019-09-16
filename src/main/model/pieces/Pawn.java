@@ -55,6 +55,7 @@ public class Pawn extends Piece {
             checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, dir, true));
             return true;
         } else { // Move Diagonally otherwise
+            if (y_dist > 1) return false;
             return destOccupied; // Should capture his opponent's piece in this case
         }
     }

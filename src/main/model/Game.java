@@ -41,11 +41,11 @@ public class Game {
             }
             currRound = (currRound + 1) % NUM_PLAYERS;
             System.out.println(board.toString());
-        } while (!isEnding(board, currPlayer));
+        } while (!isEnding());
     }
 
-    public boolean isEnding(Board board, Player currPlayer) {
-        switch (board.isCheckmateOrStalemate(currPlayer)) {
+    public boolean isEnding() {
+        switch (board.isCheckmateOrStalemate(players[currRound])) {
             case CHECKMATE:
                 System.out.println("Checkmate!");
                 return true;

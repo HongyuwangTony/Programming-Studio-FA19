@@ -5,7 +5,7 @@ import main.model.*;
 import java.util.List;
 
 public class Pawn extends Piece {
-    private boolean hasMoved = false;
+    private boolean hasMoved;
 
     /**
      * Constructor by its position and owner
@@ -16,6 +16,7 @@ public class Pawn extends Piece {
      */
     public Pawn(int x, int y, Player owner, boolean hasMoved) {
         super(x, y, owner);
+        this.hasMoved = hasMoved;
     }
 
     /**

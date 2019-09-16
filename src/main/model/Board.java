@@ -138,7 +138,6 @@ public class Board {
         removePiece(src);
         setPiece(dest, pieceSrc);
         if (destOccupied) {
-            removePiece(dest); // Remove from board
             currPlayer.getOpponent().removePiece(pieceDest); // Remove from opponent's pieces
         }
         return true;

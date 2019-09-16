@@ -2,6 +2,7 @@ package test;
 
 import junit.framework.*;
 import main.model.*;
+import main.model.pieces.*;
 
 public class KnightTest extends TestCase {
     public void testMoveNormally() {
@@ -42,6 +43,7 @@ public class KnightTest extends TestCase {
                 "PP_PPPPP\n" +
                 "R_BQKBNR\n";
         Board board = new Board(players, before);
+        assertTrue(board.getPiece(new Position("C3")) instanceof Knight);
         // Test if Knight can neither move straight nor move diagonally
         assertFalse(board.movePieceByPosition(players[0], new Position("C3"), new Position("C2")));
         assertTrue(board.toString().equals(before));

@@ -2,6 +2,7 @@ package test;
 
 import junit.framework.*;
 import main.model.*;
+import main.model.pieces.*;
 
 public class PawnTest extends TestCase {
     public void testInvalidDirection() {
@@ -16,6 +17,9 @@ public class PawnTest extends TestCase {
                 "PP_PPPPP\n" +
                 "RNBQKBNR\n";
         Board board = new Board(players, before);
+        assertTrue(board.getPiece(new Position("C5")) instanceof Pawn);
+        assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
+        assertTrue(board.getPiece(new Position("E5")) instanceof Pawn);
         // Test Pawn cannot move horizontally and the board stays the same
         assertFalse(board.movePieceByPosition(players[0], new Position("C5"), new Position("A5")));
         assertTrue(board.toString().equals(before));
@@ -58,6 +62,8 @@ public class PawnTest extends TestCase {
                 "PP_PPPPP\n" +
                 "RNBQKBNR\n";
         Board board = new Board(players, before);
+        assertTrue(board.getPiece(new Position("C5")) instanceof Pawn);
+        assertTrue(board.getPiece(new Position("C6")) instanceof Pawn);
         // Test Pawn cannot capture pieces if it moves straight and the board stays the same
         assertFalse(board.movePieceByPosition(players[0], new Position("C5"), new Position("C6")));
         assertTrue(board.toString().equals(before));
@@ -94,6 +100,9 @@ public class PawnTest extends TestCase {
                 "P_PPPPP_\n" +
                 "R__QKBNR\n";
         Board board = new Board(players, before);
+        assertTrue(board.getPiece(new Position("H3")) instanceof Pawn);
+        assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
+        assertTrue(board.getPiece(new Position("E2")) instanceof Pawn);
         // Test Pawn cannot move two squares after its first move
         assertFalse(board.movePieceByPosition(players[0], new Position("H3"), new Position("H5")));
         assertTrue(board.toString().equals(before));
@@ -135,6 +144,7 @@ public class PawnTest extends TestCase {
         Player[] players = Game.generatePlayers("White", "Black");
         Board board = new Board(players);
         String before = board.toString();
+        assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
         // Test Pawn cannot move diagonally to an empty square
         assertFalse(board.movePieceByPosition(players[1], new Position("A2"), new Position("B3")));
         assertTrue(board.toString().equals(before));

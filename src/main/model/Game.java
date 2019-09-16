@@ -1,5 +1,7 @@
 package main.model;
 
+import java.io.InputStream;
+
 public class Game {
     public enum Status {
         CHECKMATE, STALEMATE, CONTINUE
@@ -8,15 +10,34 @@ public class Game {
     // Constants
     public final static int NUM_PLAYERS = 2;
 
+
+
     // Object Members
     private Player[] players;
+
+
+
     private Board board;
     private int currRound;
+    private InputStream inputStream;
 
-    public Game(String namePlayerWhite, String namePlayerBlack) {
+    public Game(String namePlayerWhite, String namePlayerBlack, InputStream inputStream) {
         players = generatePlayers(namePlayerWhite, namePlayerBlack);
         board = new Board(players);
         currRound = 0; // Player White(0)'s round first by default
+        this.inputStream = inputStream;
+    }
+
+    public int getCurrRound() {
+        return currRound;
+    }
+
+    public void setPlayers(Player[] players) {
+        this.players = players;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
     }
 
     public static Player[] generatePlayers(String namePlayerWhite, String namePlayerBlack) {
@@ -34,7 +55,11 @@ public class Game {
         Player currPlayer;
         do {
             currPlayer = players[currRound];
-            Position[] positions = currPlayer.takeAction(board); // 0: src, 1: dest
+            Position[] positions = currPlayer.takeAction(board, inputStream); // 0: src, 1: dest
+            if (positions == null) {
+                System.out.println("No Input in the stream.");
+                break;
+            }
             if (!board.movePieceByPosition(currPlayer, positions[0], positions[1])) {
                 System.out.println("Please try again.");
                 continue;

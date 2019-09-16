@@ -2,8 +2,10 @@ package main.model;
 
 import main.model.pieces.King;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Player {
@@ -53,11 +55,16 @@ public class Player {
         return pieces;
     }
 
-    public Position[] takeAction(Board board) {
+    public Position[] takeAction(Board board, InputStream inputStream) {
         // TODO: Optimize input from user
-        Scanner scan = new Scanner(System.in);
-        Position src = new Position(scan.nextLine());
-        Position dest = new Position(scan.nextLine());
+        Scanner scan = new Scanner(inputStream);
+        Position src, dest;
+        try {
+            src = new Position(scan.nextLine());
+            dest = new Position(scan.nextLine());
+        } catch (NoSuchElementException e) {
+            return null;
+        }
         return new Position[]{src, dest};
     }
 }

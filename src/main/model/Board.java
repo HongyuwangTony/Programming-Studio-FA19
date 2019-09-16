@@ -200,7 +200,6 @@ public class Board {
      */
     public boolean isKingInDanger(Player currPlayer, Position posKing) {
         for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
-            System.out.println(pieceOpponent + " " + pieceOpponent.getPosition());
             if (canMovePiece(pieceOpponent, posKing, true)) return true;
         }
         return false;

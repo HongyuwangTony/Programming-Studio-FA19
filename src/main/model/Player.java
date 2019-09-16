@@ -53,10 +53,6 @@ public class Player {
         return pieces;
     }
 
-    public void setPieces(List<Piece> pieces) {
-        this.pieces = pieces;
-    }
-
     public Position[] takeAction(Board board) {
         // TODO: Optimize input from user
         Scanner scan = new Scanner(System.in);

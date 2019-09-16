@@ -1,4 +1,4 @@
-package test;
+package test.pieces;
 
 import junit.framework.TestCase;
 import main.model.*;

@@ -1,5 +1,15 @@
-out/*
+# Intellij IDE Configuration Files
 *.iml
 .idea/*
+out/*
+
+# Mac Configuration Files
 .DS_Store
+
+# Main class to test locally
 src/main/Main.java
+
+# Doxygen-related files
+doxygen
+latex/*
+html/*

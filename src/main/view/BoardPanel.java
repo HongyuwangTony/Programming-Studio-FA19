@@ -17,9 +17,11 @@ public class BoardPanel extends JPanel {
                         new Color(248, 207, 164) :  // #f8cfa4
                         new Color(199, 141, 83);    // #c78d53
 
+                // Set player color for non-empty pieces
                 if (i <= 1) colorPlayer = "Black";
                 else if (i >= 6) colorPlayer = "White";
 
+                // Set piece type for non-empty pieces
                 if (i == 1 || i == 6) type = "Pawn";
                 else if (i == 0 || i == 7) {
                     switch (j) {
@@ -56,7 +58,7 @@ public class BoardPanel extends JPanel {
             piece.setIcon(imgIcon);
         }
         piece.setBackground(colorBackground);
-        piece.setOpaque(true);
+        piece.setOpaque(true); // Set the button to be transparent
         piece.setBorderPainted(false);
         return piece;
     }

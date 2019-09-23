@@ -5,7 +5,7 @@ import main.model.*;
 import java.util.*;
 
 /**
- * Custom Chess Piece "Dragon" from Shogi (Japanese Chess), which is originally promoted Rook in Shogi
+ * Custom Chess Piece Dragon from "Dragon Horse" in Shogi (Japanese Chess), which is originally promoted Bishop in Shogi
  * The rule is like combining movements of King with Bishop
  * Dragon cannot leap over any pieces
  * Dragon can either move diagonally with any units or move straight with one unit

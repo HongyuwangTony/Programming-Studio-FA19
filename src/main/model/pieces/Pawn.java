@@ -4,6 +4,9 @@ import main.model.*;
 
 import java.util.List;
 
+/**
+ * Pawn Class in the normal set of chess pieces
+ */
 public class Pawn extends Piece {
     private boolean hasMoved;
 
@@ -20,8 +23,8 @@ public class Pawn extends Piece {
     }
 
     /**
-     * Move this Pawn piece to the given destination
-     * Update hasMoved on its first move
+     * Moves this Pawn piece to the given destination
+     * Updates hasMoved on its first move
      * @param dest The destination for this Pawn piece to move to
      */
     @Override
@@ -31,7 +34,7 @@ public class Pawn extends Piece {
     }
 
     /**
-     * Judge whether the Pawn piece can move to the given destination
+     * Judges whether the Pawn piece can move to the given destination
      * The Pawn may move forward to the unoccupied square immediately in front of it on the same file;
      * or on its first move it may advance two squares along the same file provided both squares are unoccupied;
      * or it may move to a square occupied by an opponent's piece which is diagonally in front of it on an adjacent file, capturing that piece.
@@ -61,7 +64,7 @@ public class Pawn extends Piece {
     }
 
     /**
-     * Encode the Pawn piece into String
+     * Encodes the Pawn piece into String
      * Upper case for the White Player(0) and lower case for the Black Player(1)
      * @return The String representation of this Pawn piece
      */

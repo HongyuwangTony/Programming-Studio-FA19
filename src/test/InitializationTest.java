@@ -21,7 +21,7 @@ public class InitializationTest extends TestCase {
 
     public void testBoardInitialization() {
         Player[] players = Game.generatePlayers("White", "Black");
-        Board board = new Board(players);
+        Board board = new Board(players, false);
         String expectedBoardStr =
                 "rnbqkbnr\n" +
                 "pppppppp\n" +

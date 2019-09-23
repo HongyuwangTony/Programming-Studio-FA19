@@ -3,6 +3,10 @@ package main.model;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Position Class integrating x and y coordinate
+ * Contains basic helper functions and handles relationship between positions
+ */
 public class Position {
     public int x;
     public int y;
@@ -70,12 +74,19 @@ public class Position {
         return Direction.ILLEGAL;
     }
 
+    /**
+     * Calculates all positions crossed from current position to the given destination
+     * @param dest The Position object indicating the given destination
+     * @param dir The direction from current position to destination
+     * @param inclusive True if dest is required to put in the returned list
+     * @return A list of positions crossed from current position to the given destination
+     */
     public List<Position> getPositionsCrossed(Position dest, Direction dir, boolean inclusive) {
         List<Position> posCrossed = new LinkedList<>();
         int x = this.x, y = this.y;
         boolean end = false;
         do {
-            // Move toward dest
+            // Moves toward dest
             if (dir.isDownward()) y--;
             if (dir.isUpward()) y++;
             if (dir.isLeftWard()) x--;

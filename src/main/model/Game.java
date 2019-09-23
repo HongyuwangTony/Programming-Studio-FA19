@@ -2,6 +2,10 @@ package main.model;
 
 import java.io.InputStream;
 
+/**
+ * Game Class
+ * Handles the game initialization, the main game loop and the ending condition
+ */
 public class Game {
     public enum Status {
         CHECKMATE, STALEMATE, CONTINUE
@@ -24,7 +28,7 @@ public class Game {
      */
     public Game(String namePlayerWhite, String namePlayerBlack, InputStream inputStream) {
         players = generatePlayers(namePlayerWhite, namePlayerBlack);
-        board = new Board(players);
+        board = new Board(players, true);
         currRound = 0; // Player White(0)'s round first by default
         this.inputStream = inputStream;
     }
@@ -69,8 +73,8 @@ public class Game {
     }
 
     /**
-     * Start the game
-     * Include the main game loop
+     * Starts the game
+     * Includes the main game loop
      */
     public void start() {
         System.out.println(board.toString());
@@ -93,7 +97,7 @@ public class Game {
     }
 
     /**
-     * Check the ending condition of this game
+     * Checks the ending condition of this game
      * @return True if a player is checkmated or stalemated
      */
     public boolean isEnding() {

@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Player Class which contains pieces ownership of a particular player
+ */
 public class Player {
     // Object Members
     private String name;
@@ -68,7 +71,7 @@ public class Player {
     }
 
     /**
-     * Add the given piece to this player
+     * Adds the given piece to this player
      * @param piece The piece going to be owned by this player
      */
     public void addPiece(Piece piece) {
@@ -77,7 +80,7 @@ public class Player {
     }
 
     /**
-     * Remove the given piece of this player
+     * Removes the given piece of this player
      * @param piece The piece going to be removed from the pieces of this player
      */
     public void removePiece(Piece piece) {
@@ -93,7 +96,7 @@ public class Player {
     }
 
     /**
-     * Read input from the given input stream to get source and destination
+     * Reads input from the given input stream to get source and destination
      * @param inputStream The input stream that reads user input
      * @return A tuple of positions [src, dest]
      */

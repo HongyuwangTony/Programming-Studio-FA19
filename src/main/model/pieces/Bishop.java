@@ -4,6 +4,9 @@ import main.model.*;
 
 import java.util.List;
 
+/**
+ * Bishop Class in the normal set of chess pieces
+ */
 public class Bishop extends Piece {
     /**
      * Constructor by its position and owner
@@ -16,7 +19,7 @@ public class Bishop extends Piece {
     }
 
     /**
-     * Judge whether the Bishop piece can move to the given destination
+     * Judges whether the Bishop piece can move to the given destination
      * The Bishop can move diagonally without leaping over other pieces
      * @param dest The destination for the Bishop piece to move to
      * @param destOccupied True if dest is occupied by current player's opponent
@@ -26,7 +29,7 @@ public class Bishop extends Piece {
      */
     @Override
     public boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied) {
-        // Check if direction is legal
+        // Checks if direction is legal
         Direction dir = currPos.getDirectionTo(dest);
         if (!dir.isDiagonal()) return false;
         checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, dir, false));
@@ -34,7 +37,7 @@ public class Bishop extends Piece {
     }
 
     /**
-     * Encode the Bishop piece into String
+     * Encodes the Bishop piece into String
      * Upper case for the White Player(0) and lower case for the Black Player(1)
      * @return The String representation of this Bishop piece
      */

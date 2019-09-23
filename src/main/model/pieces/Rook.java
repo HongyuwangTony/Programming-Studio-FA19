@@ -4,6 +4,9 @@ import main.model.*;
 
 import java.util.List;
 
+/**
+ * Rook Class in the normal set of chess pieces
+ */
 public class Rook extends Piece {
     /**
      * Constructor by its position and owner
@@ -16,7 +19,7 @@ public class Rook extends Piece {
     }
 
     /**
-     * Judge whether the Rook piece can move to the given destination
+     * Judges whether the Rook piece can move to the given destination
      * The Rook can move straight without leaping over other pieces
      * @param dest The destination for the Rook piece to move to
      * @param destOccupied True if dest is occupied by current player's opponent
@@ -34,7 +37,7 @@ public class Rook extends Piece {
     }
 
     /**
-     * Encode the Rook piece into String
+     * Encodes the Rook piece into String
      * Upper case for the White Player(0) and lower case for the Black Player(1)
      * @return The String representation of this Rook piece
      */

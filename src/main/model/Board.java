@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Board Class recording all the pieces on the board
+ * Controls movement of pieces
+ * Includes calculations regards to the relative positions of pieces
+ */
 public class Board {
     // Constants
     public final static int WIDTH = 8;
@@ -18,31 +23,39 @@ public class Board {
      * Constructor of Board that is set at the initial game state
      * @param players The players who are related to the game of this board
      */
-    public Board(Player[] players) {
+    public Board(Player[] players, boolean custom) {
         boardStatus = new Piece[HEIGHT][WIDTH];
 
         int arr_y_pawns[] = new int[]{1, 6}, arr_y_others[] = new int[]{0, 7};
         for (int player_no = 0; player_no < players.length; player_no++) {
             Player player = players[player_no];
 
-            // Allocate Rooks, Knights, Bishops, King, Queen to both players
+            // Allocates Rooks, Knights, Bishops, King, Queen to both players
+            // Allocates custom chess pieces: Dragon, Cannon to both players
+            // Dragon replaces Bishop at F1 and F8 if custom is set to true
+            // Cannon replaces Knight at G1 and G8 if custom is set to true
             int y_others = arr_y_others[player_no];
-            player.addPiece(new King(4, y_others, player));
-            player.addPiece(new Queen(3, y_others, player));
-            player.addPiece(new Bishop(2, y_others, player));
-            player.addPiece(new Bishop(5, y_others, player));
-            player.addPiece(new Knight(1, y_others, player));
-            player.addPiece(new Knight(6, y_others, player));
             player.addPiece(new Rook(0, y_others, player));
+            player.addPiece(new Knight(1, y_others, player));
+            player.addPiece(new Bishop(2, y_others, player));
+            player.addPiece(new Queen(3, y_others, player));
+            player.addPiece(new King(4, y_others, player));
+            if (custom) {
+                player.addPiece(new Dragon(5, y_others, player));
+                player.addPiece(new Cannon(6, y_others, player));
+            } else {
+                player.addPiece(new Bishop(5, y_others, player));
+                player.addPiece(new Knight(6, y_others, player));
+            }
             player.addPiece(new Rook(7, y_others, player));
 
-            // Allocate Pawns to both players
+            // Allocates Pawns to both players
             int y_pawns = arr_y_pawns[player_no];
             for (int x = 0; x < WIDTH; x++) {
                 player.addPiece(new Pawn(x, y_pawns, player, false));
             }
 
-            // Initialize Board Status
+            // Initializes Board Status
             for (Piece piece : player.getPieces()) {
                 Position pos = piece.getPosition();
                 setPiece(pos, piece);
@@ -70,6 +83,8 @@ public class Board {
                     case 'B': piece = new Bishop(x, y, player); break;
                     case 'N': piece = new Knight(x, y, player); break;
                     case 'R': piece = new Rook(x, y, player); break;
+                    case 'C': piece = new Cannon(x, y, player); break;
+                    case 'D': piece = new Dragon(x, y, player); break;
                     case 'P':
                         boolean hasMoved = (player_no == 0 && y != 1) || (player_no == 1 && y != 6);
                         piece = new Pawn(x, y, player, hasMoved);
@@ -93,7 +108,7 @@ public class Board {
     @Override
     public String toString() {
         StringBuilder resBuilder = new StringBuilder();
-        // Last row (8A-8H) on the top
+        // Puts the last row (8A-8H) on the top
         for (int i = boardStatus.length - 1; i >= 0; i--) {
             Piece[] row = boardStatus[i];
             for (Piece piece : row) {
@@ -132,7 +147,7 @@ public class Board {
     }
 
     /**
-     * Move a piece from the given position to another given position
+     * Moves a piece from the given position to another given position
      * @param currPlayer The player in the current round
      * @param src The source of the piece to be moved
      * @param dest The destination of the piece to be moved
@@ -140,17 +155,17 @@ public class Board {
      */
     public boolean movePieceByPosition(Player currPlayer, Position src, Position dest) {
         if (src.outsideOfBoard() || dest.outsideOfBoard()) {
-            return false; // Try to move from/to the outside of the board
+            return false; // Tries to move from/to the outside of the board
         }
 
         Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
         boolean destOccupied = false;
         if (getPiece(src) == null) {
-            return false; // Try to move an empty block
+            return false; // Tries to move an empty block
         }
         if (pieceDest != null) {
             if (pieceDest.getOwner() == currPlayer) {
-                return false; // Try to capture his own piece
+                return false; // Tries to capture his own piece
             }
             else destOccupied = true; // dest is occupied by his opponent
         }
@@ -158,7 +173,7 @@ public class Board {
         if (!canMovePiece(pieceSrc, dest, destOccupied)) {
             return false;
         }
-        // Check if King is selected and if it will die
+        // Checks if King is selected and if it will die
         if (pieceSrc == currPlayer.getKing()) {
             if (isKingInDanger(currPlayer, dest)) {
                 return false; // King puts itself into danger
@@ -169,13 +184,13 @@ public class Board {
         removePiece(src);
         setPiece(dest, pieceSrc);
         if (destOccupied) {
-            currPlayer.getOpponent().removePiece(pieceDest); // Remove from opponent's pieces
+            currPlayer.getOpponent().removePiece(pieceDest); // Removes it from opponent's pieces
         }
         return true;
     }
 
     /**
-     * Check if one player can move a valid piece to the another given destination by the piece's rule
+     * Checks if one player can move a valid piece to the another given destination by the piece's rule
      * NOTE: The logic of whether the King is being put in check is not checked in this method
      * @param pieceSrc The piece to be moved
      * @param dest The destination of the piece
@@ -186,14 +201,22 @@ public class Board {
         List<Position> checkUnoccupied = new ArrayList<>();
         if (!pieceSrc.canMoveTo(dest, destOccupied, checkUnoccupied)) return false;
         // Check if the given positions are unoccupied
+        boolean isCannon = pieceSrc instanceof Cannon, hurdleExists = false;
         for (Position toBeUnoccupied : checkUnoccupied) {
-            if (getPiece(toBeUnoccupied) != null) return false;
+            if (getPiece(toBeUnoccupied) != null) {
+                if (isCannon) { // pieceSrc is Cannon
+                    if (hurdleExists) return false; // At least two hurdles are found
+                    else hurdleExists = true;
+                } else { // pieceSrc is not Cannon
+                    return false;
+                }
+            }
         }
         return true;
     }
 
     /**
-     * Check if the King of the given player is being put in check
+     * Checks if the King of the given player is being put in check
      * @param currPlayer The given player that owns the King
      * @param posKing The position that the King is or will be located at
      * @return True if the King is being put in check
@@ -206,7 +229,7 @@ public class Board {
     }
 
     /**
-     * Check if the opponent is checkmated or stalemated at the end of the current round
+     * Checks if the opponent is checkmated or stalemated at the end of the current round
      * @param currPlayer The player in the current round
      * @return The current status of this game
      */
@@ -219,7 +242,7 @@ public class Board {
                 for (int x = 0; x < WIDTH; x++) {
                     Position src = pieceOpponent.getPosition(), dest = new Position(x, y);
 
-                    // Store the previous state
+                    // Stores the previous state
                     Piece[][] prevBoardStatus = new Piece[HEIGHT][WIDTH];
                     for (int i = 0; i < HEIGHT; i++) {
                         prevBoardStatus[i] = Arrays.copyOf(boardStatus[i], boardStatus[i].length);
@@ -230,7 +253,7 @@ public class Board {
                     if (!isKingInDanger(currOpponent, currOpponent.getKing().getPosition()))
                         solved = true; // King escapes from checkmate/stalemate
 
-                    // Recover to the previous state
+                    // Recovers the board to the previous state
                     getPiece(dest).moveTo(src);
                     boardStatus = prevBoardStatus;
                     if (pieceCaptured != null) currPlayer.addPiece(pieceCaptured);

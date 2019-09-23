@@ -26,11 +26,11 @@ public class GameView implements ActionListener {
     }
 
     /**
-     * Add Start Button forthis window
+     * Add Start Button for this window
      * @param window The window of whole GUI
      */
     private void initializeButton(JFrame window) {
-        JButton button = new JButton("Start");
+        JButton button = new JButton("Start / Restart");
         button.addActionListener(this);
         window.add(button, BorderLayout.SOUTH);
     }

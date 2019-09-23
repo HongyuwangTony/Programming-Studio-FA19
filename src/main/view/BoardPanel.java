@@ -1,7 +1,10 @@
 package main.view;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class BoardPanel extends JPanel {
     public BoardPanel() {
@@ -10,7 +13,9 @@ public class BoardPanel extends JPanel {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 String type = null, colorPlayer = null;
-                Color colorBackground = (i % 2 + j % 2) % 2 == 0 ? Color.white : Color.gray;
+                Color colorBackground = (i % 2 + j % 2) % 2 == 0 ?
+                        new Color(248, 207, 164) :  // #f8cfa4
+                        new Color(199, 141, 83);    // #c78d53
 
                 if (i <= 1) colorPlayer = "Black";
                 else if (i >= 6) colorPlayer = "White";
@@ -44,15 +49,15 @@ public class BoardPanel extends JPanel {
      */
     private JButton initializePiece(String type, String colorPlayer, Color colorBackground) {
         JButton piece = new JButton();
-        piece.setOpaque(true);
-        piece.setMargin(new Insets(0,0,0,0));
         piece.setPreferredSize(new Dimension(60, 60));
         piece.setVisible(true);
-        if (type != null) {
+        if (type != null) { // Fills in image for piece
             ImageIcon imgIcon = new ImageIcon("src/main/images/" + type + colorPlayer + ".png");
             piece.setIcon(imgIcon);
         }
         piece.setBackground(colorBackground);
+        piece.setOpaque(true);
+        piece.setBorderPainted(false);
         return piece;
     }
 }

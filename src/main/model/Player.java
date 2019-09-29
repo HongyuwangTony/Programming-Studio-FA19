@@ -13,29 +13,19 @@ import java.util.Scanner;
  */
 public class Player {
     // Object Members
-    private String name;
     private int player_no;
+    private int score;
     private Player opponent;
     private King king;
     private List<Piece> pieces;
 
     /**
      * Constructor of Player by his name and player number
-     * @param name The name of this player
      * @param player_no The player number of this player - White (0) / Black (1)
      */
-    public Player(String name, int player_no) {
-        this.name = name;
+    public Player(int player_no) {
         this.player_no = player_no;
         pieces = new ArrayList<>();
-    }
-
-    /**
-     * Getter of name
-     * @return The name of this player
-     */
-    public String getName() {
-        return name;
     }
 
     /**
@@ -44,6 +34,14 @@ public class Player {
      */
     public int getPlayerNo() {
         return player_no;
+    }
+
+    /**
+     * Getter of player_no
+     * @return The player number of this player
+     */
+    public String getPlayerColor() {
+        return player_no == 0 ? "White" : "Black";
     }
 
     /**
@@ -87,6 +85,10 @@ public class Player {
         pieces.remove(piece);
     }
 
+    public void clearPieces() {
+        pieces.clear();
+    }
+
     /**
      * Getter of pieces
      * @return The list of pieces owned by this player
@@ -95,20 +97,15 @@ public class Player {
         return pieces;
     }
 
-    /**
-     * Reads input from the given input stream to get source and destination
-     * @param inputStream The input stream that reads user input
-     * @return A tuple of positions [src, dest]
-     */
-    public Position[] takeAction(InputStream inputStream) {
-        Scanner scan = new Scanner(inputStream);
-        Position src, dest;
-        try {
-            src = new Position(scan.nextLine());
-            dest = new Position(scan.nextLine());
-        } catch (NoSuchElementException e) {
-            return null;
-        }
-        return new Position[]{src, dest};
+    public int getScore() {
+        return score;
+    }
+
+    public void incScore() {
+        score++;
+    }
+
+    public void clearScore() {
+        score = 0;
     }
 }

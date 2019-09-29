@@ -50,4 +50,9 @@ public class Dragon extends Piece {
     public String toString() {
         return owner.getPlayerNo() == 0 ? "D" : "d";
     }
+
+    @Override
+    public String getFullName() {
+        return "Dragon";
+    }
 }

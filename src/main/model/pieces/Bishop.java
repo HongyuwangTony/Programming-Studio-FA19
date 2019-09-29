@@ -45,4 +45,9 @@ public class Bishop extends Piece {
     public String toString() {
         return owner.getPlayerNo() == 0 ? "B" : "b";
     }
+
+    @Override
+    public String getFullName() {
+        return "Bishop";
+    }
 }

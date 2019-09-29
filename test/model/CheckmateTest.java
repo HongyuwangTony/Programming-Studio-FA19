@@ -1,15 +1,15 @@
-package test;
+package model;
 
-import junit.framework.*;
 import main.model.*;
-import main.model.pieces.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CheckmateTest extends TestCase {
+public class CheckmateTest extends MovementTest {
     // Tests are from https://en.wikipedia.org/wiki/Checkmate#Examples
 
     // Fool's Mate
+    @Test
     public void testCheckmate1() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String currStatus =
                 "rnb_kbnr\n" +
                 "pppp_ppp\n" +
@@ -19,14 +19,14 @@ public class CheckmateTest extends TestCase {
                 "_____P__\n" +
                 "PPPPP__P\n" +
                 "RNBQKBNR\n";
-        Board board = new Board(players, currStatus);
+        initializeBoard(currStatus, false);
         // White is checkmated
         assertEquals(Game.Status.CHECKMATE, board.isCheckmateOrStalemate(players[1]));
     }
 
     // D. Byrne vs. Fischer
+    @Test
     public void testCheckmate2() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String currStatus =
                 "_Q______\n" +
                 "_____pk_\n" +
@@ -36,14 +36,14 @@ public class CheckmateTest extends TestCase {
                 "_bn_____\n" +
                 "__r___P_\n" +
                 "__K_____\n";
-        Board board = new Board(players, currStatus);
+        initializeBoard(currStatus, false);
         // White is checkmated
         assertEquals(Game.Status.CHECKMATE, board.isCheckmateOrStalemate(players[1]));
     }
 
     // Checkmate with a rook
+    @Test
     public void testCheckmate3() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String currStatus =
                 "________\n" +
                 "________\n" +
@@ -53,7 +53,7 @@ public class CheckmateTest extends TestCase {
                 "________\n" +
                 "________\n" +
                 "_______R\n";
-        Board board = new Board(players, currStatus);
+        initializeBoard(currStatus, false);
         // White is checkmated
         assertEquals(Game.Status.CHECKMATE, board.isCheckmateOrStalemate(players[0]));
     }

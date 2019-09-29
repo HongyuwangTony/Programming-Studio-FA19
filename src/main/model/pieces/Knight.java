@@ -43,4 +43,9 @@ public class Knight extends Piece {
     public String toString() {
         return owner.getPlayerNo() == 0 ? "N" : "n";
     }
+
+    @Override
+    public String getFullName() {
+        return "Knight";
+    }
 }

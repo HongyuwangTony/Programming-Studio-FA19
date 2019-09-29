@@ -1,12 +1,13 @@
-package test.pieces;
+package model.pieces;
 
-import junit.framework.*;
 import main.model.*;
 import main.model.pieces.*;
+import model.MovementTest;
+import org.junit.jupiter.api.Test;
 
-public class RookTest extends TestCase {
+public class RookTest extends MovementTest {
+    @Test
     public void testMoveVertically() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "pppppppp\n" +
@@ -25,14 +26,13 @@ public class RookTest extends TestCase {
                 "__N_____\n" +
                 "PPPPPPPP\n" +
                 "_RBQKBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.movePieceByPosition(players[0], new Position("A1"), new Position("B1")));
-        assertTrue(board.toString().equals(after));
-        assertEquals(Game.Status.CONTINUE, board.isCheckmateOrStalemate(players[0]));
+        initializeBoard(before, false);
+        testType("A1", Rook.class);
+        testLegalMove(0, "A1,B1", after, Game.Status.CONTINUE);
     }
 
+    @Test
     public void testMoveHorizontally() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "pppp_ppp\n" +
@@ -51,14 +51,13 @@ public class RookTest extends TestCase {
                 "R_______\n" +
                 "_PPPPPPP\n" +
                 "_NBQKBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.movePieceByPosition(players[0], new Position("A1"), new Position("A3")));
-        assertTrue(board.toString().equals(after));
-        assertEquals(Game.Status.CONTINUE, board.isCheckmateOrStalemate(players[0]));
+        initializeBoard(before, false);
+        testType("A1", Rook.class);
+        testLegalMove(0, "A1,A3", after, Game.Status.CONTINUE);
     }
 
+    @Test
     public void testInvalidDirection() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "p_pppppp\n" +
@@ -68,15 +67,14 @@ public class RookTest extends TestCase {
                 "_P______\n" +
                 "P_PPPPPP\n" +
                 "RNBQKBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.getPiece(new Position("A1")) instanceof Rook);
-        // Test if Rook can move diagonally
-        assertFalse(board.movePieceByPosition(players[0], new Position("A1"), new Position("B2")));
-        assertTrue(board.toString().equals(before));
+        initializeBoard(before, false);
+        testType("A1", Rook.class);
+        // Tests if Rook cannot move diagonally
+        testIllegalMove(0, "A1,B2");
     }
 
+    @Test
     public void testCannotCross() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "__pppppp\n" +
@@ -86,14 +84,12 @@ public class RookTest extends TestCase {
                 "___PB___\n" +
                 "_PP_PPPP\n" +
                 "RN_QKBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.getPiece(new Position("A1")) instanceof Rook);
-        // Test if Queen cannot cross any pieces
-        // Cross opponent
-        assertFalse(board.movePieceByPosition(players[0], new Position("A1"), new Position("A5")));
-        assertTrue(board.toString().equals(before));
-        // Cross his own pieces
-        assertFalse(board.movePieceByPosition(players[0], new Position("A1"), new Position("C1")));
-        assertTrue(board.toString().equals(before));
+        initializeBoard(before, false);
+        testType("A1", Rook.class);
+        // Tests if Rook cannot cross any pieces
+        // Crosses opponent
+        testIllegalMove(0, "A1,A5");
+        // Crosses his own pieces
+        testIllegalMove(0, "A1,C1");
     }
 }

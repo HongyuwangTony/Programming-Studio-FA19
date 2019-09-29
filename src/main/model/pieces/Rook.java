@@ -45,4 +45,9 @@ public class Rook extends Piece {
     public String toString() {
         return owner.getPlayerNo() == 0 ? "R" : "r";
     }
+
+    @Override
+    public String getFullName() {
+        return "Rook";
+    }
 }

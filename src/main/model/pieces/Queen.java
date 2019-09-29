@@ -45,4 +45,9 @@ public class Queen extends Piece {
     public String toString() {
         return owner.getPlayerNo() == 0 ? "Q" : "q";
     }
+
+    @Override
+    public String getFullName() {
+        return "Queen";
+    }
 }

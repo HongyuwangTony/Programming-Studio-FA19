@@ -31,6 +31,12 @@ public class Position {
         y = coord.charAt(1) - '1';
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof Position)) return false;
+        return x == ((Position)other).x && y == ((Position)other).y;
+    }
+
     /**
      * Encode the Position object into String
      * @return The String encoded by this object

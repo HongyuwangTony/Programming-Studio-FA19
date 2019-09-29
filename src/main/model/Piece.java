@@ -53,4 +53,11 @@ public abstract class Piece {
      *         False otherwise
      */
     public abstract boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied);
+
+    public abstract String getFullName();
+
+    public String getImageFileName() {
+        String color = owner.getPlayerNo() == 0 ? "White" : "Black";
+        return "src/main/images/" + getFullName() + color + ".png";
+    }
 }

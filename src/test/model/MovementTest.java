@@ -1,13 +1,8 @@
 package model;
 
-import model.Board;
-import model.Game;
-import model.Player;
-import model.Position;
 import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 
 public class MovementTest {
     protected Player players[];

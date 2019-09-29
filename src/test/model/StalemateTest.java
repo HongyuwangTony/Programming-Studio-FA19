@@ -1,6 +1,6 @@
 package model;
 
-import main.model.*;
+import model.Game;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

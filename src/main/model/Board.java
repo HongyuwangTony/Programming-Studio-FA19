@@ -1,14 +1,12 @@
-package main.model;
+package model;
 
-import main.model.pieces.*;
+import model.pieces.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import static main.model.Game.Status.CHECKMATE;
-import static main.model.Game.Status.CONTINUE;
-import static main.model.Game.Status.STALEMATE;
+import static model.Game.Status.*;
 
 /**
  * Board Class recording all the pieces on the board

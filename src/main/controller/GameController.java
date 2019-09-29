@@ -1,12 +1,12 @@
-package main.controller;
+package controller;
 
-import main.model.*;
+import model.*;
 
 import javax.swing.*;
 
 import java.awt.*;
 
-import static main.model.Game.NUM_PLAYERS;
+import static model.Game.NUM_PLAYERS;
 
 public class GameController {
     private Game game;

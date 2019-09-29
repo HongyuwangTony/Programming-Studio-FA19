@@ -1,7 +1,7 @@
 package model.pieces;
 
-import main.model.*;
-import main.model.pieces.Cannon;
+import model.Game;
+import model.pieces.Cannon;
 import model.MovementTest;
 import org.junit.jupiter.api.Test;
 

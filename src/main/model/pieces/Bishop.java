@@ -1,6 +1,6 @@
-package main.model.pieces;
+package model.pieces;
 
-import main.model.*;
+import model.*;
 
 import java.util.List;
 

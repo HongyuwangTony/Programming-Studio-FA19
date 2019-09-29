@@ -1,13 +1,13 @@
-package main.controller;
+package controller;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-import main.model.*;
-import static main.model.Board.HEIGHT;
-import static main.model.Board.WIDTH;
-import static main.view.BoardView.*;
+import model.*;
+import static model.Board.HEIGHT;
+import static model.Board.WIDTH;
+import static view.BoardView.*;
 
 public class BoardController {
     private Board board;

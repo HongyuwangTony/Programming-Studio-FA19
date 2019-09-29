@@ -1,12 +1,5 @@
 package model;
 
-import main.model.Board;
-import main.model.Game;
-import main.model.Player;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 public class GameLogicTest {
 //    public void testRoundAlternating() {
 //        String userInput = "A2\nA3\n";

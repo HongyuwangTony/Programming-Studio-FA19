@@ -1,7 +1,7 @@
 package model;
 
-import main.model.Piece;
-import main.model.Player;
+import model.Piece;
+import model.Player;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

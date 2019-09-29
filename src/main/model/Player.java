@@ -1,12 +1,9 @@
-package main.model;
+package model;
 
-import main.model.pieces.King;
+import model.pieces.King;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * Player Class which contains pieces ownership of a particular player

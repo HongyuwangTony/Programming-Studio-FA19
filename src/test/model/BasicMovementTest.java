@@ -1,7 +1,8 @@
 package model;
 
-import main.model.pieces.*;
-
+import model.pieces.Pawn;
+import model.pieces.Queen;
+import model.pieces.Rook;
 import org.junit.jupiter.api.Test;
 
 public class BasicMovementTest extends MovementTest {

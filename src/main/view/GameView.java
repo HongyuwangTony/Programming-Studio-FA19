@@ -1,9 +1,9 @@
-package main.view;
-import main.controller.GameController;
-import main.model.Game;
+package view;
+
+import controller.GameController;
+import model.Game;
 
 import java.awt.*;
-
 import javax.swing.*;
 
 

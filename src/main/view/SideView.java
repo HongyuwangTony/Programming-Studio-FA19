@@ -1,7 +1,7 @@
-package main.view;
+package view;
 
-import main.controller.GameController;
-import main.model.Player;
+import controller.GameController;
+import model.Player;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

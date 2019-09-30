@@ -46,6 +46,10 @@ public class Rook extends Piece {
         return owner.getPlayerNo() == 0 ? "R" : "r";
     }
 
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
     @Override
     public String getFullName() {
         return "Rook";

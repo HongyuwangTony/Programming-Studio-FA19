@@ -48,6 +48,10 @@ public class King extends Piece {
         return owner.getPlayerNo() == 0 ? "K" : "k";
     }
 
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
     @Override
     public String getFullName() {
         return "King";

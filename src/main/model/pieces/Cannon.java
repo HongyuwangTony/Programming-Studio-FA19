@@ -47,6 +47,10 @@ public class Cannon extends Piece {
         return owner.getPlayerNo() == 0 ? "C" : "c";
     }
 
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
     @Override
     public String getFullName() {
         return "Cannon";

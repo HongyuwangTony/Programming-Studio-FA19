@@ -22,6 +22,10 @@ public class Pawn extends Piece {
         if (!hasMoved) initPos = new Position(x, y);
     }
 
+    /**
+     * Checks if this Pawn has moved
+     * @return True if this Pawn has moved
+     */
     private boolean hasMoved() {
         return !currPos.equals(initPos);
     }
@@ -66,6 +70,10 @@ public class Pawn extends Piece {
         return owner.getPlayerNo() == 0 ? "P" : "p";
     }
 
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
     @Override
     public String getFullName() {
         return "Pawn";

@@ -25,11 +25,17 @@ public class Board {
     /**
      * Constructor of Board that is set at the initial game state
      * @param players The players who are related to the game of this board
+     * @param custom True if custom pieces are used
      */
     public Board(Player[] players, boolean custom) {
         initiate(players, custom);
     }
 
+    /**
+     * Initialize / Re-initialize the board to the initial state
+     * @param players The players who are related to the game of this board
+     * @param custom True if custom pieces are used
+     */
     public void initiate(Player players[], boolean custom) {
         boardStatus = new Piece[HEIGHT][WIDTH];
 
@@ -153,32 +159,53 @@ public class Board {
         boardStatus[position.y][position.x] = piece;
     }
 
+    /**
+     * Removes the last executed command recorded in this object and returns it
+     * @return The last executed command
+     */
     public Command removeLastCommand() {
         Command ret = lastCommand;
         lastCommand = null;
         return ret;
     }
 
+    /**
+     * Undoes the given command to this board
+     * @param cmd The command to be undone
+     */
     public void undoCommand(Command cmd) {
         Position prevSrc = cmd.getSrc(), prevDest = cmd.getDest();
         Piece pieceCaptured = cmd.getPieceCaptured();
 
-        // Recover pieceSrc
+        // Recovers pieceSrc
         setPiece(prevSrc, getPiece(prevDest));
         getPiece(prevDest).moveTo(prevSrc);
         removePiece(prevDest);
 
-        // Recover pieceDest
+        // Recovers pieceDest
         if (pieceCaptured != null) {
             setPiece(prevDest, pieceCaptured);
             pieceCaptured.getOwner().addPiece(pieceCaptured);
         }
     }
 
+    /**
+     * Checks if the given source and destination are legal for the given player
+     * @param currPlayer The given player who is going to move a piece from src to dest
+     * @param src The given source for a piece
+     * @param dest The given destination for a piece
+     * @return True if the given source and destination are both legal
+     */
     public boolean arePositionsLegal(Player currPlayer, Position src, Position dest) {
         return isSourceLegal(currPlayer, src) && isDestinationLegal(currPlayer, dest);
     }
 
+    /**
+     * Checks if the given source is legal for the given player
+     * @param currPlayer The given player who is going to move a piece from src
+     * @param src The given source for a piece
+     * @return True if the given source is legal
+     */
     public boolean isSourceLegal(Player currPlayer, Position src) {
         if (src.outsideOfBoard()) return false; // Tries to move from the outside of the board
         Piece pieceSrc = getPiece(src);
@@ -188,6 +215,12 @@ public class Board {
         return true;
     }
 
+    /**
+     * Checks if the given destination is legal for the given player
+     * @param currPlayer The given player who is going to move a piece to dest
+     * @param dest The given destination for a piece
+     * @return True if the given destination is legal
+     */
     public boolean isDestinationLegal(Player currPlayer, Position dest) {
         if (dest.outsideOfBoard()) return false; // Tries to move to the outside of the board
         Piece pieceDest = getPiece(dest);
@@ -198,11 +231,12 @@ public class Board {
     }
 
     /**
-     * Moves a piece from the given position to another given position
+     * Tries to move a piece from the given position to another given position
+     * Precondition: The two positions are legal
      * @param currPlayer The player in the current round
      * @param src The source of the piece to be moved
      * @param dest The destination of the piece to be moved
-     * @return True if the current player is able to move the piece by the given positions
+     * @return True if the given player is able to move the piece by the given positions
      */
     public boolean tryMovePiece(Player currPlayer, Position src, Position dest) {
         Piece pieceSrc = getPiece(src), pieceDest = getPiece(dest);
@@ -227,37 +261,6 @@ public class Board {
             return false;
         }
         return true;
-    }
-
-    /**
-     * Checks if the opponent is checkmated or stalemated at the end of the current round
-     * @param currPlayer The player in the current round
-     * @return The current status of this game
-     */
-    public Game.Status isCheckmateOrStalemate(Player currPlayer) {
-        Player currOpponent = currPlayer.getOpponent();
-        boolean isCheckmate = isInCheck(currOpponent);
-        for (Piece pieceOpponent : currOpponent.getPieces()) {
-            if (!searchLegalDestinations(pieceOpponent).isEmpty()) return CONTINUE;
-        }
-        return isCheckmate ? CHECKMATE : STALEMATE;
-    }
-
-    public List<Position> searchLegalDestinations(Piece piece) {
-        List<Position> legalDests = new LinkedList<>();
-        Position src = piece.getPosition();
-        Player owner = piece.getOwner();
-        for (int y = 0; y < HEIGHT; y++) {
-            for (int x = 0; x < WIDTH; x++) {
-                Position dest = new Position(x, y);
-                if (!arePositionsLegal(owner, src, dest)) continue;
-                if (tryMovePiece(owner, src, dest)) { // Upon success, King escapes from checkmate/stalemate
-                    undoCommand(removeLastCommand()); // Recovers to the previous state
-                    legalDests.add(dest);
-                }
-            }
-        }
-        return legalDests;
     }
 
     /**
@@ -287,6 +290,28 @@ public class Board {
     }
 
     /**
+     * Searches the legal destinations for the given piece
+     * @param piece The piece to be moved
+     * @return A list of destinations the given piece can move to
+     */
+    public List<Position> searchLegalDestinations(Piece piece) {
+        List<Position> legalDestList = new LinkedList<>();
+        Position src = piece.getPosition();
+        Player owner = piece.getOwner();
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
+                Position dest = new Position(x, y);
+                if (!arePositionsLegal(owner, src, dest)) continue;
+                if (tryMovePiece(owner, src, dest)) { // Upon success, King escapes from checkmate/stalemate
+                    undoCommand(removeLastCommand()); // Recovers to the previous state
+                    legalDestList.add(dest);
+                }
+            }
+        }
+        return legalDestList;
+    }
+
+    /**
      * Checks if the King of the given player is being put in check
      * @param currPlayer The given player that owns the King
      * @param posKing The position that the King is or will be located at
@@ -298,5 +323,19 @@ public class Board {
             if (canMovePiece(pieceOpponent, posKing, true)) return true;
         }
         return false;
+    }
+
+    /**
+     * Checks if the opponent is checkmated or stalemated at the end of the current round
+     * @param currPlayer The player in the current round
+     * @return The current status of this game
+     */
+    public Game.Status isCheckmateOrStalemate(Player currPlayer) {
+        Player currOpponent = currPlayer.getOpponent();
+        boolean isCheckmate = isInCheck(currOpponent);
+        for (Piece pieceOpponent : currOpponent.getPieces()) {
+            if (!searchLegalDestinations(pieceOpponent).isEmpty()) return CONTINUE;
+        }
+        return isCheckmate ? CHECKMATE : STALEMATE;
     }
 }

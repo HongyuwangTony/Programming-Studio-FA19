@@ -51,6 +51,10 @@ public class Dragon extends Piece {
         return owner.getPlayerNo() == 0 ? "D" : "d";
     }
 
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
     @Override
     public String getFullName() {
         return "Dragon";

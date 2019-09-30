@@ -14,10 +14,6 @@ public class Game {
     // Constants
     public final static int NUM_PLAYERS = 2;
 
-    public Player[] getPlayers() {
-        return players;
-    }
-
     // Object Members
     private Player[] players;
     private Board board;
@@ -36,14 +32,25 @@ public class Game {
         isStarted = false;
     }
 
+    /**
+     * Checks if the game is started
+     * @return True if the game is started
+     */
     public boolean isStarted() {
         return isStarted;
     }
 
+    /**
+     * Starts the game, setting isStarted to be true
+     */
     public void start() {
         isStarted = true;
     }
 
+    /**
+     * Restarts the game, resetting the board and the pieces
+     * @param custom True if custom pieces are used
+     */
     public void restart(boolean custom) {
         for (Player player : players) player.clearPieces();
         board.initiate(players, custom);
@@ -59,8 +66,20 @@ public class Game {
         return currRound;
     }
 
+    /**
+     * Gets the player in the current round
+     * @return The current player
+     */
     public Player getCurrPlayer() {
         return players[currRound];
+    }
+
+    /**
+     * Getter of players
+     * @return A Player array of the players in this game
+     */
+    public Player[] getPlayers() {
+        return players;
     }
 
     /**
@@ -71,6 +90,10 @@ public class Game {
         this.players = players;
     }
 
+    /**
+     * Getter of board
+     * @return The current board in this game
+     */
     public Board getBoard() {
         return board;
     }
@@ -83,10 +106,6 @@ public class Game {
         this.board = board;
     }
 
-    public void alternateRound() {
-        currRound = (currRound + 1) % NUM_PLAYERS;
-    }
-
     /**
      * Checks the ending condition of this game
      * @return True if a player is checkmated or stalemated
@@ -95,10 +114,25 @@ public class Game {
         return board.isCheckmateOrStalemate(getCurrPlayer());
     }
 
+    /**
+     * Alternates the round
+     */
+    public void alternateRound() {
+        currRound = (currRound + 1) % NUM_PLAYERS;
+    }
+
+    /**
+     * Records the given command into the stack
+     * @param cmd The given command to be recorded
+     */
     public void recordCommand(Command cmd) {
         cmdExecuted.push(cmd);
     }
 
+    /**
+     * Undoes the last command recorded
+     * @return True if there is a command that can be undone
+     */
     public boolean undoLastCommand() {
         if (cmdExecuted.isEmpty()) return false;
         board.undoCommand(cmdExecuted.pop());

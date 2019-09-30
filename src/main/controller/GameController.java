@@ -1,14 +1,14 @@
 package controller;
 
-import model.*;
-
 import javax.swing.*;
-
 import java.awt.*;
 
+import model.*;
 import static model.Game.NUM_PLAYERS;
 
 public class GameController {
+    public static boolean debug = false;
+
     private Game game;
     private BoardController boardController;
 
@@ -34,11 +34,19 @@ public class GameController {
         boardController.setUpButton(posPiece, pieceButton);
     }
 
-    public void refreshScore(Player player) {
+    public JLabel[] getScoreLabels() {
+        return scoreLabels;
+    }
+
+    public JPanel[] getLights() {
+        return lights;
+    }
+
+    private void refreshScore(Player player) {
         scoreLabels[player.getPlayerNo()].setText(Integer.toString(player.getScore()));
     }
 
-    public void alternateRound() {
+    private void alternateRound() {
         lights[game.getCurrPlayer().getPlayerNo()].setBackground(Color.WHITE);
         game.alternateRound();
         lights[game.getCurrPlayer().getPlayerNo()].setBackground(Color.GREEN);
@@ -60,40 +68,43 @@ public class GameController {
     }
 
     private boolean isEnding() {
+        boolean result;
         switch (game.getStatus()) {
             case CHECKMATE:
-                Player winner = game.getCurrPlayer().getOpponent();
-                JOptionPane.showMessageDialog(null,
-                        winner.getPlayerColor() + " Player Checkmates!",
-                        "Notice", JOptionPane.INFORMATION_MESSAGE);
+                Player winner = game.getCurrPlayer();
+                showMessage(winner.getPlayerColor() + " Player Checkmates!", "Notice");
                 winner.incScore();
                 restart(false);
-                return true;
+                result = true;
+                break;
             case STALEMATE:
-                JOptionPane.showMessageDialog(null,
-                        "Game Stalemates!",
-                        "Notice", JOptionPane.INFORMATION_MESSAGE);
+                showMessage("Game stalemates!", "Notice");
                 restart(false);
-                return true;
+                result = true;
+                break;
             default:
-                return false;
+                result = false;
         }
+        return result;
     }
 
     public void clickOnBoard(Position posClicked) {
         if (!game.isStarted()) {
-            JOptionPane.showMessageDialog(null,
-                    "Game is not started.",
-                    "Warning", JOptionPane.INFORMATION_MESSAGE);
+            showMessage("Game is not started.", "Warning");
             return;
         }
 
-        boardController.clickedOn(game.getCurrPlayer(), posClicked);
+        Player currPlayer = game.getCurrPlayer();
+        boardController.clickedOn(currPlayer, posClicked);
         Command lastCmd = boardController.removeLastCommand();
         if (lastCmd != null) {
             if (isEnding()) return;
             game.recordCommand(lastCmd);
             alternateRound();
+            if (boardController.isInCheck(currPlayer.getOpponent())) {
+                showMessage(currPlayer.getOpponent().getPlayerColor() + " Player is in Check!",
+                        "Notice");
+            }
         }
     }
 
@@ -102,13 +113,9 @@ public class GameController {
             if (buttonText.equals("Start / Restart")) { // Start
                 lights[0].setBackground(Color.GREEN);
                 game.start();
-                JOptionPane.showMessageDialog(null,
-                        "Game Starts!",
-                        "Notice", JOptionPane.INFORMATION_MESSAGE);
+                showMessage("Game starts!", "Notice");
             } else {
-                JOptionPane.showMessageDialog(null,
-                        "Game is not started.",
-                        "Warning", JOptionPane.INFORMATION_MESSAGE);
+                showMessage("Game is not started.", "Warning");
             }
         } else { // If game is started
             if (buttonText.equals("Start / Restart")) requestRestart();
@@ -132,9 +139,13 @@ public class GameController {
             boardController.refreshBoard();
             alternateRound();
         } else {
-            JOptionPane.showMessageDialog(null,
-                    "No command can be undone at this time.",
-                    "Warning", JOptionPane.INFORMATION_MESSAGE);
+            showMessage("No command can be undone at this time.", "Warning");
+        }
+    }
+
+    public static void showMessage(String message, String title) {
+        if (!debug) {
+            JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

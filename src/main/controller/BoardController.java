@@ -84,6 +84,8 @@ public class BoardController {
                     board.tryMovePiece(currPlayer, posSrcPiece, posClicked)) {
                 refreshButton(posSrcPiece);
                 refreshButton(posClicked);
+            } else if (!posClicked.equals(posSrcPiece)) { // NOTE: click on the same piece to cancel
+                GameController.showMessage("Illegal movement is detected!", "Warning");
             }
             posSrcPiece = null;
             legalDestList = null;
@@ -92,5 +94,9 @@ public class BoardController {
 
     public Command removeLastCommand() {
         return board.removeLastCommand();
+    }
+
+    public boolean isInCheck(Player currPlayer) {
+        return board.isInCheck(currPlayer);
     }
 }

@@ -222,7 +222,7 @@ public class Board {
         lastCommand = new Command(src, dest, pieceDest);
 
         // Checks if the current player's King is in danger
-        if (isKingInDanger(currPlayer)) {
+        if (isInCheck(currPlayer)) {
             undoCommand(removeLastCommand());
             return false;
         }
@@ -236,7 +236,7 @@ public class Board {
      */
     public Game.Status isCheckmateOrStalemate(Player currPlayer) {
         Player currOpponent = currPlayer.getOpponent();
-        boolean isCheckmate = isKingInDanger(currOpponent);
+        boolean isCheckmate = isInCheck(currOpponent);
         for (Piece pieceOpponent : currOpponent.getPieces()) {
             if (!searchLegalDestinations(pieceOpponent).isEmpty()) return CONTINUE;
         }
@@ -292,7 +292,7 @@ public class Board {
      * @param posKing The position that the King is or will be located at
      * @return True if the King is being put in check
      */
-    public boolean isKingInDanger(Player currPlayer) {
+    public boolean isInCheck(Player currPlayer) {
         Position posKing = currPlayer.getKing().getPosition();
         for (Piece pieceOpponent : currPlayer.getOpponent().getPieces()) {
             if (canMovePiece(pieceOpponent, posKing, true)) return true;

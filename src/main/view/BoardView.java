@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+/**
+ * BoardView Class that initializes the view of board, including the coordinates and all pieces
+ */
 public class BoardView extends JPanel {
     public static final Color lightBackground = new Color(198, 169, 125);  // #f8cfa4
     public static final Color darkBackground = new Color(115, 45, 40);    // #5a2b26
@@ -17,8 +20,14 @@ public class BoardView extends JPanel {
             BorderFactory.createStrokeBorder(new BasicStroke(5.0f), Color.GREEN);
     private static final Font fontCoordinates = new Font("Courier", Font.PLAIN, 20);
 
+    // Corresponding Model
     private Board board;
 
+    /**
+     * Constructor of BoardView
+     * @param board The corresponding Board model
+     * @param gameController The GameController object that controls the pieces on the board view
+     */
     public BoardView(Board board, GameController gameController) {
         this.board = board;
         this.setLayout(new GridBagLayout()); // Uses GridBag Layout for compact structure
@@ -32,6 +41,10 @@ public class BoardView extends JPanel {
         this.setBorder(new EmptyBorder(30, 0, 20, 0));
     }
 
+    /**
+     * Adds X Coordinates to the board view
+     * @param x The x coordinate to be added
+     */
     private void addXCoordinate(int x) {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = x + 1;
@@ -44,6 +57,10 @@ public class BoardView extends JPanel {
         this.add(xLabel, constraints);
     }
 
+    /**
+     * Adds Y Coordinates to the board view
+     * @param y The y coordinate to be added
+     */
     private void addYCoordinate(int y) {
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0;
@@ -56,15 +73,18 @@ public class BoardView extends JPanel {
     }
 
     /**
-     * Initializes piece with given type, player and background color
+     * Adds piece with corresponding type, color and background color to the board view
+     * @param pos The corresponding position on the board model
+     * @param gameController The GameController object that listens and controls the updates on the pieces
      */
     private void addPiece(Position pos, GameController gameController) {
         JButton pieceButton = new JButton();
         pieceButton.setPreferredSize(new Dimension(60, 60));
         pieceButton.setVisible(true);
 
+        // Fills in image for non-empty piece
         Piece piece = board.getPiece(pos);
-        if (piece != null) { // Fills in image for non-empty piece
+        if (piece != null) {
             pieceButton.setIcon(new ImageIcon(piece.getImageFileName()));
         }
 

@@ -82,10 +82,6 @@ public class Player {
         pieces.remove(piece);
     }
 
-    public void clearPieces() {
-        pieces.clear();
-    }
-
     /**
      * Getter of pieces
      * @return The list of pieces owned by this player
@@ -94,14 +90,31 @@ public class Player {
         return pieces;
     }
 
+    /**
+     * Clears all pieces owned by this player
+     */
+    public void clearPieces() {
+        pieces.clear();
+    }
+
+    /**
+     * Getter of score
+     * @return The score of this player
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * Increments the score of this player by 1
+     */
     public void incScore() {
         score++;
     }
 
+    /**
+     * Sets the score of this player back to 0
+     */
     public void clearScore() {
         score = 0;
     }

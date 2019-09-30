@@ -31,6 +31,11 @@ public class Position {
         y = coord.charAt(1) - '1';
     }
 
+    /**
+     * Checks if this Position is equal to another object
+     * @param other The other object to check equality
+     * @return True if the argument is a Position object and refers to the same position
+     */
     @Override
     public boolean equals(Object other) {
         if (!(other instanceof Position)) return false;
@@ -38,7 +43,7 @@ public class Position {
     }
 
     /**
-     * Encode the Position object into String
+     * Encodes the Position object into String
      * @return The String encoded by this object
      */
     @Override
@@ -47,7 +52,7 @@ public class Position {
     }
 
     /**
-     * Judging whether the position is outside of the board
+     * Judges whether the position is outside of the board
      * @return True if this position is outside of the board
      *         False otherwise
      */
@@ -58,7 +63,7 @@ public class Position {
     }
 
     /**
-     * Calculate the direction from current position to destination and check if it is legal in Chess Game
+     * Calculates the direction from current position to destination and check if it is legal in Chess Game
      * @param dest The Position object indicating the given destination
      * @return The direction from current position to destination
      */

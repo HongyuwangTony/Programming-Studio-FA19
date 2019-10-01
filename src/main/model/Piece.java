@@ -1,4 +1,4 @@
-package main.model;
+package model;
 
 import java.util.List;
 
@@ -53,4 +53,19 @@ public abstract class Piece {
      *         False otherwise
      */
     public abstract boolean canMoveTo(Position dest, boolean destOccupied, List<Position> checkUnoccupied);
+
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
+    public abstract String getFullName();
+
+    /**
+     * Gets the corresponding image file name of this piece
+     * @return The corresponding image file name of this piece
+     */
+    public String getImageFileName() {
+        String color = owner.getPlayerNo() == 0 ? "White" : "Black";
+        return "src/main/images/" + getFullName() + color + ".png";
+    }
 }

@@ -1,12 +1,13 @@
-package test.pieces;
+package model.pieces;
 
-import junit.framework.TestCase;
-import main.model.*;
-import main.model.pieces.*;
+import model.Game;
+import model.pieces.Queen;
+import model.MovementTest;
+import org.junit.jupiter.api.Test;
 
-public class QueenTest extends TestCase {
+public class QueenTest extends MovementTest {
+    @Test
     public void testMoveVertically() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "pppp_ppp\n" +
@@ -25,14 +26,13 @@ public class QueenTest extends TestCase {
                 "________\n" +
                 "PPP_PPPP\n" +
                 "RNB_KBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.movePieceByPosition(players[0], new Position("D1"), new Position("D4")));
-        assertTrue(board.toString().equals(after));
-        assertEquals(Game.Status.CONTINUE, board.isCheckmateOrStalemate(players[0]));
+        initializeBoard(before, false);
+        testType("D1", Queen.class);
+        testLegalMove(0, "D1,D4", after, Game.Status.CONTINUE);
     }
 
+    @Test
     public void testMoveHorizontally() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "pppp_ppp\n" +
@@ -51,14 +51,13 @@ public class QueenTest extends TestCase {
                 "____p___\n" +
                 "PPP_PPPP\n" +
                 "RNQ_KBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.movePieceByPosition(players[0], new Position("D1"), new Position("C1")));
-        assertTrue(board.toString().equals(after));
-        assertEquals(Game.Status.CONTINUE, board.isCheckmateOrStalemate(players[0]));
+        initializeBoard(before, false);
+        testType("D1", Queen.class);
+        testLegalMove(0, "D1,C1", after, Game.Status.CONTINUE);
     }
 
+    @Test
     public void testMoveDiagonally() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "pppp_ppp\n" +
@@ -77,14 +76,13 @@ public class QueenTest extends TestCase {
                 "____Q___\n" +
                 "PPP_PPPP\n" +
                 "RN__KBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.movePieceByPosition(players[0], new Position("C1"), new Position("E3")));
-        assertTrue(board.toString().equals(after));
-        assertEquals(Game.Status.CONTINUE, board.isCheckmateOrStalemate(players[0]));
+        initializeBoard(before, false);
+        testType("C1", Queen.class);
+        testLegalMove(0, "C1,E3", after, Game.Status.CONTINUE);
     }
 
+    @Test
     public void testInvalidDirection() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "pppp_ppp\n" +
@@ -94,15 +92,14 @@ public class QueenTest extends TestCase {
                 "____Q___\n" +
                 "PPP_PPPP\n" +
                 "RN__KBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.getPiece(new Position("E3")) instanceof Queen);
-        // Test in L-shape
-        assertFalse(board.movePieceByPosition(players[0], new Position("E3"), new Position("G4")));
-        assertTrue(board.toString().equals(before));
+        initializeBoard(before, false);
+        // Tests in L-shape
+        testType("E3", Queen.class);
+        testIllegalMove(0, "E3,G4");
     }
 
+    @Test
     public void testCannotCross() {
-        Player[] players = Game.generatePlayers("White", "Black");
         String before =
                 "rnbqkbnr\n" +
                 "ppppp_pp\n" +
@@ -112,14 +109,12 @@ public class QueenTest extends TestCase {
                 "P____Q__\n" +
                 "_PPP_PPP\n" +
                 "RNB_KBNR\n";
-        Board board = new Board(players, before);
-        assertTrue(board.getPiece(new Position("F3")) instanceof Queen);
-        // Test if Queen cannot cross any pieces
-        // Cross opponent
-        assertFalse(board.movePieceByPosition(players[0], new Position("F3"), new Position("F6")));
-        assertTrue(board.toString().equals(before));
-        // Cross his own pieces
-        assertFalse(board.movePieceByPosition(players[0], new Position("F3"), new Position("D5")));
-        assertTrue(board.toString().equals(before));
+        initializeBoard(before, false);
+        testType("F3", Queen.class);
+        // Tests if Queen cannot cross any pieces
+        // Crosses opponent
+        testIllegalMove(0, "F3,F6");
+        // Crosses his own pieces
+        testIllegalMove(0, "F3,D5");
     }
 }

@@ -1,6 +1,6 @@
-package main.model.pieces;
+package model.pieces;
 
-import main.model.*;
+import model.*;
 
 import java.util.*;
 
@@ -49,5 +49,14 @@ public class Dragon extends Piece {
     @Override
     public String toString() {
         return owner.getPlayerNo() == 0 ? "D" : "d";
+    }
+
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
+    @Override
+    public String getFullName() {
+        return "Dragon";
     }
 }

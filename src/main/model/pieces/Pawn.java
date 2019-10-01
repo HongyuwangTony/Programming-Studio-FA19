@@ -1,6 +1,6 @@
-package main.model.pieces;
+package model.pieces;
 
-import main.model.*;
+import model.*;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import java.util.List;
  * Pawn Class in the normal set of chess pieces
  */
 public class Pawn extends Piece {
-    private boolean hasMoved;
+    private Position initPos;
 
     /**
      * Constructor by its position and owner
@@ -19,18 +19,15 @@ public class Pawn extends Piece {
      */
     public Pawn(int x, int y, Player owner, boolean hasMoved) {
         super(x, y, owner);
-        this.hasMoved = hasMoved;
+        if (!hasMoved) initPos = new Position(x, y);
     }
 
     /**
-     * Moves this Pawn piece to the given destination
-     * Updates hasMoved on its first move
-     * @param dest The destination for this Pawn piece to move to
+     * Checks if this Pawn has moved
+     * @return True if this Pawn has moved
      */
-    @Override
-    public void moveTo(Position dest) {
-        super.moveTo(dest);
-        if (!hasMoved) hasMoved = true;
+    private boolean hasMoved() {
+        return !currPos.equals(initPos);
     }
 
     /**
@@ -54,7 +51,7 @@ public class Pawn extends Piece {
             return false;
 
         if (dir.isStraight()) { // Move straight
-            if ((y_dist == 2 && hasMoved) || y_dist > 2) return false; // Either move 2 in the 1st round or move 1
+            if ((y_dist == 2 && hasMoved()) || y_dist > 2) return false; // Either move 2 in the 1st round or move 1
             checkUnoccupied.addAll(currPos.getPositionsCrossed(dest, dir, true));
             return true;
         } else { // Move Diagonally otherwise
@@ -71,5 +68,14 @@ public class Pawn extends Piece {
     @Override
     public String toString() {
         return owner.getPlayerNo() == 0 ? "P" : "p";
+    }
+
+    /**
+     * Gets the full name of this piece
+     * @return The full name of this piece
+     */
+    @Override
+    public String getFullName() {
+        return "Pawn";
     }
 }

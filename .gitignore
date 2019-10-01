@@ -2,12 +2,10 @@
 *.iml
 .idea/*
 out/*
+lib/*
 
 # Mac Configuration Files
 .DS_Store
-
-# Main class to test locally
-src/main/Main.java
 
 # Doxygen-related files
 doxygen

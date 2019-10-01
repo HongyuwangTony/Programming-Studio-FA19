@@ -4,6 +4,9 @@ import main.model.*;
 
 import java.util.List;
 
+/**
+ * King Class in the normal set of chess pieces
+ */
 public class King extends Piece {
     /**
      * Constructor by its position and owner
@@ -16,7 +19,7 @@ public class King extends Piece {
     }
 
     /**
-     * Judge whether the King piece can move to the given destination
+     * Judges whether the King piece can move to the given destination
      * The King can move one square in any direction
      * Note that the rule that the King cannot put itself in danger is judged in Board class
      * @param dest The destination for the King piece to move to
@@ -36,7 +39,7 @@ public class King extends Piece {
     }
 
     /**
-     * Encode the King piece into String
+     * Encodes the King piece into String
      * Upper case for the White Player(0) and lower case for the Black Player(1)
      * @return The String representation of this King piece
      */

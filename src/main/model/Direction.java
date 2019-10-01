@@ -1,5 +1,9 @@
 package main.model;
 
+/**
+ * Direction Class
+ * Helper class for the direction from one Position object to another
+ */
 public enum Direction {
     UP, DOWN, LEFT, RIGHT,                      /* Straight Directions */
     UP_LEFT, UP_RIGHT, DOWN_LEFT, DOWN_RIGHT,   /* Diagonal Directions */

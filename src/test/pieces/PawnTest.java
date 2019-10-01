@@ -35,7 +35,7 @@ public class PawnTest extends TestCase {
 
     public void testMoveOneSquare() {
         Player[] players = Game.generatePlayers("White", "Black");
-        Board board = new Board(players);
+        Board board = new Board(players, false);
         String after =
                 "rnbqkbnr\n" +
                 "pppppppp\n" +
@@ -73,7 +73,7 @@ public class PawnTest extends TestCase {
 
     public void testMoveTwoSquares() {
         Player[] players = Game.generatePlayers("White", "Black");
-        Board board = new Board(players);
+        Board board = new Board(players, false);
         String after =
                 "rnbqkbnr\n" +
                 "pppppppp\n" +
@@ -142,7 +142,7 @@ public class PawnTest extends TestCase {
 
     public void testInvalidDiagonalMove() {
         Player[] players = Game.generatePlayers("White", "Black");
-        Board board = new Board(players);
+        Board board = new Board(players, false);
         String before = board.toString();
         assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
         // Test Pawn cannot move diagonally to an empty square
@@ -152,7 +152,7 @@ public class PawnTest extends TestCase {
 
     public void testInvalidCapture() {
         Player[] players = Game.generatePlayers("White", "Black");
-        Board board = new Board(players);
+        Board board = new Board(players, false);
         String before = board.toString();
         assertTrue(board.getPiece(new Position("A2")) instanceof Pawn);
         // Test Pawn cannot move diagonally further than one square

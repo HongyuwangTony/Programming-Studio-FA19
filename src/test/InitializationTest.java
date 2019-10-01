@@ -21,7 +21,7 @@ public class InitializationTest extends TestCase {
 
     public void testBoardInitialization() {
         Player[] players = Game.generatePlayers("White", "Black");
-        Board board = new Board(players);
+        Board board = new Board(players, false);
         String expectedBoardStr =
                 "rnbqkbnr\n" +
                 "pppppppp\n" +
@@ -36,7 +36,6 @@ public class InitializationTest extends TestCase {
         Assert.assertEquals(16, players[1].getPieces().size());
         Assert.assertNotNull(players[0].getKing());
         Assert.assertNotNull(players[1].getKing());
-
     }
 
     public void testBoardInitializationFromString() {
@@ -50,6 +49,44 @@ public class InitializationTest extends TestCase {
                 "________\n" +
                 "PPPPPPPP\n" +
                 "RNBQKBNR\n";
+        Board board = new Board(players, expectedBoardStr);
+        Assert.assertTrue(board.toString().equals(expectedBoardStr));
+        Assert.assertEquals(16, players[0].getPieces().size());
+        Assert.assertEquals(16, players[1].getPieces().size());
+        Assert.assertNotNull(players[0].getKing());
+        Assert.assertNotNull(players[1].getKing());
+    }
+
+    public void testCustomPiecesInitialization() {
+        Player[] players = Game.generatePlayers("White", "Black");
+        Board board = new Board(players, true);
+        String expectedBoardStr =
+                "rnbqkdcr\n" +
+                "pppppppp\n" +
+                "________\n" +
+                "________\n" +
+                "________\n" +
+                "________\n" +
+                "PPPPPPPP\n" +
+                "RNBQKDCR\n";
+        Assert.assertTrue(board.toString().equals(expectedBoardStr));
+        Assert.assertEquals(16, players[0].getPieces().size());
+        Assert.assertEquals(16, players[1].getPieces().size());
+        Assert.assertNotNull(players[0].getKing());
+        Assert.assertNotNull(players[1].getKing());
+    }
+
+    public void testCustomPiecesInitializationFromString() {
+        Player[] players = Game.generatePlayers("White", "Black");
+        String expectedBoardStr =
+                "rnbqkdcr\n" +
+                "pppppppp\n" +
+                "________\n" +
+                "________\n" +
+                "________\n" +
+                "________\n" +
+                "PPPPPPPP\n" +
+                "RNBQKDCR\n";
         Board board = new Board(players, expectedBoardStr);
         Assert.assertTrue(board.toString().equals(expectedBoardStr));
         Assert.assertEquals(16, players[0].getPieces().size());

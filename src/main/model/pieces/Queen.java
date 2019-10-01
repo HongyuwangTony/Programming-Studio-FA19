@@ -4,6 +4,9 @@ import main.model.*;
 
 import java.util.List;
 
+/**
+ * Queen Class in the normal set of chess pieces
+ */
 public class Queen extends Piece {
     /**
      * Constructor by its position and owner
@@ -16,7 +19,7 @@ public class Queen extends Piece {
     }
 
     /**
-     * Judge whether the Queen piece can move to the given destination
+     * Judges whether the Queen piece can move to the given destination
      * The Queen can move straight or diagonally without leaping over other pieces
      * @param dest The destination for the Queen piece to move to
      * @param destOccupied True if dest is occupied by current player's opponent
@@ -34,7 +37,7 @@ public class Queen extends Piece {
     }
 
     /**
-     * Encode the Queen piece into String
+     * Encodes the Queen piece into String
      * Upper case for the White Player(0) and lower case for the Black Player(1)
      * @return The String representation of this Queen piece
      */

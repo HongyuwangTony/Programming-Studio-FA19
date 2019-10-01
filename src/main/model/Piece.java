@@ -2,6 +2,9 @@ package main.model;
 
 import java.util.List;
 
+/**
+ * Piece Class integrating normal behaviors of a piece
+ */
 public abstract class Piece {
     protected Position currPos;
     protected Player owner;
@@ -34,7 +37,7 @@ public abstract class Piece {
     }
 
     /**
-     * Move the piece to the given destination
+     * Moves the piece to the given destination
      * @param dest The destination for the piece to move to
      */
     public void moveTo(Position dest) {
@@ -42,7 +45,7 @@ public abstract class Piece {
     }
 
     /**
-     * Judge whether the piece can move to the given destination according to the piece type
+     * Judges whether the piece can move to the given destination according to the piece type
      * @param dest The destination for the piece to move to
      * @param destOccupied True if dest is occupied by current player's opponent
      * @param checkUnoccupied A list of positions for callee to check if they are unoccupied

@@ -4,6 +4,9 @@ import main.model.*;
 
 import java.util.List;
 
+/**
+ * Knight Class in the normal set of chess pieces
+ */
 public class Knight extends Piece {
     /**
      * Constructor by its position and owner
@@ -16,7 +19,7 @@ public class Knight extends Piece {
     }
 
     /**
-     * Judge whether the Knight piece can move to the given destination
+     * Judges whether the Knight piece can move to the given destination
      * The Knight can move in a L-shape direction
      * @param dest The destination for the Knight piece to move to
      * @param destOccupied True if dest is occupied by current player's opponent
@@ -32,7 +35,7 @@ public class Knight extends Piece {
     }
 
     /**
-     * Encode the Knight piece into String
+     * Encodes the Knight piece into String
      * Upper case for the White Player(0) and lower case for the Black Player(1)
      * @return The String representation of this Knight piece
      */

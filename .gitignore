@@ -1,13 +1,18 @@
-# Intellij IDE Configuration Files
-*.iml
-.idea/*
-out/*
-lib/*
-
 # Mac Configuration Files
 .DS_Store
 
+
+# HW1
+# Intellij IDE Configuration Files
+HW1/*.iml
+HW1/.idea/*
+HW1/out/*
+HW1/lib/*
+
+# Mac Configuration Files
+HW1/.DS_Store
+
 # Doxygen-related files
-doxygen
-latex/*
-html/*
+HW1/doxygen
+HW1/latex/*
+HW1/html/*

@@ -1,6 +1,12 @@
 # Mac Configuration Files
 .DS_Store
 
+# HW0
+# Intellij IDE Configuration Files
+HW0/out/*
+
+# Mac Configuration Files
+HW0/.DS_Store
 
 # HW1
 # Intellij IDE Configuration Files

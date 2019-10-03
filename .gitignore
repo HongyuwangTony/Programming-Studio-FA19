@@ -1,0 +1,6 @@
+# PyCharm Configuration Files
+.idea/*
+main/__pycache__/*
+
+# Local Files
+main/urlFailure.txt

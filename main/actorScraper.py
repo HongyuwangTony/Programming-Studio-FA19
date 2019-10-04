@@ -21,11 +21,11 @@ class ActorScraper:
     def get_films_from_columns(title_film):
         print('Trial 1: Suppose the films are listed in columns')
 
-        form_films = title_film.findNext('div', {'class': 'div-col columns column-width'})
-        if form_films is None:
+        cols_films = title_film.findNext('div', {'class': 'div-col columns column-width'})
+        if cols_films is None:
             return None
         films = []
-        for li in form_films.findAll('li'):
+        for li in cols_films.findAll('li'):
             tag_film_title = li.find('a')
             if tag_film_title is not None:
                 if 'href' not in tag_film_title.attrs:
@@ -55,6 +55,45 @@ class ActorScraper:
             })
         return films
 
+    @staticmethod
+    def get_films_from_table(title_film):
+        print('Trial 2: Suppose the films are listed in a table')
+
+        table_films = title_film.findNext('table', {'class': 'wikitable sortable'})
+        if table_films is None:
+            return None
+        films = []
+        for tr in table_films.find('tbody').findAll('tr')[1:]:
+            tag_film_year = tr.find('td')
+            if tag_film_year is None:
+                print('get_films_from_columns: No year in <tr>: ', tr)
+                continue
+            else:
+                year = int(tag_film_year.text)
+                tag_film_title = tag_film_year.findNext('td').find('i')
+                if tag_film_title.find('a') is not None:
+                    tag_film_title = tag_film_title.find('a')
+                    if 'href' not in tag_film_title.attrs:
+                        print('get_films_from_columns: No href tag in <a>: ', tag_film_title)
+                        continue
+                    title = tag_film_title.text
+                    if title is None:
+                        print('get_films_from_columns: No title in <a>: ', tag_film_title)
+                        continue
+                    url = 'https://en.wikipedia.org' + tag_film_title['href']
+                else:
+                    url = None
+                    title = tag_film_title.text
+                    if title is None:
+                        print('get_films_from_columns: No title in <i>: ', tag_film_title)
+                        continue
+            films.append({
+                'url': url,
+                'title': title,
+                'year': year
+            })
+        return films
+
     def get_films(self):
         print('Start scraping ' + self.url)
 
@@ -63,15 +102,21 @@ class ActorScraper:
             print('Failure: get_films: Cannot find tag with title "Filmography"\n')
             self.logger.log_cannot_scrape(self.url)
             return None
+
         # Trial 1: If the films are listed in columns
         films = self.get_films_from_columns(title_film)
         if films is not None:
             print('Trial 1: Success. Scraped', len(films), 'films.\n')
             return films
         print('Trial 1: Failure')
-        # Trial 2: If the films are shown in a form
-        films = title_film.findNext('div', {'class': 'wikitable sortable jquery-tablesorter'})
-        print('\n')
+
+        # Trial 2: If the films are shown in a table
+        films = self.get_films_from_table(title_film)
+        if films is not None:
+            print('Trial 2: Success. Scraped', len(films), 'films.\n')
+            return films
+        print('Trial 2: Failure')
+        print()
         return films
 
 

@@ -3,4 +3,5 @@
 main/__pycache__/*
 
 # Local Files
+main/*.json
 main/urlFailure.txt

@@ -1,7 +1,11 @@
+.DS_Store
+main/.DS_Store
+
 # PyCharm Configuration Files
 .idea/*
 main/__pycache__/*
 
 # Local Files
 main/*.json
-main/urlFailure.txt
+main/*.txt
+main/*.log

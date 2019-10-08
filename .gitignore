@@ -6,6 +6,4 @@ main/.DS_Store
 main/__pycache__/*
 
 # Local Files
-main/*.json
-main/*.txt
-main/*.log
+main/data/*

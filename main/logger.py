@@ -33,7 +33,7 @@ def init_logger():
     handler_console.setFormatter(formatter)
     logger.addHandler(handler_console)
 
-    handler_output = logging.FileHandler('scraper.log', 'w')
+    handler_output = logging.FileHandler('data/scraper.log', 'w')
     handler_output.setLevel(logging.DEBUG)
     handler_output.setFormatter(formatter)
     logger.addHandler(handler_output)

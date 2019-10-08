@@ -85,8 +85,8 @@ class Graph(object):
         self.nodes.pop(ident)
 
         # Removes it from edges
-        for node_adj in self.edges[ident]:
-            self.edges[node_adj.ident].remove(ident)
+        for ident_adj in self.edges[ident]:
+            self.edges[ident_adj].remove(ident)
         self.edges.pop(ident)
         return True
 
@@ -144,9 +144,8 @@ class Graph(object):
             A list of tuples of nodes, indicating the edges in the graph
         """
         edges = []
-        for ident, nodes_adj in self.edges.items():
-            for node_adj in nodes_adj:
-                ident_adj = node_adj.ident
+        for ident, idents_adj in self.edges.items():
+            for ident_adj in idents_adj:
                 if ident_adj >= ident:
                     continue
                 edges.append((self.nodes[ident], self.nodes[ident_adj]))
@@ -172,6 +171,7 @@ class Graph(object):
                 f.close()
         except EnvironmentError:
             return False
+        return True
 
     def read_from_json(self, dict_graph: Dict) -> bool:
         self.__init__()

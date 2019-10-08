@@ -9,11 +9,11 @@ class MovieGraph(object):
         self.actors = defaultdict(Node)
         self.movies = defaultdict(Node)
 
-    def read_from_scraped_data(self):
-        with open("data/actors.json", "r") as f:
+    def read_from_scraped_data(self, actors_file: str, movies_file: str):
+        with open(actors_file, "r") as f:
             actors = json.load(f)
             f.close()
-        with open("data/movies.json", "r") as f:
+        with open(movies_file, "r") as f:
             movies = json.load(f)
             f.close()
 
@@ -102,7 +102,7 @@ class MovieGraph(object):
 
 
 mg = MovieGraph()
-mg.read_from_scraped_data()
+mg.read_from_scraped_data("data/actors.json", "data/movies.json")
 print(mg.get_grossing('Brubaker'))
 print(mg.get_movies_of_actor('Morgan Freeman'))
 print(mg.get_actors_of_movie('Brubaker'))

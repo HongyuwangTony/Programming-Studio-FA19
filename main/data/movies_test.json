@@ -1,0 +1,3694 @@
+[
+    {
+        "title": "Brubaker",
+        "year": 1980,
+        "grossing": 37121708.0,
+        "id": 1,
+        "actors": [
+            5,
+            4,
+            1,
+            6,
+            7,
+            10,
+            11,
+            2,
+            9,
+            8,
+            3
+        ]
+    },
+    {
+        "title": "Marie",
+        "year": 1985,
+        "grossing": 14200000.0,
+        "id": 2,
+        "actors": [
+            13,
+            15,
+            1,
+            14,
+            16,
+            12
+        ]
+    },
+    {
+        "title": "That Was Then... This Is Now",
+        "year": 1985,
+        "grossing": 8630068.0,
+        "id": 3,
+        "actors": [
+            19,
+            22,
+            1,
+            17,
+            18,
+            21,
+            20
+        ]
+    },
+    {
+        "title": "Street Smart",
+        "year": 1987,
+        "grossing": 1119112.0,
+        "id": 4,
+        "actors": [
+            23,
+            1,
+            26,
+            24,
+            25
+        ]
+    },
+    {
+        "title": "Glory",
+        "year": 1989,
+        "grossing": 26800000.0,
+        "id": 5,
+        "actors": [
+            1,
+            27,
+            29,
+            32,
+            30,
+            31,
+            28,
+            3
+        ]
+    },
+    {
+        "title": "Driving Miss Daisy",
+        "year": 1989,
+        "grossing": 145800000.0,
+        "id": 6,
+        "actors": [
+            1,
+            34,
+            33
+        ]
+    },
+    {
+        "title": "Lean on Me",
+        "year": 1989,
+        "grossing": 31000000.0,
+        "id": 7,
+        "actors": [
+            1,
+            36,
+            37,
+            41,
+            39,
+            38,
+            42,
+            35,
+            40,
+            28
+        ]
+    },
+    {
+        "title": "Johnny Handsome",
+        "year": 1989,
+        "grossing": 7237794.0,
+        "id": 8,
+        "actors": [
+            43,
+            1,
+            45,
+            44
+        ]
+    },
+    {
+        "title": "Robin Hood: Prince of Thieves",
+        "year": 1991,
+        "grossing": 390500000.0,
+        "id": 9,
+        "actors": [
+            46,
+            50,
+            1,
+            51,
+            48,
+            47,
+            52,
+            53,
+            49
+        ]
+    },
+    {
+        "title": "Unforgiven",
+        "year": 1992,
+        "grossing": 159200000.0,
+        "id": 10,
+        "actors": [
+            56,
+            1,
+            61,
+            55,
+            59,
+            54,
+            57,
+            58,
+            60
+        ]
+    },
+    {
+        "title": "The Shawshank Redemption",
+        "year": 1994,
+        "grossing": 58300000.0,
+        "id": 11,
+        "actors": [
+            30,
+            65,
+            1,
+            63,
+            62,
+            64
+        ]
+    },
+    {
+        "title": "Outbreak",
+        "year": 1995,
+        "grossing": 189800000.0,
+        "id": 12,
+        "actors": [
+            72,
+            74,
+            70,
+            71,
+            1,
+            73,
+            67,
+            66,
+            68,
+            69
+        ]
+    },
+    {
+        "title": "Seven",
+        "year": 1995,
+        "grossing": 327300000.0,
+        "id": 13,
+        "actors": [
+            75,
+            1,
+            76,
+            77,
+            79,
+            78
+        ]
+    },
+    {
+        "title": "Chain Reaction",
+        "year": 1996,
+        "grossing": 60209334.0,
+        "id": 14,
+        "actors": [
+            80,
+            84,
+            83,
+            81,
+            1,
+            85,
+            82,
+            86
+        ]
+    },
+    {
+        "title": "Moll Flanders",
+        "year": 1996,
+        "grossing": 3486957.0,
+        "id": 15,
+        "actors": [
+            87,
+            1,
+            88,
+            89
+        ]
+    },
+    {
+        "title": "Amistad",
+        "year": 1997,
+        "grossing": 44200000.0,
+        "id": 16,
+        "actors": [
+            95,
+            1,
+            98,
+            91,
+            97,
+            93,
+            100,
+            92,
+            99,
+            94,
+            101,
+            96,
+            90
+        ]
+    },
+    {
+        "title": "Kiss the Girls",
+        "year": 1997,
+        "grossing": 60500000.0,
+        "id": 17,
+        "actors": [
+            83,
+            104,
+            31,
+            103,
+            1,
+            110,
+            26,
+            102,
+            108,
+            109,
+            105,
+            106,
+            107
+        ]
+    },
+    {
+        "title": "Deep Impact",
+        "year": 1998,
+        "grossing": 349500000.0,
+        "id": 18,
+        "actors": [
+            112,
+            22,
+            1,
+            114,
+            118,
+            77,
+            113,
+            122,
+            116,
+            120,
+            111,
+            117,
+            123,
+            115,
+            119,
+            121
+        ]
+    },
+    {
+        "title": "Nurse Betty",
+        "year": 2000,
+        "grossing": 29400000.0,
+        "id": 19,
+        "actors": [
+            1,
+            128,
+            125,
+            129,
+            124,
+            130,
+            126,
+            127
+        ]
+    },
+    {
+        "title": "Along Came a Spider",
+        "year": 2001,
+        "grossing": 105200000.0,
+        "id": 20,
+        "actors": [
+            132,
+            50,
+            31,
+            1,
+            136,
+            26,
+            134,
+            131,
+            135,
+            133
+        ]
+    },
+    {
+        "title": "The Sum of All Fears",
+        "year": 2002,
+        "grossing": 193900000.0,
+        "id": 21,
+        "actors": [
+            112,
+            138,
+            1,
+            143,
+            150,
+            142,
+            137,
+            152,
+            147,
+            145,
+            144,
+            141,
+            149,
+            140,
+            151,
+            139,
+            148,
+            146
+        ]
+    },
+    {
+        "title": "High Crimes",
+        "year": 2002,
+        "grossing": 63800000.0,
+        "id": 22,
+        "actors": [
+            154,
+            160,
+            1,
+            161,
+            155,
+            159,
+            102,
+            158,
+            157,
+            156,
+            153
+        ]
+    },
+    {
+        "title": "Bruce Almighty",
+        "year": 2003,
+        "grossing": 484600000.0,
+        "id": 23,
+        "actors": [
+            1,
+            144,
+            163,
+            162
+        ]
+    },
+    {
+        "title": "Million Dollar Baby",
+        "year": 2004,
+        "grossing": 216800000.0,
+        "id": 24,
+        "actors": [
+            167,
+            165,
+            166,
+            70,
+            1,
+            169,
+            170,
+            164,
+            168
+        ]
+    },
+    {
+        "title": "Unleashed",
+        "year": 2005,
+        "grossing": 50900000.0,
+        "id": 25,
+        "actors": [
+            171,
+            1,
+            175,
+            172,
+            173,
+            174
+        ]
+    },
+    {
+        "title": "An Unfinished Life",
+        "year": 2005,
+        "grossing": 18600000.0,
+        "id": 26,
+        "actors": [
+            1,
+            177,
+            176,
+            178,
+            179
+        ]
+    },
+    {
+        "title": "Batman Begins",
+        "year": 2005,
+        "grossing": 375200000.0,
+        "id": 27,
+        "actors": [
+            181,
+            1,
+            180,
+            182,
+            183,
+            184
+        ]
+    },
+    {
+        "title": "Lucky Number Slevin",
+        "year": 2006,
+        "grossing": 56300000.0,
+        "id": 28,
+        "actors": [
+            188,
+            186,
+            189,
+            1,
+            191,
+            185,
+            187,
+            190
+        ]
+    },
+    {
+        "title": "10 Items or Less",
+        "year": 2006,
+        "grossing": 1399222.0,
+        "id": 29,
+        "actors": [
+            194,
+            1,
+            196,
+            195,
+            193,
+            192
+        ]
+    },
+    {
+        "title": "Evan Almighty",
+        "year": 2007,
+        "grossing": 173400000.0,
+        "id": 30,
+        "actors": [
+            1,
+            198,
+            201,
+            202,
+            199,
+            203,
+            200,
+            197,
+            204
+        ]
+    },
+    {
+        "title": "Gone, Baby, Gone",
+        "year": 2007,
+        "grossing": 34600000.0,
+        "id": 31,
+        "actors": [
+            207,
+            205,
+            1,
+            206,
+            208
+        ]
+    },
+    {
+        "title": "The Bucket List",
+        "year": 2007,
+        "grossing": 175400000.0,
+        "id": 32,
+        "actors": [
+            209,
+            211,
+            212,
+            213,
+            1,
+            210
+        ]
+    },
+    {
+        "title": "Feast of Love",
+        "year": 2007,
+        "grossing": 5741608.0,
+        "id": 33,
+        "actors": [
+            215,
+            81,
+            1,
+            217,
+            214,
+            134,
+            216,
+            168,
+            3
+        ]
+    },
+    {
+        "title": "Wanted",
+        "year": 2008,
+        "grossing": 341400000.0,
+        "id": 34,
+        "actors": [
+            223,
+            219,
+            1,
+            220,
+            218,
+            221,
+            224,
+            225,
+            222
+        ]
+    },
+    {
+        "title": "The Dark Knight",
+        "year": 2008,
+        "grossing": 1004999999.9999999,
+        "id": 35,
+        "actors": [
+            1,
+            14
+        ]
+    },
+    {
+        "title": "Invictus",
+        "year": 2009,
+        "grossing": 122200000.0,
+        "id": 36,
+        "actors": [
+            1,
+            228,
+            226,
+            227
+        ]
+    },
+    {
+        "title": "RED",
+        "year": 2010,
+        "grossing": 199000000.0,
+        "id": 37,
+        "actors": [
+            83,
+            1,
+            231,
+            229,
+            230
+        ]
+    },
+    {
+        "title": "Dolphin Tale",
+        "year": 2011,
+        "grossing": 95900000.0,
+        "id": 38,
+        "actors": [
+            1,
+            102
+        ]
+    },
+    {
+        "title": "The Dark Knight Rises",
+        "year": 2012,
+        "grossing": 1085000000.0,
+        "id": 39,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "The Magic of Belle Isle",
+        "year": 2012,
+        "grossing": 102388.0,
+        "id": 40,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Olympus Has Fallen",
+        "year": 2013,
+        "grossing": 170300000.0,
+        "id": 41,
+        "actors": [
+            1,
+            102,
+            191,
+            214
+        ]
+    },
+    {
+        "title": "Oblivion",
+        "year": 2013,
+        "grossing": 286200000.0,
+        "id": 42,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Now You See Me",
+        "year": 2013,
+        "grossing": 351700000.0,
+        "id": 43,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Last Vegas",
+        "year": 2013,
+        "grossing": 134400000.0,
+        "id": 44,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "The Lego Movie",
+        "year": 2014,
+        "grossing": 469100000.0,
+        "id": 45,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Transcendence",
+        "year": 2014,
+        "grossing": 103000000.0,
+        "id": 46,
+        "actors": [
+            100,
+            1
+        ]
+    },
+    {
+        "title": "Lucy",
+        "year": 2014,
+        "grossing": 463400000.0,
+        "id": 47,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Dolphin Tale 2",
+        "year": 2014,
+        "grossing": 57800000.0,
+        "id": 48,
+        "actors": [
+            1,
+            121,
+            102
+        ]
+    },
+    {
+        "title": "5 Flights Up",
+        "year": 2014,
+        "grossing": 2000000.0,
+        "id": 49,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Momentum",
+        "year": 2015,
+        "grossing": 390167.0,
+        "id": 50,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Ted 2",
+        "year": 2015,
+        "grossing": 216700000.0,
+        "id": 51,
+        "actors": [
+            1,
+            25
+        ]
+    },
+    {
+        "title": "London Has Fallen",
+        "year": 2016,
+        "grossing": 205800000.0,
+        "id": 52,
+        "actors": [
+            1,
+            191,
+            214
+        ]
+    },
+    {
+        "title": "Now You See Me 2",
+        "year": 2016,
+        "grossing": 334900000.0,
+        "id": 53,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "Going In Style",
+        "year": 2017,
+        "grossing": 84900000.0,
+        "id": 54,
+        "actors": [
+            1,
+            96
+        ]
+    },
+    {
+        "title": "Just Getting Started",
+        "year": 2017,
+        "grossing": 7600000.0,
+        "id": 55,
+        "actors": [
+            1,
+            67
+        ]
+    },
+    {
+        "title": "The Nutcracker and the Four Realms",
+        "year": 2018,
+        "grossing": 174000000.0,
+        "id": 56,
+        "actors": [
+            1,
+            229
+        ]
+    },
+    {
+        "title": "Angel Has Fallen",
+        "year": 2019,
+        "grossing": 129300000.00000001,
+        "id": 57,
+        "actors": [
+            1
+        ]
+    },
+    {
+        "title": "The Thomas Crown Affair",
+        "year": 1968,
+        "grossing": 14000000.0,
+        "id": 58,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "5 Card Stud",
+        "year": 1968,
+        "grossing": 3500000.0,
+        "id": 59,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "The Liberation of L.B. Jones",
+        "year": 1970,
+        "grossing": 1300000.0,
+        "id": 60,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "Across 110th Street",
+        "year": 1972,
+        "grossing": 10000000.0,
+        "id": 61,
+        "actors": [
+            2,
+            7
+        ]
+    },
+    {
+        "title": "Live and Let Die",
+        "year": 1973,
+        "grossing": 161800000.0,
+        "id": 62,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "Truck Turner",
+        "year": 1974,
+        "grossing": 2230000.0,
+        "id": 63,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "Sharks' Treasure",
+        "year": 1975,
+        "grossing": 2000000.0,
+        "id": 64,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "Blue Collar",
+        "year": 1978,
+        "grossing": 6500000.0,
+        "id": 65,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "Fighting Back",
+        "year": 1982,
+        "grossing": 6400000.0,
+        "id": 66,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "The Star Chamber",
+        "year": 1983,
+        "grossing": 5600000.0,
+        "id": 67,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "Warning Sign",
+        "year": 1985,
+        "grossing": 1918117.0,
+        "id": 68,
+        "actors": [
+            14,
+            2
+        ]
+    },
+    {
+        "title": "The Running Man",
+        "year": 1987,
+        "grossing": 38100000.0,
+        "id": 69,
+        "actors": [
+            2,
+            148
+        ]
+    },
+    {
+        "title": "Midnight Run",
+        "year": 1988,
+        "grossing": 81600000.0,
+        "id": 70,
+        "actors": [
+            206,
+            144,
+            2
+        ]
+    },
+    {
+        "title": "Freddy's Dead: The Final Nightmare",
+        "year": 1991,
+        "grossing": 34900000.0,
+        "id": 71,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "The Puppet Masters",
+        "year": 1994,
+        "grossing": 8647042.0,
+        "id": 72,
+        "actors": [
+            71,
+            2,
+            72
+        ]
+    },
+    {
+        "title": "Two If by Sea",
+        "year": 1996,
+        "grossing": 10700000.0,
+        "id": 73,
+        "actors": [
+            41,
+            2
+        ]
+    },
+    {
+        "title": "Witless Protection",
+        "year": 2008,
+        "grossing": 4161625.0,
+        "id": 74,
+        "actors": [
+            2
+        ]
+    },
+    {
+        "title": "The New Centurions",
+        "year": 1972,
+        "grossing": 7450000.0,
+        "id": 75,
+        "actors": [
+            3,
+            44
+        ]
+    },
+    {
+        "title": "All the President's Men",
+        "year": 1976,
+        "grossing": 70600000.0,
+        "id": 76,
+        "actors": [
+            66,
+            3
+        ]
+    },
+    {
+        "title": "The Betsy",
+        "year": 1978,
+        "grossing": 7850000.0,
+        "id": 77,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "Kramer vs. Kramer",
+        "year": 1979,
+        "grossing": 106300000.0,
+        "id": 78,
+        "actors": [
+            66,
+            3
+        ]
+    },
+    {
+        "title": "Night Crossing",
+        "year": 1982,
+        "grossing": 8000000.0,
+        "id": 79,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "Testament",
+        "year": 1983,
+        "grossing": 2044892.0,
+        "id": 80,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "City Heat",
+        "year": 1984,
+        "grossing": 38300000.0,
+        "id": 81,
+        "actors": [
+            76,
+            3
+        ]
+    },
+    {
+        "title": "Square Dance",
+        "year": 1987,
+        "grossing": 225358.0,
+        "id": 82,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "The Cider House Rules",
+        "year": 1999,
+        "grossing": 88500000.0,
+        "id": 83,
+        "actors": [
+            23,
+            3
+        ]
+    },
+    {
+        "title": "Sunshine State",
+        "year": 2002,
+        "grossing": 3369654.0,
+        "id": 84,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "The Ring",
+        "year": 2002,
+        "grossing": 249300000.0,
+        "id": 85,
+        "actors": [
+            83,
+            3
+        ]
+    },
+    {
+        "title": "Fur: An Imaginary Portrait of Diane Arbus",
+        "year": 2006,
+        "grossing": 2300000.0,
+        "id": 86,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "Feast of Love",
+        "year": 2007,
+        "grossing": 5741608.0,
+        "id": 33,
+        "actors": [
+            215,
+            81,
+            1,
+            217,
+            214,
+            134,
+            216,
+            168,
+            3
+        ]
+    },
+    {
+        "title": "Gigantic",
+        "year": 2008,
+        "grossing": 165888.0,
+        "id": 87,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "The Unborn",
+        "year": 2009,
+        "grossing": 76500000.0,
+        "id": 88,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "Terminator Salvation",
+        "year": 2009,
+        "grossing": 371400000.0,
+        "id": 89,
+        "actors": [
+            135,
+            3
+        ]
+    },
+    {
+        "title": "Dream House",
+        "year": 2011,
+        "grossing": 38500000.0,
+        "id": 90,
+        "actors": [
+            80,
+            3
+        ]
+    },
+    {
+        "title": "Mr. Morgan's Last Love",
+        "year": 2013,
+        "grossing": 1927963.0,
+        "id": 91,
+        "actors": [
+            3
+        ]
+    },
+    {
+        "title": "Something for the Boys",
+        "year": 1944,
+        "grossing": 1250000.0,
+        "id": 92,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Girl He Left Behind",
+        "year": 1956,
+        "grossing": 1400000.0,
+        "id": 93,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Spirit of St. Louis",
+        "year": 1957,
+        "grossing": 2600000.0,
+        "id": 94,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "Jeanne Eagels",
+        "year": 1957,
+        "grossing": 3100000.0,
+        "id": 95,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "Anatomy of a Murder",
+        "year": 1959,
+        "grossing": 11000000.0,
+        "id": 96,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The FBI Story",
+        "year": 1959,
+        "grossing": 3500000.0,
+        "id": 97,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "Tall Story",
+        "year": 1960,
+        "grossing": 1700000.0,
+        "id": 98,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Hustler",
+        "year": 1961,
+        "grossing": 7600000.0,
+        "id": 99,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Cardinal",
+        "year": 1963,
+        "grossing": 11170588.0,
+        "id": 100,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "Seconds",
+        "year": 1966,
+        "grossing": 1750000.0,
+        "id": 101,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Graduate",
+        "year": 1967,
+        "grossing": 104900000.0,
+        "id": 102,
+        "actors": [
+            4,
+            66
+        ]
+    },
+    {
+        "title": "Sergeant Ryker",
+        "year": 1968,
+        "grossing": 1000000.0,
+        "id": 103,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "No Way to Treat a Lady",
+        "year": 1968,
+        "grossing": 3100000.0,
+        "id": 104,
+        "actors": [
+            4,
+            10
+        ]
+    },
+    {
+        "title": "The Boston Strangler",
+        "year": 1968,
+        "grossing": 17810894.0,
+        "id": 105,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "If It's Tuesday, This Must Be Belgium",
+        "year": 1969,
+        "grossing": 6000000.0,
+        "id": 106,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Way We Were",
+        "year": 1973,
+        "grossing": 50000000.0,
+        "id": 107,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Drowning Pool",
+        "year": 1975,
+        "grossing": 2600000.0,
+        "id": 108,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "Damnation Alley",
+        "year": 1977,
+        "grossing": 4000000.0,
+        "id": 109,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "Jaws 2",
+        "year": 1978,
+        "grossing": 208000000.0,
+        "id": 110,
+        "actors": [
+            4
+        ]
+    },
+    {
+        "title": "The Amityville Horror",
+        "year": 1979,
+        "grossing": 86400000.0,
+        "id": 111,
+        "actors": [
+            4,
+            10
+        ]
+    },
+    {
+        "title": "1941",
+        "year": 1979,
+        "grossing": 94900000.0,
+        "id": 112,
+        "actors": [
+            4,
+            34
+        ]
+    },
+    {
+        "title": "The Great Santini",
+        "year": 1979,
+        "grossing": 4700000.0,
+        "id": 113,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "The Rose",
+        "year": 1979,
+        "grossing": 29200000.0,
+        "id": 114,
+        "actors": [
+            5,
+            139
+        ]
+    },
+    {
+        "title": "Back Roads",
+        "year": 1981,
+        "grossing": 11800000.0,
+        "id": 115,
+        "actors": [
+            5,
+            21,
+            8
+        ]
+    },
+    {
+        "title": "Take This Job and Shove It",
+        "year": 1981,
+        "grossing": 17569030.0,
+        "id": 116,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "An Officer and a Gentleman",
+        "year": 1982,
+        "grossing": 130000000.0,
+        "id": 117,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "The Lords of Discipline",
+        "year": 1983,
+        "grossing": 11787127.0,
+        "id": 118,
+        "actors": [
+            21,
+            5
+        ]
+    },
+    {
+        "title": "Independence Day",
+        "year": 1983,
+        "grossing": 151462.0,
+        "id": 119,
+        "actors": [
+            5,
+            145
+        ]
+    },
+    {
+        "title": "Firestarter",
+        "year": 1984,
+        "grossing": 17100000.0,
+        "id": 120,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "The Curse",
+        "year": 1987,
+        "grossing": 1900000.0,
+        "id": 121,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "Heartbreak Hotel",
+        "year": 1988,
+        "grossing": 5500000.0,
+        "id": 122,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "The Two Jakes",
+        "year": 1990,
+        "grossing": 10000000.0,
+        "id": 123,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "Major League II",
+        "year": 1994,
+        "grossing": 30626182.0,
+        "id": 124,
+        "actors": [
+            67,
+            77,
+            5
+        ]
+    },
+    {
+        "title": "The Indian in the Cupboard",
+        "year": 1995,
+        "grossing": 35700000.0,
+        "id": 125,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "Gold Diggers: The Secret of Bear Mountain",
+        "year": 1995,
+        "grossing": 6029091.0,
+        "id": 126,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "A Family Thing",
+        "year": 1996,
+        "grossing": 10125417.0,
+        "id": 127,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "U-571",
+        "year": 2000,
+        "grossing": 127000000.0,
+        "id": 128,
+        "actors": [
+            5,
+            219
+        ]
+    },
+    {
+        "title": "Men of Honor",
+        "year": 2000,
+        "grossing": 82343495.0,
+        "id": 129,
+        "actors": [
+            5,
+            68
+        ]
+    },
+    {
+        "title": "Behind Enemy Lines",
+        "year": 2001,
+        "grossing": 92000000.0,
+        "id": 130,
+        "actors": [
+            5,
+            54
+        ]
+    },
+    {
+        "title": "Daredevil",
+        "year": 2003,
+        "grossing": 179200000.0,
+        "id": 131,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "Hangman's Curse",
+        "year": 2003,
+        "grossing": 168406.0,
+        "id": 132,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "Raise Your Voice",
+        "year": 2004,
+        "grossing": 14800000.0,
+        "id": 133,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "All Saints",
+        "year": 2017,
+        "grossing": 5900000.0,
+        "id": 134,
+        "actors": [
+            5
+        ]
+    },
+    {
+        "title": "In the Heat of the Night",
+        "year": 1967,
+        "grossing": 24300000.0,
+        "id": 135,
+        "actors": [
+            44,
+            6,
+            58
+        ]
+    },
+    {
+        "title": "Will Penny",
+        "year": 1969,
+        "grossing": 1800000.0,
+        "id": 136,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Bridge at Remagen",
+        "year": 1969,
+        "grossing": 1600000.0,
+        "id": 137,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Beguiled",
+        "year": 1971,
+        "grossing": 1100000.0,
+        "id": 138,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Grissom Gang",
+        "year": 1971,
+        "grossing": 590000.0,
+        "id": 139,
+        "actors": [
+            44,
+            6
+        ]
+    },
+    {
+        "title": "The Cowboys",
+        "year": 1972,
+        "grossing": 19250211.0,
+        "id": 140,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Culpepper Cattle Co.",
+        "year": 1972,
+        "grossing": 1250000.0,
+        "id": 141,
+        "actors": [
+            6,
+            121,
+            58
+        ]
+    },
+    {
+        "title": "Jeremiah Johnson",
+        "year": 1972,
+        "grossing": 44693786.0,
+        "id": 142,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Life and Times of Judge Roy Bean",
+        "year": 1972,
+        "grossing": 16530578.0,
+        "id": 143,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Pat Garrett and Billy the Kid",
+        "year": 1973,
+        "grossing": 11000000.0,
+        "id": 144,
+        "actors": [
+            6,
+            121
+        ]
+    },
+    {
+        "title": "Emperor of the North",
+        "year": 1973,
+        "grossing": 2000000.0,
+        "id": 145,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "White Lightning",
+        "year": 1973,
+        "grossing": 6500000.0,
+        "id": 146,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Laughing Policeman",
+        "year": 1973,
+        "grossing": 1750000.0,
+        "id": 147,
+        "actors": [
+            84,
+            6,
+            10
+        ]
+    },
+    {
+        "title": "Hearts of the West",
+        "year": 1975,
+        "grossing": 1600000.0,
+        "id": 148,
+        "actors": [
+            81,
+            6
+        ]
+    },
+    {
+        "title": "The Outlaw Josey Wales",
+        "year": 1976,
+        "grossing": 31800000.0,
+        "id": 149,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Driver",
+        "year": 1978,
+        "grossing": 4900000.0,
+        "id": 150,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Legend of the Lone Ranger",
+        "year": 1981,
+        "grossing": 12617845.0,
+        "id": 151,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "An Eye for an Eye",
+        "year": 1981,
+        "grossing": 7496681.0,
+        "id": 152,
+        "actors": [
+            6,
+            76
+        ]
+    },
+    {
+        "title": "Some Kind of Hero",
+        "year": 1982,
+        "grossing": 23671186.0,
+        "id": 153,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Honkytonk Man",
+        "year": 1982,
+        "grossing": 4484991.0,
+        "id": 154,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Love Letters",
+        "year": 1984,
+        "grossing": 5269990.0,
+        "id": 155,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Adventures of Buckaroo Banzai Across the 8th Dimension",
+        "year": 1984,
+        "grossing": 6300000.0,
+        "id": 156,
+        "actors": [
+            6,
+            63
+        ]
+    },
+    {
+        "title": "Country",
+        "year": 1984,
+        "grossing": 9640000.0,
+        "id": 157,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Return to Oz",
+        "year": 1985,
+        "grossing": 11100000.0,
+        "id": 158,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Let's Get Harry",
+        "year": 1986,
+        "grossing": 140980.0,
+        "id": 159,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Back to the Future Part III",
+        "year": 1990,
+        "grossing": 244500000.0,
+        "id": 160,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Cadence",
+        "year": 1990,
+        "grossing": 2070871.0,
+        "id": 161,
+        "actors": [
+            61,
+            6
+        ]
+    },
+    {
+        "title": "Class Action",
+        "year": 1991,
+        "grossing": 28277918.0,
+        "id": 162,
+        "actors": [
+            6,
+            16,
+            48,
+            54
+        ]
+    },
+    {
+        "title": "Frozen Assets",
+        "year": 1992,
+        "grossing": 376008.0,
+        "id": 163,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Candyman: Farewell to the Flesh",
+        "year": 1995,
+        "grossing": 13900000.0,
+        "id": 164,
+        "actors": [
+            38,
+            6,
+            103
+        ]
+    },
+    {
+        "title": "Homegrown",
+        "year": 1998,
+        "grossing": 77910.0,
+        "id": 165,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "The Way",
+        "year": 2010,
+        "grossing": 11882191.0,
+        "id": 166,
+        "actors": [
+            6,
+            18
+        ]
+    },
+    {
+        "title": "42",
+        "year": 2013,
+        "grossing": 95000000.0,
+        "id": 167,
+        "actors": [
+            6,
+            79
+        ]
+    },
+    {
+        "title": "A Million Ways To Die In The West",
+        "year": 2014,
+        "grossing": 87200000.0,
+        "id": 168,
+        "actors": [
+            6
+        ]
+    },
+    {
+        "title": "Shenandoah",
+        "year": 1965,
+        "grossing": 17268889.0,
+        "id": 169,
+        "actors": []
+    },
+    {
+        "title": "Follow Me, Boys!",
+        "year": 1966,
+        "grossing": 16207116.0,
+        "id": 170,
+        "actors": []
+    },
+    {
+        "title": "The Sterile Cuckoo",
+        "year": 1969,
+        "grossing": 13982357.0,
+        "id": 171,
+        "actors": []
+    },
+    {
+        "title": "Aloha, Bobby and Rose",
+        "year": 1975,
+        "grossing": 35000000.0,
+        "id": 172,
+        "actors": []
+    },
+    {
+        "title": "American Hot Wax",
+        "year": 1978,
+        "grossing": 11000000.0,
+        "id": 173,
+        "actors": []
+    },
+    {
+        "title": "The Learning Tree",
+        "year": 1969,
+        "grossing": 1500000.0,
+        "id": 174,
+        "actors": [
+            7
+        ]
+    },
+    {
+        "title": "Across 110th Street",
+        "year": 1972,
+        "grossing": 10000000.0,
+        "id": 61,
+        "actors": [
+            2,
+            7
+        ]
+    },
+    {
+        "title": "The Jerk",
+        "year": 1979,
+        "grossing": 100000000.0,
+        "id": 175,
+        "actors": [
+            8,
+            7
+        ]
+    },
+    {
+        "title": "Alice's Restaurant",
+        "year": 1969,
+        "grossing": 6100000.0,
+        "id": 176,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Midnight Cowboy",
+        "year": 1969,
+        "grossing": 44800000.0,
+        "id": 177,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Little Big Man",
+        "year": 1970,
+        "grossing": 31559552.0,
+        "id": 178,
+        "actors": [
+            66,
+            8
+        ]
+    },
+    {
+        "title": "Cold Turkey",
+        "year": 1971,
+        "grossing": 11000000.0,
+        "id": 179,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Escape from the Planet of the Apes",
+        "year": 1971,
+        "grossing": 12300000.0,
+        "id": 180,
+        "actors": [
+            9,
+            8
+        ]
+    },
+    {
+        "title": "What's Up, Doc?",
+        "year": 1972,
+        "grossing": 66000000.0,
+        "id": 181,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Serpico",
+        "year": 1973,
+        "grossing": 29800000.0,
+        "id": 182,
+        "actors": [
+            99,
+            28,
+            8
+        ]
+    },
+    {
+        "title": "At Long Last Love",
+        "year": 1975,
+        "grossing": 2500000.0,
+        "id": 183,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Slap Shot",
+        "year": 1977,
+        "grossing": 28000000.0,
+        "id": 184,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Airport '77",
+        "year": 1977,
+        "grossing": 30000000.0,
+        "id": 185,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Straight Time",
+        "year": 1978,
+        "grossing": 9900000.0,
+        "id": 186,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Jerk",
+        "year": 1979,
+        "grossing": 100000000.0,
+        "id": 175,
+        "actors": [
+            8,
+            7
+        ]
+    },
+    {
+        "title": "Raise the Titanic",
+        "year": 1980,
+        "grossing": 7000000.0,
+        "id": 187,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Ordinary People",
+        "year": 1980,
+        "grossing": 54800000.0,
+        "id": 188,
+        "actors": [
+            43,
+            8
+        ]
+    },
+    {
+        "title": "Back Roads",
+        "year": 1981,
+        "grossing": 11800000.0,
+        "id": 115,
+        "actors": [
+            5,
+            21,
+            8
+        ]
+    },
+    {
+        "title": "Reds",
+        "year": 1981,
+        "grossing": 40400000.0,
+        "id": 189,
+        "actors": [
+            54,
+            8
+        ]
+    },
+    {
+        "title": "Cannery Row",
+        "year": 1982,
+        "grossing": 1800000.0,
+        "id": 190,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Escape Artist",
+        "year": 1982,
+        "grossing": 143369.0,
+        "id": 191,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Silkwood",
+        "year": 1983,
+        "grossing": 35600000.0,
+        "id": 192,
+        "actors": [
+            81,
+            145,
+            142,
+            8
+        ]
+    },
+    {
+        "title": "Missing in Action",
+        "year": 1984,
+        "grossing": 22812411.0,
+        "id": 193,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Grandview, U.S.A.",
+        "year": 1984,
+        "grossing": 4743119.0,
+        "id": 194,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Blood Simple",
+        "year": 1984,
+        "grossing": 3800000.0,
+        "id": 195,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Pope of Greenwich Village",
+        "year": 1984,
+        "grossing": 6800000.0,
+        "id": 196,
+        "actors": [
+            29,
+            10,
+            8
+        ]
+    },
+    {
+        "title": "Fletch",
+        "year": 1985,
+        "grossing": 59000000.0,
+        "id": 197,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Wildcats",
+        "year": 1986,
+        "grossing": 26285544.0,
+        "id": 198,
+        "actors": [
+            188,
+            142,
+            8
+        ]
+    },
+    {
+        "title": "Critters",
+        "year": 1986,
+        "grossing": 13200000.0,
+        "id": 199,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Best of Times",
+        "year": 1986,
+        "grossing": 7790931.0,
+        "id": 200,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Back to School",
+        "year": 1986,
+        "grossing": 91258000.0,
+        "id": 201,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Harry and the Hendersons",
+        "year": 1987,
+        "grossing": 50000000.0,
+        "id": 202,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "No Man's Land",
+        "year": 1987,
+        "grossing": 2877571.0,
+        "id": 203,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Raising Arizona",
+        "year": 1987,
+        "grossing": 29200000.0,
+        "id": 204,
+        "actors": [
+            15,
+            8
+        ]
+    },
+    {
+        "title": "The Milagro Beanfield War",
+        "year": 1988,
+        "grossing": 13825794.0,
+        "id": 205,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Clean and Sober",
+        "year": 1988,
+        "grossing": 8674093.0,
+        "id": 206,
+        "actors": [
+            23,
+            8
+        ]
+    },
+    {
+        "title": "Sunset",
+        "year": 1988,
+        "grossing": 4594452.0,
+        "id": 207,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "War Party",
+        "year": 1988,
+        "grossing": 657190.0,
+        "id": 208,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Red Scorpion",
+        "year": 1988,
+        "grossing": 4200000.0,
+        "id": 209,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Mighty Quinn",
+        "year": 1989,
+        "grossing": 4557214.0,
+        "id": 210,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Catch Me If You Can",
+        "year": 1989,
+        "grossing": 3686.0,
+        "id": 211,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Chattahoochee",
+        "year": 1989,
+        "grossing": 259486.0,
+        "id": 212,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Narrow Margin",
+        "year": 1990,
+        "grossing": 10900000.0,
+        "id": 213,
+        "actors": [
+            74,
+            54,
+            8
+        ]
+    },
+    {
+        "title": "White Sands",
+        "year": 1992,
+        "grossing": 9000000.0,
+        "id": 214,
+        "actors": [
+            16,
+            48,
+            8
+        ]
+    },
+    {
+        "title": "Wilder Napalm",
+        "year": 1993,
+        "grossing": 84859.0,
+        "id": 215,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Camp Nowhere",
+        "year": 1994,
+        "grossing": 10471613.0,
+        "id": 216,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Glass Shield",
+        "year": 1994,
+        "grossing": 3300000.0,
+        "id": 217,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Cops & Robbersons",
+        "year": 1994,
+        "grossing": 11391093.0,
+        "id": 218,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Free Willy 2: The Adventure Home",
+        "year": 1995,
+        "grossing": 30000000.0,
+        "id": 219,
+        "actors": [
+            188,
+            8
+        ]
+    },
+    {
+        "title": "Panther",
+        "year": 1995,
+        "grossing": 6834525.0,
+        "id": 220,
+        "actors": [
+            8,
+            50
+        ]
+    },
+    {
+        "title": "Albino Alligator",
+        "year": 1996,
+        "grossing": 339379.0,
+        "id": 221,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "A Time to Kill",
+        "year": 1996,
+        "grossing": 152000000.0,
+        "id": 222,
+        "actors": [
+            102,
+            8,
+            122
+        ]
+    },
+    {
+        "title": "William Shakespeare's Romeo + Juliet",
+        "year": 1996,
+        "grossing": 147500000.0,
+        "id": 223,
+        "actors": [
+            92,
+            8
+        ]
+    },
+    {
+        "title": "My Best Friend's Wedding",
+        "year": 1997,
+        "grossing": 299300000.0,
+        "id": 224,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Chairman of the Board",
+        "year": 1998,
+        "grossing": 181233.0,
+        "id": 225,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Twilight",
+        "year": 1998,
+        "grossing": 15100000.0,
+        "id": 226,
+        "actors": [
+            138,
+            54,
+            168,
+            8
+        ]
+    },
+    {
+        "title": "Wild Wild West",
+        "year": 1999,
+        "grossing": 222100000.0,
+        "id": 227,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Iron Giant",
+        "year": 1999,
+        "grossing": 31300000.0,
+        "id": 228,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Random Hearts",
+        "year": 1999,
+        "grossing": 74600000.0,
+        "id": 229,
+        "actors": [
+            132,
+            8
+        ]
+    },
+    {
+        "title": "Christmas in the Clouds",
+        "year": 2001,
+        "grossing": 279225.0,
+        "id": 230,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Snow Dogs",
+        "year": 2002,
+        "grossing": 115000000.0,
+        "id": 231,
+        "actors": [
+            68,
+            60,
+            8
+        ]
+    },
+    {
+        "title": "Christmas with the Kranks",
+        "year": 2004,
+        "grossing": 96600000.0,
+        "id": 232,
+        "actors": [
+            34,
+            8,
+            187
+        ]
+    },
+    {
+        "title": "Racing Stripes",
+        "year": 2005,
+        "grossing": 90800000.0,
+        "id": 233,
+        "actors": [
+            16,
+            8
+        ]
+    },
+    {
+        "title": "Big Stan",
+        "year": 2007,
+        "grossing": 8700000.0,
+        "id": 234,
+        "actors": [
+            8,
+            44
+        ]
+    },
+    {
+        "title": "Youth in Revolt",
+        "year": 2009,
+        "grossing": 19651093.0,
+        "id": 235,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Odd Life of Timothy Green",
+        "year": 2012,
+        "grossing": 56000000.0,
+        "id": 236,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Arthur Newman",
+        "year": 2012,
+        "grossing": 207853.0,
+        "id": 237,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "Calvary",
+        "year": 2014,
+        "grossing": 16900000.0,
+        "id": 238,
+        "actors": [
+            8
+        ]
+    },
+    {
+        "title": "The Brothers Karamazov",
+        "year": 1958,
+        "grossing": 5440000.0,
+        "id": 239,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "The Unforgiven",
+        "year": 1960,
+        "grossing": 3200000.0,
+        "id": 240,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Wild River",
+        "year": 1960,
+        "grossing": 1500000.0,
+        "id": 241,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "The Outrage",
+        "year": 1964,
+        "grossing": 1800000.0,
+        "id": 242,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "The Flim-Flam Man",
+        "year": 1967,
+        "grossing": 1200000.0,
+        "id": 243,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Hour of the Gun",
+        "year": 1967,
+        "grossing": 2000000.0,
+        "id": 244,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "The Ambushers",
+        "year": 1967,
+        "grossing": 10000000.0,
+        "id": 245,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Escape from the Planet of the Apes",
+        "year": 1971,
+        "grossing": 12300000.0,
+        "id": 180,
+        "actors": [
+            9,
+            8
+        ]
+    },
+    {
+        "title": "Moonshine County Express",
+        "year": 1977,
+        "grossing": 1000000.0,
+        "id": 246,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Empire of the Ants",
+        "year": 1977,
+        "grossing": 2500000.0,
+        "id": 247,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Caddyshack",
+        "year": 1980,
+        "grossing": 39800000.0,
+        "id": 248,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Dragonslayer",
+        "year": 1981,
+        "grossing": 14100000.0,
+        "id": 249,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "I'm Dancing as Fast as I Can",
+        "year": 1982,
+        "grossing": 291390.0,
+        "id": 250,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Love Child",
+        "year": 1982,
+        "grossing": 112940.0,
+        "id": 251,
+        "actors": [
+            26,
+            9
+        ]
+    },
+    {
+        "title": "Born American",
+        "year": 1986,
+        "grossing": 3401376.0,
+        "id": 252,
+        "actors": [
+            9
+        ]
+    },
+    {
+        "title": "Breaking In",
+        "year": 1989,
+        "grossing": 1877618.0,
+        "id": 253,
+        "actors": [
+            130,
+            9
+        ]
+    },
+    {
+        "title": "The Harder They Fall",
+        "year": 1956,
+        "grossing": 1350000.0,
+        "id": 254,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Edge of the City",
+        "year": 1957,
+        "grossing": 760000.0,
+        "id": 255,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Long, Hot Summer",
+        "year": 1958,
+        "grossing": 3500000.0,
+        "id": 256,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Last Train from Gun Hill",
+        "year": 1959,
+        "grossing": 2500000.0,
+        "id": 257,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Magnificent Seven",
+        "year": 1960,
+        "grossing": 2250000.0,
+        "id": 258,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Hud",
+        "year": 1963,
+        "grossing": 10000000.0,
+        "id": 259,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Sylvia",
+        "year": 1965,
+        "grossing": 1500000.0,
+        "id": 260,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Hallelujah Trail",
+        "year": 1965,
+        "grossing": 4000000.0,
+        "id": 261,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Nevada Smith",
+        "year": 1966,
+        "grossing": 6500000.0,
+        "id": 262,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Assault on a Queen",
+        "year": 1966,
+        "grossing": 2700000.0,
+        "id": 263,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Hombre",
+        "year": 1967,
+        "grossing": 12000000.0,
+        "id": 264,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "No Way to Treat a Lady",
+        "year": 1968,
+        "grossing": 3100000.0,
+        "id": 104,
+        "actors": [
+            4,
+            10
+        ]
+    },
+    {
+        "title": "Vanishing Point",
+        "year": 1971,
+        "grossing": 12400000.0,
+        "id": 265,
+        "actors": [
+            10,
+            58
+        ]
+    },
+    {
+        "title": "The Anderson Tapes",
+        "year": 1971,
+        "grossing": 5000000.0,
+        "id": 266,
+        "actors": [
+            10,
+            110
+        ]
+    },
+    {
+        "title": "Black Caesar",
+        "year": 1973,
+        "grossing": 2000000.0,
+        "id": 267,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Papillon",
+        "year": 1973,
+        "grossing": 53267000.0,
+        "id": 268,
+        "actors": [
+            66,
+            10
+        ]
+    },
+    {
+        "title": "The Laughing Policeman",
+        "year": 1973,
+        "grossing": 1750000.0,
+        "id": 147,
+        "actors": [
+            84,
+            6,
+            10
+        ]
+    },
+    {
+        "title": "Let's Do It Again",
+        "year": 1975,
+        "grossing": 11800000.0,
+        "id": 269,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Lucky Lady",
+        "year": 1975,
+        "grossing": 24441725.0,
+        "id": 270,
+        "actors": [
+            54,
+            10
+        ]
+    },
+    {
+        "title": "Heroes",
+        "year": 1977,
+        "grossing": 33500000.0,
+        "id": 271,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Up in Smoke",
+        "year": 1978,
+        "grossing": 44400000.0,
+        "id": 272,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Wanderers",
+        "year": 1979,
+        "grossing": 23000000.0,
+        "id": 273,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Amityville Horror",
+        "year": 1979,
+        "grossing": 86400000.0,
+        "id": 111,
+        "actors": [
+            4,
+            10
+        ]
+    },
+    {
+        "title": "Gloria",
+        "year": 1980,
+        "grossing": 4099999.9999999995,
+        "id": 274,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Continental Divide",
+        "year": 1981,
+        "grossing": 15000000.0,
+        "id": 275,
+        "actors": [
+            71,
+            10
+        ]
+    },
+    {
+        "title": "Sharky's Machine",
+        "year": 1981,
+        "grossing": 35610100.0,
+        "id": 276,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Jinxed!",
+        "year": 1982,
+        "grossing": 2869638.0,
+        "id": 277,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Sting II",
+        "year": 1983,
+        "grossing": 6347072.0,
+        "id": 278,
+        "actors": [
+            22,
+            10,
+            140
+        ]
+    },
+    {
+        "title": "Easy Money",
+        "year": 1983,
+        "grossing": 29300000.0,
+        "id": 279,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Pope of Greenwich Village",
+        "year": 1984,
+        "grossing": 6800000.0,
+        "id": 196,
+        "actors": [
+            29,
+            10,
+            8
+        ]
+    },
+    {
+        "title": "Cobra",
+        "year": 1986,
+        "grossing": 160000000.0,
+        "id": 280,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Donnie Brasco",
+        "year": 1997,
+        "grossing": 124900000.0,
+        "id": 281,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "Blueberry",
+        "year": 2004,
+        "grossing": 5700000.0,
+        "id": 282,
+        "actors": [
+            10
+        ]
+    },
+    {
+        "title": "The Seven-Ups",
+        "year": 1973,
+        "grossing": 6007464.0,
+        "id": 283,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Next Stop, Greenwich Village",
+        "year": 1976,
+        "grossing": 1060000.0,
+        "id": 284,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Taxi Driver",
+        "year": 1976,
+        "grossing": 28300000.0,
+        "id": 285,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Stay Hungry",
+        "year": 1976,
+        "grossing": 24854765.0,
+        "id": 286,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Rocky",
+        "year": 1976,
+        "grossing": 225000000.0,
+        "id": 287,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Sorcerer",
+        "year": 1977,
+        "grossing": 5900000.0,
+        "id": 288,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Big Wednesday",
+        "year": 1978,
+        "grossing": 4500000.0,
+        "id": 289,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Paradise Alley",
+        "year": 1978,
+        "grossing": 7185518.0,
+        "id": 290,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Last Embrace",
+        "year": 1979,
+        "grossing": 1537125.0,
+        "id": 291,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Winter Kills",
+        "year": 1979,
+        "grossing": 1083799.0,
+        "id": 292,
+        "actors": [
+            95,
+            11
+        ]
+    },
+    {
+        "title": "Rocky II",
+        "year": 1979,
+        "grossing": 200100000.0,
+        "id": 293,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Cruising",
+        "year": 1980,
+        "grossing": 19800000.0,
+        "id": 294,
+        "actors": [
+            41,
+            11
+        ]
+    },
+    {
+        "title": "Maniac",
+        "year": 1980,
+        "grossing": 10000000.0,
+        "id": 295,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Nighthawks",
+        "year": 1981,
+        "grossing": 19900000.0,
+        "id": 296,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "National Lampoon Goes to the Movies",
+        "year": 1982,
+        "grossing": 5027193.0,
+        "id": 297,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Night Shift",
+        "year": 1982,
+        "grossing": 21095638.0,
+        "id": 298,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Monsignor",
+        "year": 1982,
+        "grossing": 12400000.0,
+        "id": 299,
+        "actors": [
+            95,
+            11
+        ]
+    },
+    {
+        "title": "Vigilante",
+        "year": 1983,
+        "grossing": 5091888.0,
+        "id": 300,
+        "actors": [
+            191,
+            11
+        ]
+    },
+    {
+        "title": "Losin' It",
+        "year": 1983,
+        "grossing": 1246141.0,
+        "id": 301,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Eureka",
+        "year": 1983,
+        "grossing": 123572.0,
+        "id": 302,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "The Whoopee Boys",
+        "year": 1986,
+        "grossing": 444746.0,
+        "id": 303,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "Maniac 2: Mr. Robbie",
+        "year": 1986,
+        "grossing": 10000000.0,
+        "id": 304,
+        "actors": [
+            11
+        ]
+    },
+    {
+        "title": "The Pick-up Artist",
+        "year": 1987,
+        "grossing": 13290368.0,
+        "id": 305,
+        "actors": [
+            189,
+            30,
+            11
+        ]
+    },
+    {
+        "title": "Married to the Mob",
+        "year": 1988,
+        "grossing": 21400000.0,
+        "id": 306,
+        "actors": [
+            15,
+            11,
+            106
+        ]
+    },
+    {
+        "title": "Prime Cut",
+        "year": 1972,
+        "grossing": 1500000.0,
+        "id": 307,
+        "actors": [
+            12,
+            54
+        ]
+    },
+    {
+        "title": "Carrie",
+        "year": 1976,
+        "grossing": 33800000.0,
+        "id": 308,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Coal Miner's Daughter",
+        "year": 1980,
+        "grossing": 67180000.0,
+        "id": 309,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Heart Beat",
+        "year": 1980,
+        "grossing": 954046.0,
+        "id": 310,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Raggedy Man",
+        "year": 1981,
+        "grossing": 1976198.0,
+        "id": 311,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "The Man with Two Brains",
+        "year": 1983,
+        "grossing": 10353438.0,
+        "id": 312,
+        "actors": [
+            22,
+            12
+        ]
+    },
+    {
+        "title": "The River",
+        "year": 1984,
+        "grossing": 11500000.0,
+        "id": 313,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Violets Are Blue",
+        "year": 1986,
+        "grossing": 4743287.0,
+        "id": 314,
+        "actors": [
+            41,
+            12
+        ]
+    },
+    {
+        "title": "'night, Mother",
+        "year": 1986,
+        "grossing": 441863.0,
+        "id": 315,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Crimes of the Heart",
+        "year": 1986,
+        "grossing": 7000000.0,
+        "id": 316,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Hard Promises",
+        "year": 1991,
+        "grossing": 306319.0,
+        "id": 317,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "JFK",
+        "year": 1991,
+        "grossing": 205400000.0,
+        "id": 318,
+        "actors": [
+            95,
+            12,
+            140,
+            72,
+            30,
+            31
+        ]
+    },
+    {
+        "title": "Trading Mom",
+        "year": 1994,
+        "grossing": 319123.0,
+        "id": 319,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "The Grass Harp",
+        "year": 1995,
+        "grossing": 559677.0,
+        "id": 320,
+        "actors": [
+            12,
+            44
+        ]
+    },
+    {
+        "title": "Affliction",
+        "year": 1997,
+        "grossing": 6330054.0,
+        "id": 321,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Blast from the Past",
+        "year": 1999,
+        "grossing": 40300000.0,
+        "id": 322,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "The Straight Story",
+        "year": 1999,
+        "grossing": 6200000.0,
+        "id": 323,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "In the Bedroom",
+        "year": 2001,
+        "grossing": 43400000.0,
+        "id": 324,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Tuck Everlasting",
+        "year": 2002,
+        "grossing": 19300000.0,
+        "id": 325,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "A Home at the End of the World",
+        "year": 2004,
+        "grossing": 1548955.0,
+        "id": 326,
+        "actors": [
+            87,
+            12
+        ]
+    },
+    {
+        "title": "Nine Lives",
+        "year": 2005,
+        "grossing": 1562923.0,
+        "id": 327,
+        "actors": [
+            87,
+            23,
+            12
+        ]
+    },
+    {
+        "title": "The Ring Two",
+        "year": 2005,
+        "grossing": 161500000.0,
+        "id": 328,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "North Country",
+        "year": 2005,
+        "grossing": 25200000.0,
+        "id": 329,
+        "actors": [
+            100,
+            12,
+            190,
+            157
+        ]
+    },
+    {
+        "title": "An American Haunting",
+        "year": 2005,
+        "grossing": 29612137.0,
+        "id": 330,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Gray Matters",
+        "year": 2007,
+        "grossing": 944479.0,
+        "id": 331,
+        "actors": [
+            12,
+            137
+        ]
+    },
+    {
+        "title": "Hot Rod",
+        "year": 2007,
+        "grossing": 14334401.0,
+        "id": 332,
+        "actors": [
+            60,
+            12
+        ]
+    },
+    {
+        "title": "Four Christmases",
+        "year": 2008,
+        "grossing": 163700000.0,
+        "id": 333,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Get Low",
+        "year": 2009,
+        "grossing": 9700000.0,
+        "id": 334,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "The Help",
+        "year": 2011,
+        "grossing": 216600000.0,
+        "id": 335,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Deadfall",
+        "year": 2012,
+        "grossing": 1900000.0,
+        "id": 336,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "The Old Man & the Gun",
+        "year": 2018,
+        "grossing": 17000000.0,
+        "id": 337,
+        "actors": [
+            12
+        ]
+    },
+    {
+        "title": "Ragtime",
+        "year": 1981,
+        "grossing": 21200000.0,
+        "id": 338,
+        "actors": [
+            43,
+            13
+        ]
+    },
+    {
+        "title": "Terms of Endearment",
+        "year": 1983,
+        "grossing": 108400000.0,
+        "id": 339,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "The Purple Rose of Cairo",
+        "year": 1985,
+        "grossing": 10631333.0,
+        "id": 340,
+        "actors": [
+            13,
+            189
+        ]
+    },
+    {
+        "title": "Something Wild",
+        "year": 1986,
+        "grossing": 8400000.0,
+        "id": 341,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Heartburn",
+        "year": 1986,
+        "grossing": 25300000.0,
+        "id": 342,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Radio Days",
+        "year": 1987,
+        "grossing": 14800000.0,
+        "id": 343,
+        "actors": [
+            189,
+            41,
+            13,
+            71
+        ]
+    },
+    {
+        "title": "The House on Carroll Street",
+        "year": 1988,
+        "grossing": 459824.0,
+        "id": 344,
+        "actors": [
+            13,
+            15,
+            33
+        ]
+    },
+    {
+        "title": "Sweet Hearts Dance",
+        "year": 1988,
+        "grossing": 3790493.0,
+        "id": 345,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Arachnophobia",
+        "year": 1990,
+        "grossing": 53200000.0,
+        "id": 346,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Welcome Home, Roxy Carmichael",
+        "year": 1990,
+        "grossing": 3989297.0,
+        "id": 347,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "The Butcher's Wife",
+        "year": 1991,
+        "grossing": 9689816.0,
+        "id": 348,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Rain Without Thunder",
+        "year": 1993,
+        "grossing": 5000.0,
+        "id": 349,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Gettysburg",
+        "year": 1993,
+        "grossing": 12700000.0,
+        "id": 350,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Speed",
+        "year": 1994,
+        "grossing": 350400000.0,
+        "id": 351,
+        "actors": [
+            13,
+            213,
+            77
+        ]
+    },
+    {
+        "title": "Dumb and Dumber",
+        "year": 1994,
+        "grossing": 247300000.0,
+        "id": 352,
+        "actors": [
+            13,
+            41,
+            162
+        ]
+    },
+    {
+        "title": "Fly Away Home",
+        "year": 1996,
+        "grossing": 56143818.0,
+        "id": 353,
+        "actors": [
+            13,
+            59,
+            94,
+            147
+        ]
+    },
+    {
+        "title": "2 Days in the Valley",
+        "year": 1996,
+        "grossing": 11132900.0,
+        "id": 354,
+        "actors": [
+            13,
+            189
+        ]
+    },
+    {
+        "title": "101 Dalmatians",
+        "year": 1996,
+        "grossing": 320700000.0,
+        "id": 355,
+        "actors": [
+            13
+        ]
+    },
+    {
+        "title": "Trial and Error",
+        "year": 1997,
+        "grossing": 14598571.0,
+        "id": 356,
+        "actors": [
+            13,
+            72
+        ]
+    }
+]

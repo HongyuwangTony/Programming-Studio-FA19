@@ -152,6 +152,15 @@ class Graph(object):
         return edges
 
     def store_to_json(self, file_name: str) -> bool:
+        """Stores the current data in the graph into a json file
+
+        Args:
+            file_name: The file name of the json to store the data
+
+        Returns:
+            True if the data is successfully stored in the file named file_name
+            False if the file named file_name cannot be opened in writable mode
+        """
         nodes_encoded = defaultdict(dict)
         for ident, node in self.nodes.items():
             node_encoded = defaultdict()
@@ -174,6 +183,15 @@ class Graph(object):
         return True
 
     def read_from_json(self, dict_graph: Dict) -> bool:
+        """Reads data from a json object(dictionary in python)
+
+        Args:
+            dict_graph: The json object to read
+
+        Returns:
+            True if the data is successfully read
+            False if some attributes are lost
+        """
         self.__init__()
         try:
             # Decodes the edges
@@ -194,6 +212,15 @@ class Graph(object):
         return True
 
     def read_from_json_file(self, file_name: str) -> bool:
+        """Reads data from the json file
+
+        Args:
+            file_name: The name of the json file
+
+        Returns:
+            True if the data is successfully read from file named file_name
+            False otherwise
+        """
         try:
             with open(file_name) as f:
                 return self.read_from_json(json.load(f))

@@ -4,12 +4,28 @@ from graph import *
 
 
 class MovieGraph(object):
+    """ A Wrapper Class wrapping graph class, specifically for storing movies and actors
+
+    Actors and Movies are separately stored in two different dictionaries (name/title -> Node)
+
+    NOTE: Since actors are stored before movies, nodes of actors would have lower ident
+    """
     def __init__(self):
+        """Constructor of MovieGraph Class
+        """
         self.graph = Graph()
         self.actors = defaultdict(Node)
         self.movies = defaultdict(Node)
 
     def read_from_scraped_data(self, actors_file: str, movies_file: str):
+        """Reads actors and movies from scraped data, which is stored in the given files
+
+        By default, actors_file should be "data/actors.json" and movies_file should be "data/movies.json"
+
+        Args:
+            actors_file: The name of the file storing actors
+            movies_file: The name of the file storing movies
+        """
         with open(actors_file, "r") as f:
             actors = json.load(f)
             f.close()
@@ -51,23 +67,55 @@ class MovieGraph(object):
                 self.graph.add_edge(node_actor, node_movie)
 
     def get_grossing(self, movie_title: str) -> float:
+        """Query Function: Finds how much a movie has grossed
+
+        Args:
+            movie_title: The title of the given movie for query
+
+        Returns:
+            The grossing value of the given movie
+        """
         if movie_title not in self.movies:
             return 0.0
         return float(self.movies[movie_title].attrs['grossing'])
 
     def get_movies_of_actor(self, actor_name: str) -> List[str]:
+        """Query Function: Lists which movies an actor has worked in
+
+        Args:
+            actor_name: The name of the given actor
+
+        Returns:
+            A list of movies that the given actor has worked in
+        """
         if actor_name not in self.actors:
             return []
         nodes_movie = self.graph.adjacent_nodes(self.actors[actor_name])
         return [str(node_movie.attrs['title']) for node_movie in nodes_movie]
 
     def get_actors_of_movie(self, movie_title: str) -> List[str]:
+        """Query Function: Lists which actors worked in a movie
+
+        Args:
+            movie_title: The title of the given movie
+
+        Returns:
+            A list of actors that worked in the given movie
+        """
         if movie_title not in self.movies:
             return []
         nodes_actors = self.graph.adjacent_nodes(self.movies[movie_title])
         return [str(node_actors.attrs['name']) for node_actors in nodes_actors]
 
     def get_top_x_grossing_actors(self, num: int) -> List[str]:
+        """Query Function: Lists the top X actors with the most total grossing value
+
+        Args:
+            num: The maximum number of top actors queried
+
+        Returns:
+            A list of top X actors with the most total grossing value
+        """
         if num <= 0:
             return []
         dict_grossing = defaultdict(float)
@@ -79,6 +127,14 @@ class MovieGraph(object):
         return [pair[0] for pair in sorted(dict_grossing.items(), key=lambda kv: kv[1], reverse=True)[:num]]
 
     def get_oldest_x_actors(self, num: int) -> List[str]:
+        """Query Function: Lists the oldest X actors
+
+        Args:
+            num: The maximum number of oldest actors queried
+
+        Returns:
+            A list of the oldest X actors
+        """
         if num <= 0:
             return []
         dict_ages = defaultdict(datetime)
@@ -87,6 +143,14 @@ class MovieGraph(object):
         return [pair[0] for pair in sorted(dict_ages.items(), key=lambda kv: kv[1])[:num]]
 
     def get_movies_by_year(self, year: int) -> List[str]:
+        """Query Function: Lists all the movies for a given year
+
+        Args:
+            year: The given year for movies
+
+        Returns:
+            A list of all the movies for the given year
+        """
         res = []
         for node_movie in self.movies.values():
             if int(node_movie.attrs['year']) == year:
@@ -94,19 +158,16 @@ class MovieGraph(object):
         return res
 
     def get_actors_by_year(self, year: int) -> List[str]:
+        """Query Function: Lists all the actors for a given year
+
+        Args:
+            year: The given year for actors
+
+        Returns:
+            A list of all the actors borned in the given year
+        """
         res = []
         for node_actor in self.actors.values():
             if int(node_actor.attrs['birth'].split('-')[0]) == year:
                 res.append(node_actor.attrs['name'])
         return res
-
-
-mg = MovieGraph()
-mg.read_from_scraped_data("data/actors.json", "data/movies.json")
-print(mg.get_grossing('Brubaker'))
-print(mg.get_movies_of_actor('Morgan Freeman'))
-print(mg.get_actors_of_movie('Brubaker'))
-print(mg.get_top_x_grossing_actors(10))
-print(mg.get_oldest_x_actors(10))
-print(mg.get_movies_by_year(1980))
-print(mg.get_actors_by_year(1937))

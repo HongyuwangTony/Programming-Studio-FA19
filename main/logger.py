@@ -8,13 +8,17 @@ I/O Helper Python File, controlling all the inputs and outputs from/to files dur
 """
 
 logger = logging.getLogger('logger')
-file_failure_actor = open("urlFailure_actor.txt", "a")
-file_failure_movie = open("urlFailure_movie.txt", "a")
-set_failure_actor, set_failure_movie = set()  # Sets indicating failed to be scraped
-actors, movies = list()  # Scraped actors/movies
+
+file_failure_actor = open("data/urlFailure_actor.txt", "a")
+file_failure_movie = open("data/urlFailure_movie.txt", "a")
+set_failure_actor, set_failure_movie = set(), set()  # Sets indicating failed to be scraped
+
+actors, movies = list(), list()  # Scraped actors/movies
 next_id_actor, next_id_movie = 1, 1  # Unused id of actor/movie
-dict_urls_actor, dict_urls_movie = defaultdict(int)  # Dictonaries from url to id
-actor_to_movie, movie_to_actor = defaultdict(set)  # Two-way dictionary of relationship between actors and movies
+dict_urls_actor, dict_urls_movie = defaultdict(int), defaultdict(int)  # Dictonaries from url to id
+
+# Two-way dictionaries of relationship between actors and movies
+actor_to_movie, movie_to_actor = defaultdict(set), defaultdict(set)
 
 
 def init_logger():
@@ -38,12 +42,12 @@ def init_logger():
 def init_failure_detection():
     """Initiates failed urls of scraping
     """
-    with open("urlFailure_actor.txt", "r") as f:
+    with open("data/urlFailure_actor.txt", "r") as f:
         line = f.readline()
         while line:
             set_failure_actor.add(line.strip())
             line = f.readline()
-    with open("urlFailure_movie.txt", "r") as f:
+    with open("data/urlFailure_movie.txt", "r") as f:
         line = f.readline()
         while line:
             set_failure_movie.add(line.strip())
@@ -145,9 +149,9 @@ def store_data_to_file():
         del movie['url']
 
     # Translates python dictionary list into json
-    with open('actors.json', 'w', encoding='utf-8') as f:
+    with open('data/actors.json', 'w', encoding='utf-8') as f:
         json.dump(actors, f, ensure_ascii=False, indent=4)
         f.close()
-    with open('movies.json', 'w', encoding='utf-8') as f:
+    with open('data/movies.json', 'w', encoding='utf-8') as f:
         json.dump(movies, f, ensure_ascii=False, indent=4)
         f.close()

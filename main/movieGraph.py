@@ -35,36 +35,40 @@ class MovieGraph(object):
 
         dict_actors = defaultdict(Node)
         dict_movies = defaultdict(Node)
-        dict_acts_in = defaultdict(list)
+        dict_cast = defaultdict(list)
 
         # Adds actors as nodes
         for actor in actors:
             actor_id = actor['id']
-            list_movies = actor['movies']
             del actor['id']
             del actor['movies']
             node = self.graph.add_node(actor)
             self.actors.update({actor['name']: node})
             dict_actors.update({actor_id: node})
-            dict_acts_in.update({actor_id: list_movies})
 
         # Adds movies as nodes
         for movie in movies:
             movie_id = movie['id']
+            list_actors = movie['actors']
             del movie['id']
             del movie['actors']
             node = self.graph.add_node(movie)
             self.movies.update({movie['title']: node})
             dict_movies.update({movie_id: node})
+            if len(list_actors) > 0:
+                dict_cast.update({movie_id: list_actors})
 
         # Adds edges between actors and movies
-        for actor_id, list_movies in dict_acts_in.items():
-            node_actor = dict_actors[actor_id]
-            for movie_id in list_movies:
-                if movie_id not in dict_movies:
-                    continue
-                node_movie = dict_movies[movie_id]
-                self.graph.add_edge(node_actor, node_movie)
+        for movie_id, list_actors in dict_cast.items():
+            node_movie = dict_movies[movie_id]
+            filter(lambda x: x in dict_actors, list_actors)
+            list_actors = sorted(list_actors,
+                                 key=lambda x: datetime.strptime(dict_actors[x].attrs['birth'], '%Y-%m-%d'))
+            grossing_avg = float(node_movie.attrs['grossing']) / len(list_actors)
+            index_mid = (len(list_actors) - 1.0) / 2.0
+            for index, actor_id in enumerate(list_actors):
+                weight = grossing_avg + (index - index_mid) * 1000
+                self.graph.add_edge(node_movie, dict_actors[actor_id], weight)
 
     def get_grossing(self, movie_title: str) -> float:
         """Query Function: Finds how much a movie has grossed

@@ -90,7 +90,8 @@ class Scraper(object):
         Args:
             actor: The given actor to scrape
         """
-        self._actor_scraper.prepare_for_actor(actor['url'])
+        if not self._actor_scraper.prepare_for_actor(actor['url']):
+            return
 
         # Scrapes movies that 'actor' acts in
         movies_scraped = self._actor_scraper.get_movies()
@@ -125,7 +126,8 @@ class Scraper(object):
         Args:
             movie: The given movie to scrape
         """
-        self._movie_scraper.prepare_for_movie(movie['url'])
+        if not self._movie_scraper.prepare_for_movie(movie['url']):
+            return
 
         # Scrapes actors that acts in 'movie'
         actors_scraped = self._movie_scraper.get_actors()

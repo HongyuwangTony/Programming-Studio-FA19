@@ -17,16 +17,23 @@ class ActorScraper(object):
         self.url = None
         self.soup = None
 
-    def prepare_for_actor(self, url: str):
+    def prepare_for_actor(self, url: str) -> bool:
         """Prepares for scraping the given actor
         Initializes the url and Beautiful Soup object
 
         Args:
             url: The url of the actor to be prepared to be scraped
+
+        Returns:
+            True if Beautiful Soup object is correctly setup
         """
         self.url = url
-        res = requests.get(url)
-        self.soup = BeautifulSoup(res.content, 'html5lib')
+        try:
+            res = requests.get(url)
+            self.soup = BeautifulSoup(res.content, 'html5lib')
+            return True
+        except requests.exceptions.ConnectionError:
+            return False
 
     @staticmethod
     def _get_movies_from_columns(title_movie: BeautifulSoup) -> List[Dict]:
@@ -58,13 +65,16 @@ class ActorScraper(object):
                     continue
                 url = 'https://en.wikipedia.org' + tag_movie_title['href']
 
-            else:  # If the tag doesn't contain href, thus no link is available
+            elif li.find('i') is not None:  # If the tag doesn't contain href, thus no link is available
                 tag_movie_title = li.find('i')
                 url = None
                 title = tag_movie_title.text
                 if title is None:
                     logger.debug('get_movies_from_columns: No title in <i>: ' + str(tag_movie_title))
                     continue
+
+            else:
+                continue
 
             # Scrapes the year of the movie
             year = re.search(r' \(([0-9]+)', li.text)  # Searches for (Number

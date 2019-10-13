@@ -18,16 +18,23 @@ class MovieScraper:
         self.url = None
         self.soup = None
 
-    def prepare_for_movie(self, url: str):
+    def prepare_for_movie(self, url: str) -> bool:
         """Prepares for scraping the given movie
         Initializes the url and Beautiful Soup object
 
         Args:
             url: The url of the actor to be prepared to be scraped
+
+        Returns:
+            True if Beautiful Soup object is correctly setup
         """
         self.url = url
-        res = requests.get(url)
-        self.soup = BeautifulSoup(res.content, 'html5lib')
+        try:
+            res = requests.get(url)
+            self.soup = BeautifulSoup(res.content, 'html5lib')
+            return True
+        except requests.exceptions.ConnectionError:
+            return False
 
     @staticmethod
     def _get_actors_from_columns(title_cast: BeautifulSoup) -> List[Dict]:

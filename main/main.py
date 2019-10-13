@@ -3,6 +3,7 @@ from movieGraph import MovieGraph
 if __name__ == '__main__':
     mg = MovieGraph()
     mg.read_from_scraped_data("data/actors.json", "data/movies.json")
+    mg.graph.store_to_json("data/graph.json")
     print(mg.get_grossing('Brubaker'))
     print(mg.get_movies_of_actor('Morgan Freeman'))
     print(mg.get_actors_of_movie('Brubaker'))

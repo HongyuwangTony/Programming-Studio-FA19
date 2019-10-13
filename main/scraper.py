@@ -161,8 +161,8 @@ if __name__ == '__main__':
     init_logger()
     scraper = Scraper({
         'type': 'actor',
-        'name': 'Morgan Freeman',
-        'url': 'https://en.wikipedia.org/wiki/Morgan_Freeman'
+        'name': 'Johnny Depp',
+        'url': 'https://en.wikipedia.org/wiki/Johnny_Depp'
     })
     start_time = time.time()
     logger.info('Scraper start.')

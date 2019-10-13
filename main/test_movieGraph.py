@@ -12,7 +12,7 @@ class TestMovieGraph(TestCase):
         self.assertEqual(37121708, int(self.movieGraph.get_grossing('Brubaker')))
 
     def test_get_movies_of_actor(self):
-        self.assertListEqual(
+        self.assertCountEqual(
             ['Lean on Me', 'Johnny Handsome', 'Robin Hood: Prince of Thieves', 'Unforgiven',
              'The Shawshank Redemption', 'Outbreak', 'Seven', 'Chain Reaction', 'Moll Flanders',
              'Amistad', 'Kiss the Girls', 'Deep Impact', 'Nurse Betty', 'Along Came a Spider',
@@ -28,7 +28,7 @@ class TestMovieGraph(TestCase):
         )
 
     def test_get_actors_of_movie(self):
-        self.assertListEqual(
+        self.assertCountEqual(
             ['Morgan Freeman', 'Yaphet Kotto', 'Jane Alexander', 'Murray Hamilton', 'David Keith', 'Matt Clark',
              'Richard Ward', 'M. Emmet Walsh', 'Albert Salmi', 'Val Avery', 'Joe Spinell'],
             self.movieGraph.get_actors_of_movie('Brubaker')

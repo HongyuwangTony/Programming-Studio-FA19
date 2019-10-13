@@ -31,7 +31,7 @@ class Graph(object):
         """Constructor of Graph object, setting the first unique ident to be 1
         """
         self.nodes = defaultdict(Node)
-        self.edges = defaultdict(set)
+        self.edges = {}
         self._next_ident = 1
 
     def add_node(self, attrs: Dict) -> Node:
@@ -46,15 +46,16 @@ class Graph(object):
         node = Node(self._next_ident, attrs)
         self._next_ident += 1
         self.nodes[node.ident] = node
-        self.edges.update({node.ident: set()})
+        self.edges.update({node.ident: {}})
         return node
 
-    def add_edge(self, node_1: Node, node_2: Node) -> bool:
+    def add_edge(self, node_1: Node, node_2: Node, weight: float) -> bool:
         """Adds an edge between the given nodes
 
         Args:
             node_1: The first node of the edge
             node_2: The second node of the edge
+            weight: The weight of the edge
 
         Returns:
             True if the nodes exist in the graph and the edges are added
@@ -63,8 +64,8 @@ class Graph(object):
         ident_1, ident_2 = node_1.ident, node_2.ident
         if ident_1 not in self.nodes or ident_2 not in self.nodes:
             return False
-        self.edges[ident_1].add(ident_2)
-        self.edges[ident_2].add(ident_1)
+        self.edges.get(ident_1).update({ident_2: weight})
+        self.edges.get(ident_2).update({ident_1: weight})
         return True
 
     def remove_node(self, node: Node) -> bool:
@@ -86,7 +87,7 @@ class Graph(object):
 
         # Removes it from edges
         for ident_adj in self.edges[ident]:
-            self.edges[ident_adj].remove(ident)
+            self.edges[ident_adj].pop(ident)
         self.edges.pop(ident)
         return True
 
@@ -107,8 +108,8 @@ class Graph(object):
             return False
         if ident_2 not in self.edges[ident_1] or ident_1 not in self.edges[ident_2]:
             return False
-        self.edges[ident_1].remove(ident_2)
-        self.edges[ident_2].remove(ident_1)
+        self.edges[ident_1].pop(ident_2)
+        self.edges[ident_2].pop(ident_1)
         return True
 
     def adjacent_nodes(self, node: Node) -> Optional[List[Node]]:
@@ -136,7 +137,27 @@ class Graph(object):
             nodes.append(node)
         return nodes
 
-    def get_edges(self) -> List[Tuple[Node, Node]]:
+    def get_edge_weight(self, node_1: Node, node_2: Node) -> Tuple[bool, float]:
+        """Gets the weight of the edge from the graph, with the given ndoes
+
+        Args:
+            node_1: The first node of the edge
+            node_2: The second node of the edge
+
+        Returns:
+            The weight of the edge
+            True if the nodes and the edge exist in the graph and the edge is removed
+            False otherwise
+        """
+        ident_1, ident_2 = node_1.ident, node_2.ident
+        # Checks if the nodes and the edge exists
+        if ident_1 not in self.nodes or ident_2 not in self.nodes:
+            return False, 0.0
+        if ident_2 not in self.edges[ident_1] or ident_1 not in self.edges[ident_2]:
+            return False, 0.0
+        return True, self.edges[ident_1][ident_2]
+
+    def get_edges(self) -> List[Tuple[float, Node, Node]]:
         """Gets all the edges in the graph
         Enforces the first node has a smaller ident to remove duplicates
 
@@ -144,11 +165,11 @@ class Graph(object):
             A list of tuples of nodes, indicating the edges in the graph
         """
         edges = []
-        for ident, idents_adj in self.edges.items():
-            for ident_adj in idents_adj:
+        for ident, weights_adj in self.edges.items():
+            for ident_adj, weight_adj in weights_adj.items():
                 if ident_adj >= ident:
                     continue
-                edges.append((self.nodes[ident], self.nodes[ident_adj]))
+                edges.append((weight_adj, self.nodes[ident], self.nodes[ident_adj]))
         return edges
 
     def store_to_json(self, file_name: str) -> bool:
@@ -167,15 +188,15 @@ class Graph(object):
             node_encoded.update(node.attrs)
             nodes_encoded.update({ident: node_encoded})  # Resolves that Node is not json-serializable
 
-        edges_encoded = defaultdict(dict)
-        for ident, nodes_adj in self.edges.items():
-            edges_encoded.update({ident: list(nodes_adj)})  # Resolves that set is not json-serializable
+        # edges_encoded = defaultdict(dict)
+        # for ident, weights_adj in self.edges.items():
+        #     edges_encoded.update({ident: list(nodes_adj)})  # Resolves that set is not json-serializable
 
         try:
             with open(file_name, 'w') as f:
                 json.dump({
                     "nodes": nodes_encoded,
-                    "edges": edges_encoded
+                    "edges": self.edges,
                 }, f, ensure_ascii=False, indent=4)
                 f.close()
         except EnvironmentError:
@@ -195,19 +216,17 @@ class Graph(object):
         self.__init__()
         try:
             # Decodes the edges
-            for s_ident, list_adj in dict_graph["edges"].items():
+            for s_ident, weights_adj in dict_graph["edges"].items():
                 ident = int(s_ident)
                 if ident >= self._next_ident:
                     self._next_ident = ident + 1
-                # self.edges.update({ident, set(list_adj)})
-                self.edges[ident] = set(list_adj)
+                self.edges[ident] = {int(k): v for k, v in weights_adj.items()}
 
             # Decodes the nodes
             for s_ident, attrs in dict_graph["nodes"].items():
                 ident = int(s_ident)
-                # self.nodes.update({ident, Node(ident, attrs)})
                 self.nodes[ident] = Node(ident, attrs)
-        except AttributeError:
+        except KeyError:
             return False
         return True
 

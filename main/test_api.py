@@ -86,6 +86,10 @@ class TestAPI(TestCase):
         resp = self.app.get('/actors?name=Bruce|nameHongyu')
         self.assertEqual(resp.status_code, 400)
 
+        # Tests multiple deletes
+        resp = self.app.delete('/actors?name=Bruce|name=Hongyu&age=61')
+        self.assertEqual(resp.status_code, 200)
+
     def test_handle_movies_by_attr(self):
         # Tests POST and simple GET
         resp = self.app.post('/movies',
@@ -113,3 +117,7 @@ class TestAPI(TestCase):
         # Tests Bad Request
         resp = self.app.get('/movies?name=of|nameThe')
         self.assertEqual(resp.status_code, 400)
+
+        # Tests multiple deletes
+        resp = self.app.delete('/movies?name=of|name=The&box_office=672')
+        self.assertEqual(resp.status_code, 200)

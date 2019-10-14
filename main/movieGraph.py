@@ -71,15 +71,16 @@ class MovieGraph(object):
                 self.graph.add_edge(node_movie, dict_actors[actor_id], weight)
 
     def custom_read_from_scraped_data(self, file_name: str):
-        """Reads actors and movies from scraped data, which is stored in the given files
+        """Reads actors and movies from data in given format, which is stored in the given files
 
         Args:
-            file_name: The name of the file storing actors
+            file_name: The name of the file storing actors and movies
         """
         with open(file_name, "r") as f:
             dataset = json.load(f)
             f.close()
 
+        # Adds Nodes
         actor_to_movie = defaultdict(list)
         movie_to_actor = defaultdict(list)
         for data in dataset:
@@ -87,14 +88,12 @@ class MovieGraph(object):
                 json_class = attrs.pop('json_class')
                 if json_class == 'Actor':
                     actor_to_movie.update({name: attrs.pop('movies')})
-                    # birth = date(date.today().year - attrs.pop('age'), date.today().month, date.today().day).\
-                    #         strftime("%Y-%m-%d")
-                    # attrs.update({'birth': birth})
                     self.actors.update({name: self.graph.add_node(attrs)})
                 elif json_class == 'Movie':
                     movie_to_actor.update({name: attrs.pop('actors')})
                     self.movies.update({name: self.graph.add_node(attrs)})
 
+        # Adds edges from actor to movie
         for actor_name, list_movies in actor_to_movie.items():
             node_actor = self.actors[actor_name]
             list_movies = list(filter(lambda x: x in self.movies, list_movies))
@@ -102,6 +101,7 @@ class MovieGraph(object):
                 node_movie = self.movies[movie_name]
                 self.graph.add_edge(node_actor, node_movie, 0)
 
+        # Adds edges from movie to actor with weight
         for movie_name, list_actors in movie_to_actor.items():
             node_movie = self.movies[movie_name]
             list_actors = list(filter(lambda x: x in self.actors, list_actors))

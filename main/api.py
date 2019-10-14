@@ -7,10 +7,24 @@ app = Flask(__name__)
 
 
 def set_up_data_source(file_name: str):
+    """Sets up the data source from the given file
+
+    Args:
+        file_name: The file that stores actors and movies
+    """
     mg.custom_read_from_scraped_data(file_name)
 
 
 def check_if_node_satisfy(node: Node, cond: Tuple[str, str]) -> bool:
+    """Checks if the node satisfy the given condition
+
+    Args:
+        node: The node for checking
+        cond: The condition to check
+
+    Returns:
+        True if the node satisfy the given condition
+    """
     if cond[0] not in node.attrs:
         return False
     if cond[0] == 'name':
@@ -20,6 +34,17 @@ def check_if_node_satisfy(node: Node, cond: Tuple[str, str]) -> bool:
 
 
 def filter_nodes_by_attr(nodes: List[Node], args: dict) -> Optional[List[Node]]:
+    """Filters nodes by their attributes
+
+    NOTE: or binds more tightly than and
+
+    Args:
+        nodes: The node for filtering
+        args: The args to filter
+
+    Returns:
+        The list of nodes that satisfies the conditions
+    """
     list_cond_and = []
     for k, v in args.items():
         list_cond = str(v).split('|')
@@ -38,14 +63,28 @@ def filter_nodes_by_attr(nodes: List[Node], args: dict) -> Optional[List[Node]]:
 
 
 def serialize_node(node: Node, attr_missing: str) -> Dict:
+    """Serializes the given node into a dictionary
+
+    Args:
+        node: The node to serialize
+        attr_missing: The attribute to add
+
+    Returns:
+        The dictionary after serialization
+    """
     res = dict(node.attrs)
     lis = [node.attrs['name'] for node in mg.graph.adjacent_nodes(node)]
     res.update({attr_missing: lis})
     return res
 
 
-@app.route('/actors', methods=['GET', 'POST'])
+@app.route('/actors', methods=['GET', 'POST', 'DELETE'])
 def handle_actors_by_attr():
+    """Handles actors by the given attribute(s)
+
+    Returns:
+        An HTTP response
+    """
     resp = jsonify({'message': 'Bad Request'})
     resp.status_code = 400
 
@@ -60,14 +99,25 @@ def handle_actors_by_attr():
         res = filter_nodes_by_attr(mg.actors, request.args)
 
         if res is not None:
-            resp = jsonify([serialize_node(node, 'movies') for node in res])
+            if request.method == 'GET':
+                resp = jsonify([serialize_node(node, 'movies') for node in res])
+            elif request.method == 'DELETE':
+                for actor_node in res:
+                    mg.graph.remove_node(actor_node)
+                    mg.actors.pop(actor_node.attrs['name'])
+                resp = jsonify({'message': 'Actors Successfully Deleted'})
             resp.status_code = 200
 
     return resp
 
 
-@app.route('/movies', methods=['GET', 'POST'])
+@app.route('/movies', methods=['GET', 'POST', 'DELETE'])
 def handle_movies_by_attr():
+    """Handles movies by the given attribute(s)
+
+    Returns:
+        An HTTP response
+    """
     resp = jsonify({'message': 'Bad Request'})
     resp.status_code = 400
 
@@ -82,14 +132,27 @@ def handle_movies_by_attr():
         res = filter_nodes_by_attr(mg.movies, request.args)
 
         if res is not None:
-            resp = jsonify([serialize_node(node, 'actors') for node in res])
-            resp.status_code = 200
+            if request.method == 'GET':
+                resp = jsonify([serialize_node(node, 'actors') for node in res])
+            elif request.method == 'DELETE':
+                for movie_node in res:
+                    mg.graph.remove_node(movie_node)
+                    mg.movies.pop(movie_node.attrs['name'])
+                resp = jsonify({'message': 'Movies Successfully Deleted'})
 
     return resp
 
 
 @app.route('/actors/<name>', methods=['GET', 'PUT', 'DELETE'])
 def handle_actors_by_name(name):
+    """Handles actors by the given name
+
+    Args:
+        name: The name to filter
+
+    Returns:
+        An HTTP response
+    """
     name = name.replace('_', ' ')
     for actor_name, actor_node in mg.actors.items():
         if actor_name == name:
@@ -116,6 +179,14 @@ def handle_actors_by_name(name):
 
 @app.route('/movies/<name>', methods=['GET', 'PUT', 'DELETE'])
 def handle_movies_by_name(name):
+    """Handles movies by the given name
+
+    Args:
+        name: The name to filter
+
+    Returns:
+        An HTTP response
+    """
     name = name.replace('_', ' ')
     for movie_name, movie_node in mg.movies.items():
         if movie_name == name:

@@ -6,6 +6,11 @@ mg.custom_read_from_scraped_data('data/data.json')
 
 
 def analyze_hub():
+    """Analyzes the hub actors from the given data source
+
+    Returns:
+        A list of hub actors sorted in the number of connected actors
+    """
     dict_actors_connected = defaultdict(int)
     for actor_name, actor_node in mg.actors.items():
         for movie_node in mg.graph.adjacent_nodes(actor_node):
@@ -24,6 +29,11 @@ def analyze_hub():
 
 
 def analyze_age_group():
+    """Analyzes the age group with the highest grossing value
+
+    Returns:
+        A list of age group sorted in the grossing value
+    """
     grossing_of_age = defaultdict(int)
     for actor_name, actor_node in mg.actors.items():
         grossing_of_age[actor_node.attrs['age']] += actor_node.attrs['total_gross']

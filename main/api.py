@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from movieGraph import *
 
+
 mg = MovieGraph()
 app = Flask(__name__)
 
@@ -45,46 +46,46 @@ def serialize_node(node: Node, attr_missing: str) -> Dict:
 
 @app.route('/actors', methods=['GET', 'POST'])
 def handle_actors_by_attr():
+    resp = jsonify({'message': 'Bad Request'})
+    resp.status_code = 400
+
     if request.method == 'POST':
-        if 'name' in request.form:
-            print(request.form)
-            mg.actors.update({request.form['name']: mg.graph.add_node(request.form)})
+        data = json.loads(request.data)
+        if 'name' in data:
+            mg.actors.update({data['name']: mg.graph.add_node(data)})
             resp = jsonify({'message': 'Actor Successfully Created'})
             resp.status_code = 201
-            return resp
     else:
         # Handles and (&) or (|) logic
         res = filter_nodes_by_attr(mg.actors, request.args)
 
-        if res is None:
-            resp = jsonify({'message': 'Bad Request'})
-            resp.status_code = 400
-        else:
+        if res is not None:
             resp = jsonify([serialize_node(node, 'movies') for node in res])
             resp.status_code = 200
-        return resp
+
+    return resp
 
 
 @app.route('/movies', methods=['GET', 'POST'])
 def handle_movies_by_attr():
+    resp = jsonify({'message': 'Bad Request'})
+    resp.status_code = 400
+
     if request.method == 'POST':
-        if 'name' in request.form:
-            print(request.form)
-            mg.actors.update({request.form['name']: mg.graph.add_node(request.form)})
+        data = json.loads(request.data)
+        if 'name' in data:
+            mg.movies.update({data['name']: mg.graph.add_node(data)})
             resp = jsonify({'message': 'Movie Successfully Created'})
             resp.status_code = 201
-            return resp
     else:
         # Handles and (&) or (|) logic
         res = filter_nodes_by_attr(mg.movies, request.args)
 
-        if res is None:
-            resp = jsonify({'message': 'Bad Request'})
-            resp.status_code = 400
-        else:
+        if res is not None:
             resp = jsonify([serialize_node(node, 'actors') for node in res])
             resp.status_code = 200
-        return resp
+
+    return resp
 
 
 @app.route('/actors/<name>', methods=['GET', 'PUT', 'DELETE'])
@@ -100,9 +101,10 @@ def handle_actors_by_name(name):
                 mg.actors.pop(actor_name)
                 res.update({'message': 'Actor Successfully Deleted'})
             elif request.method == 'PUT':
-                actor_node.attrs.update(request.form)
-                if 'name' in request.form:
-                    mg.actors.update({request.form['name']: mg.actors.pop(name)})
+                data = json.loads(request.data)
+                actor_node.attrs.update(data)
+                if 'name' in data:
+                    mg.actors.update({data['name']: mg.actors.pop(name)})
                 res.update({'message': 'Actor Successfully Updated'})
             resp = jsonify(res)
             resp.status_code = 200
@@ -125,9 +127,10 @@ def handle_movies_by_name(name):
                 mg.movies.pop(movie_name)
                 res.update({'message': 'Movie Successfully Deleted'})
             elif request.method == 'PUT':
-                movie_node.attrs.update(request.form)
-                if 'name' in request.form:
-                    mg.actors.update({request.form['name']: mg.actors.pop(name)})
+                data = json.loads(request.data)
+                movie_node.attrs.update(data)
+                if 'name' in data:
+                    mg.movies.update({data['name']: mg.movies.pop(name)})
                 res.update({'message': 'Movie Successfully Updated'})
             resp = jsonify(res)
             resp.status_code = 200
@@ -135,8 +138,3 @@ def handle_movies_by_name(name):
     resp = jsonify({'message': 'Movie Not Found'})
     resp.status_code = 400
     return resp
-
-
-if __name__ == '__main__':
-    set_up_data_source('data/data.json')
-    app.run(debug=True)

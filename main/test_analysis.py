@@ -8,3 +8,6 @@ class TestAnalysis(TestCase):
 
     def test_analyze_age_group(self):
         self.assertTupleEqual((61, 818506715), analyze_age_group()[0])
+
+    def test_analyze_ages(self):
+        self.assertTupleEqual((59, 13), analyze_ages()[0])

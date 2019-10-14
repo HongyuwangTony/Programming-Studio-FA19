@@ -1,3 +1,5 @@
+from collections import Counter
+
 from movieGraph import MovieGraph, defaultdict
 import matplotlib.pyplot as plt
 
@@ -19,6 +21,7 @@ def analyze_hub():
     res = sorted(dict_actors_connected.items(), key=lambda kv: kv[1], reverse=True)
     print(res)
     print('Top 5 Hub Actors:', res[:5])
+    print()
 
     x_val = range(len(res))
     y_val = [x[1] for x in res]
@@ -40,14 +43,19 @@ def analyze_age_group():
     res = sorted(grossing_of_age.items(), key=lambda kv: kv[1], reverse=True)
     print(res)
     print('Top 5 Age Groups:', res[:5])
+    print()
 
     x_val = [x[0] for x in res]
     y_val = [x[1] for x in res]
+
+    # Bar chart
     plt.bar(x_val, y_val)
     plt.title('Bar Chart: Age Group vs. Grossing Value')
     plt.xlabel('Age')
     plt.ylabel('Grossing Value')
     plt.show()
+
+    # Scatter Plot
     plt.scatter(x_val, y_val)
     plt.title('Scatter Plot: Age Group vs. Grossing Value')
     plt.xlabel('Age')
@@ -57,6 +65,39 @@ def analyze_age_group():
     return res
 
 
+def analyze_ages():
+    """Analyzes the age distribution of all actors
+
+    Returns:
+        A dictionary of counter of age frequency
+    """
+    list_ages = [actor_node.attrs['age'] for actor_node in mg.actors.values()]
+    # Cleans the data
+    list_ages = list(filter(lambda age: age > 0, list_ages))
+
+    # Box plot
+    plt.boxplot(list_ages)
+    plt.title('Box plot: Ages of actors')
+    plt.show()
+
+    # Histogram
+    count_ages = Counter(list_ages)
+    x_val = [x[0] for x in count_ages.items()]
+    y_val = [x[1] for x in count_ages.items()]
+    plt.bar(x_val, y_val)
+    plt.title('Bar Chart: Age Frequencies')
+    plt.xlabel('Age')
+    plt.ylabel('Count')
+    plt.show()
+
+    sorted_count_ages = sorted(count_ages.items(), key=lambda kv: kv[1], reverse=True)
+    print('Count of ages:', sorted_count_ages)
+    print()
+
+    return sorted_count_ages
+
+
 if __name__ == '__main__':
     analyze_hub()
     analyze_age_group()
+    analyze_ages()

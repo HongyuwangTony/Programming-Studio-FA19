@@ -22,3 +22,16 @@ HW1/.DS_Store
 HW1/doxygen
 HW1/latex/*
 HW1/html/*
+
+.DS_Store
+main/.DS_Store
+
+# PyCharm Configuration Files
+.idea/*
+main/__pycache__/*
+
+# Local Files
+main/data/*.json
+main/data/*.txt
+main/data/*.log
+!main/data/*_test.json

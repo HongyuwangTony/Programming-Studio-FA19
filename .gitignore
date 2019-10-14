@@ -3,35 +3,36 @@
 
 # HW0
 # Intellij IDE Configuration Files
-HW0/out/*
+WarmUp/HW0/out/*
 
 # Mac Configuration Files
-HW0/.DS_Store
+WarmUp/HW0/.DS_Store
 
 # HW1
 # Intellij IDE Configuration Files
-HW1/*.iml
-HW1/.idea/*
-HW1/out/*
-HW1/lib/*
+ChessLibrary/*.iml
+ChessLibrary/.idea/*
+ChessLibrary/out/*
+ChessLibrary/lib/*
 
 # Mac Configuration Files
-HW1/.DS_Store
+ChessLibrary/.DS_Store
 
 # Doxygen-related files
-HW1/doxygen
-HW1/latex/*
-HW1/html/*
+ChessLibrary/doxygen
+ChessLibrary/latex/*
+ChessLibrary/html/*
 
-.DS_Store
-main/.DS_Store
+# HW2
+# Mac Configuration Files
+WebScraper/.DS_Store
 
 # PyCharm Configuration Files
-.idea/*
-main/__pycache__/*
+WebScraper/.idea/*
+WebScraper/__pycache__/*
 
 # Local Files
-main/data/*.json
-main/data/*.txt
-main/data/*.log
-!main/data/*_test.json
+WebScraper/data/*.json
+WebScraper/data/*.txt
+WebScraper/data/*.log
+!WebScraper/data/*_test.json

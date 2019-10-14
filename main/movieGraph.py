@@ -1,4 +1,4 @@
-from datetime import datetime, date, timedelta
+from datetime import datetime
 
 from graph import *
 
@@ -94,6 +94,13 @@ class MovieGraph(object):
                 elif json_class == 'Movie':
                     movie_to_actor.update({name: attrs.pop('actors')})
                     self.movies.update({name: self.graph.add_node(attrs)})
+
+        for actor_name, list_movies in actor_to_movie.items():
+            node_actor = self.actors[actor_name]
+            list_movies = list(filter(lambda x: x in self.movies, list_movies))
+            for movie_name in list_movies:
+                node_movie = self.movies[movie_name]
+                self.graph.add_edge(node_actor, node_movie, 0)
 
         for movie_name, list_actors in movie_to_actor.items():
             node_movie = self.movies[movie_name]

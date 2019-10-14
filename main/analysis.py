@@ -20,6 +20,8 @@ def analyze_hub():
     plt.bar(x_val, y_val)
     plt.show()
 
+    return res
+
 
 def analyze_age_group():
     grossing_of_age = defaultdict(int)
@@ -41,6 +43,8 @@ def analyze_age_group():
     plt.xlabel('Age')
     plt.ylabel('Grossing Value')
     plt.show()
+
+    return res
 
 
 if __name__ == '__main__':
